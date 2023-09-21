@@ -1,0 +1,394 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+  
+    height: auto;
+    width: 99.8%;
+    margin:0 auto;
+}
+
+.hinhanh_sanpham{
+  
+    float: left;
+    width: 90%;
+}
+.chitiet_sanpham{
+    float : left;
+    width: 45%;
+    margin: 10px;
+    margin-left: 200px;
+}
+ /* Định dạng wrapper chứa thông tin sản phẩm */
+ .wrapper_chitiet {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid #ddd; /* Khung viền cho wrapper */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+    height: auto;
+    width: 90%;
+    margin:0 auto;
+}
+
+    /* Định dạng nút "Thêm giỏ hàng" */
+ input.themgiohang {
+        padding: 10px 20px;
+        background-color: #708090;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng hover */
+}
+
+
+    /* Hiệu ứng hover cho nút "Thêm giỏ hàng" */
+ input.themgiohang:hover {
+        background-color: #5F9EA0;
+        transform: scale(1.05); /* Phóng to nút khi di chuột vào */
+ }
+/* Định dạng phần header */
+.header {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 150px;
+    border-bottom-right-radius: 150px;
+    margin-top: 100px;
+    width: 100%;
+    height: 600px; /* Điều chỉnh chiều cao theo nhu cầu */
+}
+
+
+/* Định dạng cho hình ảnh */
+.header-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fade 12s linear infinite, borderFade 12s linear infinite;
+    border: 5px solid black; /* Đường viền màu đen */
+    box-sizing: border-box; /* Đảm bảo rằng đường viền không tăng kích thước của hình ảnh */
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    20%, 80% {
+        opacity: 1;
+    }
+}
+
+@keyframes borderFade {
+    0%, 100% {
+        border-color: black;
+    }
+    20%, 80% {
+        border-color: transparent;
+    }
+}
+
+
+/* CSS cho menu */
+.menu {
+    background-color: #fff; /* Màu nền của menu */
+    border: 1px solid #000;
+    padding: 10px; /* Khoảng cách giữa nội dung và viền của menu */
+    position: fixed; /* Để menu cố định ở vị trí trên cùng */
+    top: 0; /* Đặt thanh menu ở phía trên cùng của trang */
+    width: 99%; /* Chiều rộng của menu là 100% để nó trải dài toàn bộ trang */
+    height: 50px;
+    z-index: 100; /* Đảm bảo menu hiển thị trên các phần tử khác trên trang */
+}
+
+
+.list_menu {
+   
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các tùy chọn dòng qua khi không còn không gian */
+    justify-content: space-between; /* Các tùy chọn nằm căng đều theo chiều ngang */
+    align-items: center;
+}
+
+.list_menu li {
+    border: 1px solid #f2f2f2;
+    margin-right: 20px; /* Khoảng cách giữa các tùy chọn menu */
+}
+
+.list_menu li:last-child {
+    margin-right: 0; /* Không có khoảng cách bên phải ở tùy chọn cuối cùng */
+}
+
+.list_menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 18px;
+}
+.list_menu li:hover {
+    transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột qua */
+}
+
+/* CSS cho hộp tìm kiếm */
+.search-container {
+    flex: 1; /* Hộp tìm kiếm chiếm toàn bộ không gian còn lại */
+    display: flex;
+    justify-content: flex-end; /* Căn phải */
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    border: 1px solid #000; /* Đặt đường viền 1px đen */
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 10px; /* Khoảng cách giữa ô tìm kiếm và nút tìm kiếm */
+}
+
+
+.search-container input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Hiệu ứng màu nền nút tìm kiếm khi di chuột qua */
+}
+
+.search-container input[type="submit"]:hover {
+    background-color: #ff9900; /* Màu nền nút tìm kiếm khi di chuột qua */
+}
+
+
+
+
+ui.list_sidebar{
+    
+    padding: 0;
+    margin: 0;
+    border:1px solid #000;
+    width: 100%;
+    line-height: 20px;
+   
+}
+
+ul.list_sidebar li a{
+    text-decoration: none;
+    text-align: left;
+    color: rebeccapurple;
+}
+ul.list_sidebar li{
+    list-style: none;
+    margin: 5px;
+   
+   
+    padding: 3px;
+
+}
+   /* Định dạng tiêu đề sản phẩm mới nhất */
+   h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Định dạng danh sách sản phẩm */
+ul.product_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Định dạng từng sản phẩm */
+ul.product_list li {
+    width: 22%; /* Chia mỗi hàng thành 4 cột */
+    border: 1px solid #ddd;
+    margin: 1%;
+    box-sizing: border-box; /* Để padding và border không làm tăng kích thước của thẻ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Định dạng hình ảnh sản phẩm */
+ul.product_list li img {
+    width: 100%;
+    height: auto;
+}
+
+/* Định dạng tiêu đề sản phẩm */
+.title_product {
+    font-size: 16px;
+    margin: 10px;
+    color: #333;
+}
+
+/* Định dạng giá sản phẩm */
+.price_product {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #f00; /* Màu đỏ cho giá sản phẩm */
+}
+
+/* Định dạng tên danh mục */
+.category_name {
+    font-size: 12px;
+    text-align: center;
+    color: #d1d1d1;
+}
+
+/* Hover effect cho sản phẩm */
+ul.product_list li:hover {
+    transform: scale(1.05); /* Phóng to sản phẩm khi di chuột vào */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng đổ */
+}
+
+/* Xóa hiệu ứng bóng đổ khi không hover */
+ul.product_list li:not(:hover) {
+    box-shadow: none;
+}
+
+/* Định dạng liên kết sản phẩm */
+ul.product_list li a {
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu chữ từ cha */
+    display: block;
+    padding: 8px;
+}
+#main{
+    border: 1px solid #000;
+    height: auto;
+    width: 100%;
+   
+}
+
+/* //san pham */
+p.title_product {
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
+p.price_product {
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.maincontent{
+  
+    height: auto;
+    width:80%;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: right;
+    padding-top: 100px;
+}
+.footer{
+    border: 1px solid #333;
+    height: 150;
+    width: 100%;
+   background: #333;
+}
+p.footer_copyright {
+    text-align: center;
+    color: #f2f2f2;
+}
+.clear{
+    clear: both;
+}
+/* gio hang */
+i.fa-solid,
+i.fas {
+    font-weight: 900;
+    font-size: 20px;
+}
+i.fa-solid:hover,
+i.fas:hover {
+    color: brown;
+}
+/* Thiết kế cho sidebar */
+.sidebar {
+    width: 200px;
+    background-color:#2F4F4F;
+    color: #fff;
+    padding: 20px;
+    height: 100%;
+  
+    margin-top: 100px;
+    margin-left: 5px;
+    float: left;
+    transition: width 0.3s ease;
+    border-radius: 20px; /* Đặt góc bo tròn */
+}
+
+/* Thiết kế cho danh sách tùy chọn */
+.list_sidebar {
+    list-style: none;
+    padding: 0;
+}
+
+.list_sidebar li {
+    margin-bottom: 10px;
+}
+
+.list_sidebar li a {
+    text-decoration: none;
+    
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.sidebar:hover {
+    width: 220px; /* Độ rộng tăng lên khi di chuột qua */
+}
+.list_sidebar li a:hover {
+    background-color: #555;
+}
+
+/* Thiết kế cho danh sách tùy chọn */
+.list_sidebar li a {
+    color: #000;
+    background-color: #fff; /* Màu nền là trắng */
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Thêm transition cho background-color và transform */
+}
+
+.list_sidebar li a:hover {
+    background-color: #72043b; /* Màu cam khi di chuột qua */
+    color: #fff; /* Màu chữ trắng khi di chuột qua */
+    transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột qua */
+    
+}
+
+/* Thiết kế cho nút màu cam */
+.red-button {
+    display: block;
+    background-color: #ff6600; /* Màu cam */
+    color: #fff; /* Màu chữ trắng */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.red-button:hover {
+    background-color: #cc5500; /* Màu cam đậm khi di chuột qua */
+}
