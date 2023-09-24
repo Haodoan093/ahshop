@@ -18,8 +18,7 @@
                     elseif ($tmp == 'quanlydanhmucsanpham' && $query=='sua'){
                         //sua danh muc san pham
                         include("modules/quanlydanhmucsp/sua.php");
-                      
-                 
+                     
                     }
                     elseif ($tmp == 'quanlysanpham' && $query=='them'){
                         //them san pham
@@ -28,6 +27,15 @@
                     }  elseif ($tmp == 'quanlysanpham' && $query=='sua'){
                         //them san pham
                         include("modules/quanlysp/sua.php");
+        
+                    } elseif ($tmp == 'quanlydonhang' && $query=='lietke'){
+                        //them san pham
+                        include("modules/quanlydonhang/lietke.php");
+        
+                    }
+                    elseif ($tmp == 'donhang' && $query=='xemdonhang'){
+                      
+                        include("modules/quanlydonhang/xemdonhang.php");
         
                     }
                     else{

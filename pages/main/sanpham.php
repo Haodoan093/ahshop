@@ -14,7 +14,8 @@
             <div class="chitiet_sanpham">
                 <h3>Tên : <?php echo $row_chitiet['tensanpham']?></h3>
                 <p>Mã : <?php echo $row_chitiet['masp']?></p>
-                <p>Giá : <?php echo $row_chitiet['giasp']?></p>
+                <p>Giá :  <?php echo number_format($row_chitiet['giasp'],0,',','.').' VND'?></p>
+               
                 <p>Số lượng : <?php echo $row_chitiet['soluong']?></p>
                 <p>Danh muc : <?php echo $row_chitiet['tendanhmuc']?></p>
                 <p> <?php echo $row_chitiet['tomtat']?></p>
