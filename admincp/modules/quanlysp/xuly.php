@@ -72,5 +72,3 @@ if(isset($_POST['themsanpham']))
   }
   
 }
-
-?>

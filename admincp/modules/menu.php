@@ -1,6 +1,5 @@
-
 <?php
-if(isset($_GET['action']) && $_GET['action'] == 'dangxuat'){
+if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     unset($_SESSION['dangnhap']);
     header('Location: login.php');
 }
@@ -12,7 +11,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'dangxuat'){
         margin: 0;
         padding: 0;
         background-color: #333;
-        overflow: hidden; /* Clear floats */
+        overflow: hidden;
+        /* Clear floats */
     }
 
     .admincp_list li {
@@ -44,21 +44,22 @@ if(isset($_GET['action']) && $_GET['action'] == 'dangxuat'){
 </style>
 
 <ul class="admincp_list">
-   <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Quản lý danh mục sản phẩm</a></li>
-   <li><a href="index.php?action=quanlysanpham&query=them ">Quản lý sản phẩm</a></li>
-   <li><a href="index.php?action=quanlybaiviet&query=them ">Quản lý bài viết</a></li>
-   <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Quản lý danh mục bài viết</a></li>
-   <li><a href="index.php?action=quanlydonhang&query=lietke ">Quản lý đơn hàng</a></li>
-   <li><a href="index.php?action=dangxuat ">Đăng xuất</a></li>
- 
-   <li>
-            <form action="index.php?action=quanlydonhang&query=timkiem" method="POST">
-                <div class="search-container">
-                    <input type="text" placeholder="Search..." name="tukhoa">
-                    <input type="submit" name="timkiem" value="Tìm kiếm">
-                </div>
-            </form>
-        </li>
- 
+    <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Quản lý danh mục sản phẩm</a></li>
+    <li><a href="index.php?action=quanlysanpham&query=them ">Quản lý sản phẩm</a></li>
+    <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Quản lý danh mục bài viết</a></li>
+    <li><a href="index.php?action=quanlybaiviet&query=them ">Quản lý bài viết</a></li>
+
+    <li><a href="index.php?action=quanlydonhang&query=lietke ">Quản lý đơn hàng</a></li>
+    <li><a href="index.php?action=dangxuat ">Đăng xuất</a></li>
+
+    <li>
+        <form action="index.php?action=quanlydonhang&query=timkiem" method="POST">
+            <div class="search-container">
+                <input type="text" placeholder="Search..." name="tukhoa">
+                <input type="submit" name="timkiem" value="Tìm kiếm">
+            </div>
+        </form>
+    </li>
+
 
 </ul>

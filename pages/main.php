@@ -13,6 +13,12 @@
 
                     if ($tmp == 'danhmucsanpham') {
                         include("main/danhmuc.php");
+                    } elseif($tmp=='danhmucbaiviet') {
+                        include("main/danhmucbaiviet.php");
+
+                    } elseif($tmp=='baiviet') {
+                        include("main/baiviet.php");
+
                     }elseif($tmp=='giohang') {
                         include("main/giohang.php");
 

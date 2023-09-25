@@ -38,6 +38,30 @@
                         include("modules/quanlydonhang/xemdonhang.php");
         
                     }
+                    //danh muc
+                    elseif ($tmp == 'quanlydanhmucbaiviet' && $query=='them'){
+                      
+                        include("modules/quanlydanhmucbaiviet/them.php");
+                        include("modules/quanlydanhmucbaiviet/lietke.php");
+        
+                    }
+                    elseif ($tmp == 'quanlydanhmucbaiviet' && $query=='sua'){
+                      
+                        include("modules/quanlydanhmucbaiviet/sua.php");
+                      
+                    }
+                    //bai viet
+                    elseif ($tmp == 'quanlybaiviet' && $query=='them'){
+                      
+                        include("modules/quanlybaiviet/them.php");
+                        include("modules/quanlybaiviet/lietke.php");
+        
+                    }
+                    elseif ($tmp == 'quanlybaiviet' && $query=='sua'){
+                      
+                        include("modules/quanlybaiviet/sua.php");
+                      
+                    }
                     else{
                         include("modules/dashboard.php");
                     }
