@@ -97,11 +97,11 @@
         </tr>
         <tr>
             <td>Tóm tắt</td>
-            <td> <textarea rows="5" name="tomtat"></textarea></td>
+            <td> <textarea rows="100" name="tomtat"></textarea></td>
         </tr>
         <tr>
             <td>Nội dung</td>
-            <td> <textarea rows="5" name="noidung"></textarea></td>
+            <td> <textarea rows="100" name="noidung"></textarea></td>
         </tr>
 
         <tr>

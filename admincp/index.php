@@ -30,14 +30,12 @@ if (!isset($_SESSION['dangnhap'])) {
     ?>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdn.ckeditor.com/4.23.0-lts/standard/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
   <script>
-    // Wait for the DOM to be fully loaded
-    document.addEventListener("DOMContentLoaded", function() {
-      CKEDITOR.replace("tomtat");
-      CKEDITOR.replace("noidung");
-    });
-  </script>
+                        CKEDITOR.replace( 'noidung' );
+                        CKEDITOR.replace( 'thongtinlienhe' );
+                        CKEDITOR.replace( 'tomtat' );
+   </script>
 
 
 </body>

@@ -62,6 +62,11 @@
                         include("modules/quanlybaiviet/sua.php");
                       
                     }
+                    elseif ($tmp == 'quanlyweb' && $query=='capnhat'){
+                      
+                        include("modules/thongtinweb/quanly.php");
+                      
+                    }
                     else{
                         include("modules/dashboard.php");
                     }

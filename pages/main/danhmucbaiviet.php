@@ -13,13 +13,14 @@
 ?>
 
 
-<h3>Danh mục bài viết : <?php  echo $row_title['tendanhmuc_baiviet']?></h3>
+
+<h3>Bài viết : <?php  echo $row_title['tendanhmuc_baiviet']?></h3>
               <ul class="product_list">
                  
               <?php while ($row_bv = mysqli_fetch_array($query_bv)) {
                ?>
                   <li> 
-                  <a href="index.php?quanly=baiviet&id=<?php echo $row_bv['id_baiviet']?>">
+                  <a href="index.php?quanly=baiviet&idbaiviet=<?php echo $row_bv['id_baiviet']?>">
                        <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh']?>" > 
                        <p class ="title_product"><?php echo $row_bv['tenbaiviet']?></p>
                    

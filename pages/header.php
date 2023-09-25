@@ -3,7 +3,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const headerImage = document.querySelector(".header-img");
-        const imageUrls = ["images/baner.jpg", "images/baner2.jpg","images/baner3.jpg","images/baner4.jpg"];
+        const imageUrls = ["images/baner.jpg", "images/baner2.jpg","images/baner3.jpg","images/banner4.jpg"];
         let currentIndex = 0;
 
         function changeImage() {

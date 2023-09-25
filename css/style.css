@@ -60,7 +60,7 @@ body{
     border-bottom-right-radius: 150px;
     margin-top: 100px;
     width: 100%;
-    height: 800px; /* Điều chỉnh chiều cao theo nhu cầu */
+    height: 600px; /* Điều chỉnh chiều cao theo nhu cầu */
 }
 
 
@@ -94,67 +94,75 @@ body{
         border-color: transparent;
     }
 }
-
-
 /* CSS cho menu */
 .menu {
-    background-color: #fff; /* Màu nền của menu */
+    background-color: #fff;
     border: 1px solid #000;
-    padding: 10px; /* Khoảng cách giữa nội dung và viền của menu */
-    position: fixed; /* Để menu cố định ở vị trí trên cùng */
-    top: 0; /* Đặt thanh menu ở phía trên cùng của trang */
-    width: 99%; /* Chiều rộng của menu là 100% để nó trải dài toàn bộ trang */
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 50px;
-    z-index: 100; /* Đảm bảo menu hiển thị trên các phần tử khác trên trang */
+    z-index: 100;
 }
 
-
 .list_menu {
-   
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Cho phép các tùy chọn dòng qua khi không còn không gian */
-    justify-content: space-between; /* Các tùy chọn nằm căng đều theo chiều ngang */
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
 }
 
 .list_menu li {
-    border: 1px solid #f2f2f2;
-    margin-right: 20px; /* Khoảng cách giữa các tùy chọn menu */
+    /* border: 1px solid #f2f2f2; */
+     /* margin-right: 20px;  */
+    padding: 12px 5px;
+
+    border-radius: 10px;
+    transition: background-color 0.3s; /* Thêm transition cho hiệu ứng màu nền khi hover */
 }
 
 .list_menu li:last-child {
-    margin-right: 0; /* Không có khoảng cách bên phải ở tùy chọn cuối cùng */
+    margin-right: 0;
 }
 
 .list_menu li a {
     text-decoration: none;
-    color: #333;
+      color: #333;  
     font-weight: bold;
     font-size: 18px;
 }
+
 .list_menu li:hover {
-    transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột qua */
+    transform: scale(1.1);
+    color: #fff; /* Thay đổi màu chữ khi hover */
+    background-color: #000; /* Thay đổi màu nền khi hover */
+  
+}
+.list_menu li a:hover {
+    transform: scale(1.1);
+    color: #fff; 
+   
 }
 
 /* CSS cho hộp tìm kiếm */
 .search-container {
-    flex: 1; /* Hộp tìm kiếm chiếm toàn bộ không gian còn lại */
+    flex: 1;
     display: flex;
-    justify-content: flex-end; /* Căn phải */
+    justify-content: flex-end;
     align-items: center;
 }
 
 .search-container input[type="text"] {
     padding: 5px;
-    border: 1px solid #000; /* Đặt đường viền 1px đen */
+    border: 1px solid #000;
     border-radius: 3px;
-    margin-top: 5px;
-    margin-right: 10px; /* Khoảng cách giữa ô tìm kiếm và nút tìm kiếm */
+    margin-right: 10px;
 }
-
 
 .search-container input[type="submit"] {
     background-color: #333;
@@ -163,14 +171,15 @@ body{
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Hiệu ứng màu nền nút tìm kiếm khi di chuột qua */
+    transition: background-color 0.3s, color 0.3s; /* Thêm transition cho màu nền và màu chữ */
 }
 
-.search-container input[type="submit"]:hover {
-    background-color: #ff9900; /* Màu nền nút tìm kiếm khi di chuột qua */
+/* Thêm hiệu ứng khi button được nhấn (active state) hoặc focus */
+.search-container input[type="submit"]:active,
+.search-container input[type="submit"]:focus {
+    background-color: #ff9900;
+    color: #fff; /* Đổi màu chữ khi được chọn hoặc focus */
 }
-
-
 
 
 ui.list_sidebar{
@@ -267,7 +276,7 @@ ul.product_list li a {
     padding: 8px;
 }
 #main{
-    border: 1px solid #000;
+  
     height: auto;
     width: 100%;
    
@@ -293,6 +302,7 @@ p.price_product {
     width:80%;
     margin-top: 5px;
     margin-left: 5px;
+    padding-right: 40px;
     float: right;
     padding-top: 100px;
 }
@@ -392,3 +402,39 @@ i.fas:hover {
 .red-button:hover {
     background-color: #cc5500; /* Màu cam đậm khi di chuột qua */
 }
+/* Tabs */
+.tabs {
+    width: 600px;
+    background-color: rgb(73, 71, 71);
+    border-radius: 5px 5px 5px 5px;
+  }
+  ul#tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 5px;
+    overflow: auto;
+  }
+  ul#tabs-nav li {
+    float: left;
+    font-weight: bold;
+    margin-right: 2px;
+    padding: 8px 10px;
+    border-radius: 5px 5px 5px 5px;
+    /*border: 1px solid #d5d5de;
+    border-bottom: none;*/
+    cursor: pointer;
+  }
+  ul#tabs-nav li:hover,
+  ul#tabs-nav li.active {
+    background-color: rgb(134, 97, 219);
+  }
+  #tabs-nav li a {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .tab-content {
+    padding: 10px;
+    border: 5px solid rgb(126, 122, 122);
+    background-color: #FFF;
+  }
+  
