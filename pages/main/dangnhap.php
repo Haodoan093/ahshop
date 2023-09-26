@@ -12,7 +12,9 @@
         if ($count>0){
             $row_date=mysqli_fetch_array($row);
             $_SESSION['dangky']=$row_date['tenkhachhang'];
+            $_SESSION['email']=$email;
             header("Location:index.php?quanly=giohang");
+            ob_end_flush(); 
         }else{
            echo '<p style="color:red">Tai khoan hoac mat khau khong dung,
             Vui long kiem tra lai !!!</p>';

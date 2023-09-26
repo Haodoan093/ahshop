@@ -68,6 +68,7 @@
          $thanhtien=$cart_item['soluong']*$cart_item['giasp'];
          $tongtien+=$thanhtien;
          $i++;
+         $_SESSION['tongtien']=$tongtien;
  ?>
   <tr>
     <td><?php echo $i; ?></td>
@@ -87,10 +88,12 @@
       } ?>
       <tr>
          <td colspan="8"><p style="float: left;">Tổng tiền : <?php echo number_format( $tongtien,0,',','.').'vnd'; ?></p>
+          
            <p style="float: right;"><a href="pages/main/themgiohang.php?xoatatca=1">Xóa tất cả</a></p>
            <div style="clear:both;" ></div>
            <?php
               if(isset($_SESSION['dangky'])){?>
+            
                 <p><a href="pages/main/thanhtoan.php">Đặt hàng</a></p>
           <?php
               }else{

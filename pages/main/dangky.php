@@ -20,6 +20,8 @@ if(isset($_POST['dangky'])){
             
             $_SESSION['id_khachhang'] = mysqli_insert_id($mysqli);
             $_SESSION['dangky'] = $tenkhachhang;
+            $_SESSION['email'] = $email;
+            
             header('Location:index.php?quanly=giohang');
         } else {
             echo '<p style="color: red; font-size: 20px;">Có lỗi xảy ra khi đăng ký. Vui lòng thử lại sau.</p>';

@@ -13,17 +13,17 @@
 
                     if ($tmp == 'danhmucsanpham') {
                         include("main/danhmuc.php");
-                    } elseif($tmp=='danhmucbaiviet') {
-                        include("main/danhmucbaiviet.php");
-
-                    } elseif($tmp=='baiviet') {
-                        include("main/baiviet.php");
-
-                    }elseif($tmp=='giohang') {
+                    } elseif($tmp=='giohang') {
                         include("main/giohang.php");
 
                     } elseif($tmp=='tintuc') {
                         include("main/tintuc.php");
+
+                    }elseif($tmp=='danhmucbaiviet') {
+                        include("main/danhmucbaiviet.php");
+
+                    } elseif($tmp=='baiviet') {
+                        include("main/baiviet.php");
 
                     }elseif($tmp=='lienhe') {
                         include("main/lienhe.php");
