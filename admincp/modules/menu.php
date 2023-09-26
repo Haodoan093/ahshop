@@ -23,7 +23,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
         text-decoration: none;
         color: #fff;
         display: block;
-        padding: 12px 24px;
+        padding: 12px 22px;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
@@ -44,6 +44,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
 </style>
 
 <ul class="admincp_list">
+    <li><a href="index.php?action=thongke&query=thongke ">Thống kê</a></li>
     <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Quản lý danh mục sản phẩm</a></li>
     <li><a href="index.php?action=quanlysanpham&query=them ">Quản lý sản phẩm</a></li>
     <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Quản lý danh mục bài viết</a></li>
