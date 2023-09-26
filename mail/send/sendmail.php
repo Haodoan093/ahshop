@@ -5,7 +5,7 @@ require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/PHPMailer.php';
 require 'PHPMailer-master/src/SMTP.php';
 ob_start(); 
-class GuiGmail {
+ class GuiGmail {
     public function DatHang($tieude,$noidung,$maildathang){
         $mail = new PHPMailer(true); // Đặt biến $mail trong phương thức
         $mail->CharSet='utf8';

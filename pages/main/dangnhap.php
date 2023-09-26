@@ -21,6 +21,9 @@
             
         
         }
+    } if (isset($_POST['quenmatkhau'])){
+        header("Location:index.php?quanly=quenmatkhau");
+        ob_end_flush(); 
     }
 
 ?>
@@ -110,6 +113,31 @@ form.formdangnhap{
     transform: scale(1.05);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+/* CSS cho nút "Quên mật khẩu" */
+.quenmk {
+    display: block; /* Hiển thị nút "Quên mật khẩu" dưới dạng khối */
+    text-align: left; /* Căn phải */
+    margin-top: 10px; /* Khoảng cách giữa nút "Đăng nhập" và nút "Quên mật khẩu" */
+}
+
+.quenmk input[type="submit"] {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 4px 5px; /* Điều chỉnh kích thước của nút */
+    cursor: pointer;
+    font-size: 14px; /* Điều chỉnh kích thước font chữ */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.quenmk input[type="submit"]:hover {
+    background-color: #2F4F4F;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 
 </style>
 
@@ -121,21 +149,22 @@ form.formdangnhap{
 <table border="1" class="login-table" style="text-align:center;">
     <tr>
     
-        <td colspan="2"><h3>Đăng nhập </h3></td>
+        <td colspan="3"><h3>Đăng nhập </h3></td>
         
         </tr>
         <tr>
         <td>Tài khoản</td>
-        <td><input type="text" name="email" placeholder="Email..."></td>
+        <td colspan=2><input type="text" name="email" placeholder="Email..."></td>
         
         </tr>
         <tr>
             <td>Mật khẩu</td> 
-            <td><input type="password" name="password" placeholder="Password..."></td>
+            <td colspan=2><input type="password" name="password" placeholder="Password..."></td>
         </tr>
         <tr>
-        
+            <td class="quenmk"colspan=2;><input type="submit" name="quenmatkhau" value="Quên mật khẩu"></td>
             <td colspan=2;><input type="submit" name="dangnhap" value="Đăng nhập"></td>
+           
         </tr>
 
     </table>

@@ -1,3 +1,5 @@
+
+
 <div id="main">
            <?php
            include("sidebar/sidebar.php") ?>
@@ -31,6 +33,10 @@
                         include("main/sanpham.php");
                     }elseif($tmp=='dangky') {
                         include("main/dangky.php");
+                    }elseif($tmp=='quenmatkhau') {
+                        include("main/quenmatkhau.php");
+                    }elseif($tmp=='matkhaumoi') {
+                        include("main/matkhaumoi.php");
                     }elseif($tmp=='thanhtoan') {
                         include("main/thanhtoan.php");
                     }elseif($tmp=='dangnhap') {

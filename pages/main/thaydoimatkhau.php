@@ -1,5 +1,6 @@
 <h3></h3>
         <?php
+        
         if (isset($_POST['doimatkhau'])) {
             $taikhoan = $_POST['email'];
             $matkhau_cu = md5($_POST['password_cu']);

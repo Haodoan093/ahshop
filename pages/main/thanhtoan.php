@@ -57,8 +57,10 @@ if ($insert_cart) {
    // Tạo một đối tượng từ lớp GuiGmail và gọi phương thức đatHang() để gửi email
    $guiEmail = new GuiGmail();
    $guiEmail->DatHang($tieude,$noidung,$maildathang);
+   
 }
 unset($_SESSION['cart']);
+unset($_SESSION['tongtien']);
 header('Location:camon.php');
 ob_end_flush(); 
 ?>
