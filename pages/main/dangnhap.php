@@ -13,6 +13,8 @@
             $row_date=mysqli_fetch_array($row);
             $_SESSION['dangky']=$row_date['tenkhachhang'];
             $_SESSION['email']=$email;
+            $_SESSION['id_khachhang']=$row_date['id_dangky'];
+            
             header("Location:index.php?quanly=giohang");
             ob_end_flush(); 
         }else{

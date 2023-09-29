@@ -11,6 +11,8 @@
 // Kiểm tra và xử lý phần đăng xuất
 if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
     unset($_SESSION['dangky']);
+    unset($_SESSION['id_khachhang']);
+    unset($_SESSION['email']);
 }
 ?>
 

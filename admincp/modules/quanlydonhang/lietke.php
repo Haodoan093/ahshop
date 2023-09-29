@@ -87,6 +87,7 @@
                 <th>Email</th>
                 <th>Số điện thoại</th>
                 <th>Tình trạng</th>
+                <th>Ngày đặt</th>
                 <th>Quản lý</th>
             </tr>
         </thead>
@@ -109,6 +110,7 @@
                         echo ' <a href="">Đã xử lý</a>';}
                     
                     ?></td>
+                    <td><?php echo $row['cart_date']; ?></td>
                 <td>
                    
                  

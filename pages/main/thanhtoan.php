@@ -3,10 +3,14 @@
 session_start();
 include("../../admincp/config/config.php");
 require ('../../mail/send/sendmail.php');
+require ('../../carbon/autoload.php');
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
+$now=Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d H:i:s');
 
 $id_khachhang = $_SESSION['id_khachhang'];
 $code_order = rand(0, 9999);
-$insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status) VALUE('" . $id_khachhang . "','" . $code_order . "',1)  ";
+$insert_cart = "INSERT INTO tbl_cart(id_khachhang,code_cart,cart_status,cart_date) VALUE('" . $id_khachhang . "','" . $code_order . "',1,'".$now."')  ";
 $cart_query = mysqli_query($mysqli, $insert_cart);
 
 
@@ -46,6 +50,7 @@ if ($insert_cart) {
       <li>".$val['masp']."</li>
       <li>Giá : ".number_format($val['giasp'],0,',','.').' VND'."</li>
       <li>Số lượng :".$val['soluong']."</li>
+      <li>Ngày đặt :".$now."</li>
       <li>Tổng tiền : ".number_format($tong,0,',','.').' VND'."</li>
       
       

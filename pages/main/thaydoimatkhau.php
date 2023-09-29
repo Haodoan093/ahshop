@@ -4,18 +4,21 @@
         if (isset($_POST['doimatkhau'])) {
             $taikhoan = $_POST['email'];
             $matkhau_cu = md5($_POST['password_cu']);
-            $matkhau_moi = md5($_POST['password_moi']);
+            $matkhau_moi = $_POST['password_moi'];
             $xacnhan = $_POST['xacnhan'];
 
             if ($matkhau_moi !== $xacnhan) {
                 echo '<p class="error-message">Mật khẩu mới và xác nhận mật khẩu không khớp.</p>';
+            }elseif($taikhoan !== $_SESSION['email']){
+                echo '<p class="error-message">Tài khoản không đúng.</p>';
             } else {
                 $sql = "SELECT * FROM tbl_dangky WHERE email='".$taikhoan."' AND matkhau='".$matkhau_cu."' LIMIT 1";
                 $row = mysqli_query($mysqli, $sql);
                 $count = mysqli_num_rows($row);
 
                 if ($count > 0) {
-                    $sql_update = mysqli_query($mysqli, "UPDATE tbl_dangky SET matkhau='".$matkhau_moi."' WHERE email='".$taikhoan."'");
+                    $password_moi = md5($_POST['password_moi']);
+                    $sql_update = mysqli_query($mysqli, "UPDATE tbl_dangky SET matkhau='".$password_moi."' WHERE email='".$taikhoan."'");
                     echo '<p>Mật khẩu đã được thay đổi thành công.</p>';
                 } else {
                     echo '<p class="error-message">Tài khoản hoặc mật khẩu cũ không đúng. Vui lòng kiểm tra lại.</p>';
