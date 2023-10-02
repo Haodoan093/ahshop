@@ -75,7 +75,7 @@
         .center-column {
             text-align: center;
         }
-    </style>
+ </style>
   <p>Danh sách đơn hàng</p>
     <table class="styled-table">
         <thead>

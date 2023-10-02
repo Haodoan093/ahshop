@@ -28,6 +28,7 @@ if (!isset($_SESSION['dangnhap'])) {
     include("modules/menu.php");
     include("modules/main.php");
     include("modules/footer.php");
+  
     ?>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -45,17 +46,14 @@ if (!isset($_SESSION['dangnhap'])) {
 
 
       var char = new Morris.Area({
-
         element: 'chart',
-
-
         xkey: 'date',
-
-        ykeys: ['date', 'order', 'sales', 'quantity'],
-
-        labels: ['Đơn hàng', 'Danh thu', 'Số lượng bán ra']
+        ykeys: ['date','order', 'sales', 'quantity'],
+        labels: ['Đơn hàng', 'Danh thu', 'Số lượng bán ra'],
+       
       });
-      // (".select-date").change(function() {
+
+      // $(".select-date").change(function() {
       //   var thoigian = $(this).val();
       //   if (thoigian == '7ngay') {
       //     var text = '7 ngày qua';
@@ -66,6 +64,7 @@ if (!isset($_SESSION['dangnhap'])) {
       //   } else {
       //     var text = '365 ngày qua';
       //   }
+
       //   $('#text-date').text(text);
       //   $.ajax({
       //     url: "modules/thongke.php",
@@ -81,17 +80,17 @@ if (!isset($_SESSION['dangnhap'])) {
       //   });
       // })
 
+
       function thongke() {
-
-
         var text = '365 ngày qua';
+          
         $('#text-date').text(text);
         $.ajax({
           url: "modules/thongke.php",
           method: "POST",
           dataType: "JSON",
-          
-          success: function(data) {
+          success: function(data) 
+          {
             char.setData(data);
             $('#text-date').text(text);
           }

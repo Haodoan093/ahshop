@@ -56,7 +56,7 @@
   }
 </style>
 
-<h3>Danh mục bài viết : <?php  echo $row_bv_title['tenbaiviet']?></h3>
+<h3>Bài viết : <?php  echo $row_bv_title['tenbaiviet']?></h3>
               <ul class="baiviet">
                  
               <?php while ($row_bv = mysqli_fetch_array($query_bv_all)) {

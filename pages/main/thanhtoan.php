@@ -6,7 +6,7 @@ require ('../../mail/send/sendmail.php');
 require ('../../carbon/autoload.php');
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
-$now=Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d H:i:s');
+$now=Carbon::now('Asia/Ho_Chi_Minh');
 
 $id_khachhang = $_SESSION['id_khachhang'];
 $code_order = rand(0, 9999);

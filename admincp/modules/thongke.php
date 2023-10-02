@@ -22,22 +22,26 @@ require ('../../carbon/autoload.php');
     // } elseif ($thoigian == '365ngay') {
     //     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(365)->toDateString();
     // }
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(365)->toDateString();
+ $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(365)->toDateString();
     $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 
     $sql = "SELECT * FROM tbl_thongke WHERE ngaydat BETWEEN '$subdays' AND '$now' ORDER BY ngaydat ASC";
     $sql_query = mysqli_query($mysqli, $sql);
-
+  echo $sql_query;
   
+        
+       
     while ($val = mysqli_fetch_array($sql_query)) {
         $chart_data[] = array(
-            'date' => $val['ngaydat'],
+            'date' => $val['ngaydat'], // Include the 'date' field
             'order' => $val['donhang'],
             'sales' => $val['doanhthu'],
             'quantity' => $val['soluongban']
         );
     }
+    
 
-    echo $data= json_encode($chart_data);
-
+        // Echo the JSON-encoded data directly
+        $data=  json_encode($chart_data);
+       echo $data;
 ?>
