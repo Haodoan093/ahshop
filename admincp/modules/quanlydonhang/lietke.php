@@ -89,6 +89,7 @@
                 <th>Tình trạng</th>
                 <th>Ngày đặt</th>
                 <th>Quản lý</th>
+                <th>In đơn hàng</th>
             </tr>
         </thead>
         <tbody>
@@ -116,9 +117,14 @@
                  
                     <a class="" href="index.php?action=donhang&query=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a>
                 </td>
+                <td>
+             
+                 
+                   <a class="" href="modules/quanlydonhang/indonhang.php?code=<?php echo $row['code_cart'] ?>">In đơn hàng</a>
+               </td>
             </tr>
             <?php
             }
             ?>
-        </tbody>
+        </tbody> 
     </table>
