@@ -60,7 +60,7 @@ ul.list_phantrang li a.selected {
                 ?>
                   <li> 
                       <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham']?>">
-                          <img src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh']?>" > 
+                      <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh']?>" > 
                           <p class ="title_product"><?php echo $row['tensanpham']?></p>
                           <p class="price_product">Giá : <?php echo number_format($row['giasp'],0,',','.').'VND'?> </p>
                           <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc']?></p></p>
@@ -85,4 +85,38 @@ ul.list_phantrang li a.selected {
                 }
                 ?>
             </ul>
+
+
+            
+
+            <?php
+  $sql_bv="SELECT * FROM tbl_baiviet WHERE tinhtrang=1 ORDER BY id_baiviet DESC";
+  $query_bv=mysqli_query($mysqli,$sql_bv);
+
+
+
+ 
+ 
+?>
+
+
+
+<h3>TIN TỨC MỚI NHẤT</h3>
+              <ul class="product_list">
+                 
+              <?php while ($row_bv = mysqli_fetch_array($query_bv)) {
+               ?>
+                  <li> 
+                  <a href="index.php?quanly=baiviet&idbaiviet=<?php echo $row_bv['id_baiviet']?>">
+                       <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh']?>" > 
+                       <p class ="title_product"><?php echo $row_bv['tenbaiviet']?></p>
+                   
+                        </a>
+                  </li>
+
+               <?php }
+               ?>
+                
+              </ul>
+
               

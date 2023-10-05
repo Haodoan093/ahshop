@@ -24,9 +24,9 @@ if (!isset($_SESSION['dangnhap'])) {
   <div class="wrapper">
     <?php
     include("config/config.php");
-    include("modules/menu.php");
+
     include("modules/header.php");
-   
+    include("modules/menu.php");
     include("modules/main.php");
     include("modules/footer.php");
   
