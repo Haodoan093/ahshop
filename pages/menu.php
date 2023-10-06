@@ -24,15 +24,15 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php" style="font-size: 20px; padding-left: 28px;">Trang chủ <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php" style="font-size: 16px; padding-left: 32px;">Trang chủ <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?quanly=giohang"style="font-size: 20px; padding-left: 28px;">Giỏ hàng</a>
+                <a class="nav-link" href="index.php?quanly=giohang"style="font-size: 16px; padding-left: 28px;">Giỏ hàng</a>
             </li>
-            <li class="nav-item"> <a class="nav-link" href="index.php?quanly=tintuc"style="font-size: 20px; padding-left: 28px;">Tin tức</a></li>
-             <li class="nav-item"> <a class="nav-link" href="index.php?quanly=lienhe"style="font-size: 20px; padding-left: 28px;">Liên hệ</a></li>
+            <li class="nav-item"> <a class="nav-link" href="index.php?quanly=tintuc"style="font-size: 16px; padding-left: 32px;">Tin tức</a></li>
+             <li class="nav-item"> <a class="nav-link" href="index.php?quanly=lienhe"style="font-size: 16px; padding-left: 32px;">Liên hệ</a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"style="font-size: 20px; padding-left: 28px;">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"style="font-size: 16px; padding-left: 32px;">
                     Danh mục sản phẩm
                 </a>
                 <div class="dropdown-menu">
@@ -57,13 +57,13 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
                         <?php
                            if (isset($_SESSION['dangky'])) {
                             ?>
-                        <li class="nav-item"> <a class="nav-link"href="index.php?quanly=thaydoimatkhau"style="font-size: 20px; padding-left: 28px;">Đổi mật khẩu</a></li>
-                        <li class="nav-item"> <a class="nav-link"  href="index.php?dangxuat=1"style="font-size: 20px; padding-left: 28px;">Đăng xuất</a></li>
+                        <li class="nav-item"> <a class="nav-link"href="index.php?quanly=thaydoimatkhau"style="font-size: 16px; padding-left: 32px;">Đổi mật khẩu</a></li>
+                        <li class="nav-item"> <a class="nav-link"  href="index.php?dangxuat=1"style="font-size: 16px; padding-left: 32px;">Đăng xuất</a></li>
 
                     <?php
                             } else {
                     ?>
-                        <li class="nav-item"> <a class="nav-link"  href="index.php?quanly=dangky"style="font-size: 20px; padding-left: 28px;">Đăng ký</a></li>
+                        <li class="nav-item"> <a class="nav-link"  href="index.php?quanly=dangky"style="font-size: 16px; padding-left: 32px;">Đăng ký</a></li>
                     <?php
                             }
                     ?>
