@@ -57,13 +57,13 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
                         <?php
                            if (isset($_SESSION['dangky'])) {
                             ?>
-                        <li class="nav-item"> <a class="nav-link"href="index.php?quanly=thaydoimatkhau"style="font-size: 20px; padding-left: 128px;">Đổi mật khẩu</a></li>
+                        <li class="nav-item"> <a class="nav-link"href="index.php?quanly=thaydoimatkhau"style="font-size: 20px; padding-left: 28px;">Đổi mật khẩu</a></li>
                         <li class="nav-item"> <a class="nav-link"  href="index.php?dangxuat=1"style="font-size: 20px; padding-left: 28px;">Đăng xuất</a></li>
 
                     <?php
                             } else {
                     ?>
-                        <li class="nav-item"> <a class="nav-link"  href="index.php?quanly=dangky"style="font-size: 20px; padding-left: 128px;">Đăng ký</a></li>
+                        <li class="nav-item"> <a class="nav-link"  href="index.php?quanly=dangky"style="font-size: 20px; padding-left: 28px;">Đăng ký</a></li>
                     <?php
                             }
                     ?>

@@ -58,10 +58,10 @@
   <div class="row">
     <div class="col-md-12">
       <div class="arrow-steps clearfix">
-        <div class="step current"> <span> <a href="index.php?quanly=giohang">Giỏ hàng</a></span> </div>
+        <div class="step current"> <span>Giỏ hàng</a></span> </div>
         <div class="step"> <span>vận chuyển</span> </div>
-        <div class="step"> <span><a href="index.php?quanly=thanhtoant">Thanh toán</a><span> </div>
-        <div class="step"> <span><a href="index.php?quanly=donhangdadat">Lịch sử đơn hàng</a><span> </div>
+        <div class="step"> <span>Thanh toán</a><span> </div>
+        <div class="step"> <span>Lịch sử đơn hàng</a><span> </div>
       </div>
     </div>
     <p class="tentaikhoan" class="col-md-12">
@@ -117,12 +117,12 @@
               <?php
               if (isset($_SESSION['dangky'])) { ?>
 
-                <p><a href="index.php?quanly=vanchuyen">Hình thức vận chuyển</a></p>
+                <p><a href="index.php?quanly=vanchuyen">Mua</a></p>
                 <!-- <p><a href="pages/main/thanhtoan.php">Hình thức vận chuyển</a></p> -->
               <?php
               } else {
               ?>
-                <p><a href="index.php?quanly=dangky">Đăng ký đặt hàng</a></p>
+                <p><a href="index.php?quanly=dangky">Đăng ký </a></p>
               <?php
               }
               ?>
