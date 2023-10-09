@@ -24,6 +24,11 @@
     p{
         color: white;
     }
+	a {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+}
 </style>
 <!-- <footer>
     <div class="content" style="">
@@ -150,7 +155,7 @@
 	</div>
 	<div class="copyright text-center">
 		
-		© Bản quyền thuộc về Evo Themes <span class="s480-f">|</span> Cung cấp bởi <a href="https://www.sapo.vn/?utm_campaign=cpn:kho_theme-plm:footer&amp;utm_source=Tu_nhien&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=kho_theme-sapo" title="Sapo" target="_blank" rel="nofollow">Sapo</a>
+	<p style="display: inline;">© Bản quyền thuộc về Evo Themes</p> <span class="s480-f">|</span> <p style="display: inline;">Cung cấp bởi</p> <a href="https://www.sapo.vn/?utm_campaign=cpn:kho_theme-plm:footer&amp;utm_source=Tu_nhien&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=kho_theme-sapo" title="Sapo" target="_blank" rel="nofollow">Sapo</a>
 		
 		
 		<div class="back-to-top text-center show" title="Lên đầu trang"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 284.929 284.929" style="enable-background:new 0 0 284.929 284.929;" xml:space="preserve"><path d="M282.082,195.285L149.028,62.24c-1.901-1.903-4.088-2.856-6.562-2.856s-4.665,0.953-6.567,2.856L2.856,195.285   C0.95,197.191,0,199.378,0,201.853c0,2.474,0.953,4.664,2.856,6.566l14.272,14.271c1.903,1.903,4.093,2.854,6.567,2.854   c2.474,0,4.664-0.951,6.567-2.854l112.204-112.202l112.208,112.209c1.902,1.903,4.093,2.848,6.563,2.848   c2.478,0,4.668-0.951,6.57-2.848l14.274-14.277c1.902-1.902,2.847-4.093,2.847-6.566   C284.929,199.378,283.984,197.188,282.082,195.285z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"></path></svg></div>
