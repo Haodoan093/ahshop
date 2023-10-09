@@ -32,7 +32,7 @@ if(isset($_POST['dangky'])){
 }
 ?>
 
-<p>Đăng ký</p>
+  <p>Đăng ký</p>
 
 <style>
             /* CSS cho trang đăng ký */
@@ -104,7 +104,7 @@ if(isset($_POST['dangky'])){
             .login-link {
                 text-align: center;
                 font-size: 16px;
-                background-color: #528B8B;
+                background-color:#c46100 ;
                 padding: 10px 20px;
                 border-radius: 3px;
                 display: inline-block;
@@ -146,7 +146,7 @@ if(isset($_POST['dangky'])){
 
 <form class="tbldangky" action="" method="POST">
 
-            <table border="1" style="border-collapse:collapse">
+            <table  border="1" style="border-collapse:collapse">
 
                     <tr>
                         <td>Họ và tên</td>

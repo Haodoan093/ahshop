@@ -27,112 +27,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập Admincp</title>
-    <style>
-        body {
-            background: #2C3E50; /* Màu nền cho toàn bộ trang */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="style_login/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="style_login/vendor/daterangepicker/daterangepicker.css">
+<!--=============================================style_login/==================================================-->
+	<link rel="stylesheet" type="text/css" href="style_login/csss/util.css">
+	<link rel="stylesheet" type="text/css" href="style_login/csss/main.css">
+    <title>login Admincp</title>
 
-        .wrapper-login {
-            width: 400px;
-            padding: 40px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .wrapper-login:hover {
-            transform: scale(1.05);
-        }
-
-        .wrapper-login h3 {
-            color: #3498DB;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .table-login {
-            width: 100%;
-        }
-
-        .table-login tr td {
-            padding: 10px;
-        }
-
-        .table-login tr td:first-child {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .table-login tr td input[type="text"],
-        .table-login tr td input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-bottom: 2px solid #3498DB;
-            background-color: #f2f2f2;
-            font-size: 14px;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .table-login tr td input[type="text"]:focus,
-        .table-login tr td input[type="password"]:focus {
-            background-color: #fff;
-            border-color: #E74C3C;
-        }
-
-        .table-login tr td input[type="submit"] {
-            background-color: #3498DB;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .table-login tr td input[type="submit"]:hover {
-            background-color: #2980B9;
-        }
-    </style>
 </head>
 <body>
-    <div class="wrapper-login">
-        <form action="" autocomplete="off" method="POST">
-            <table class="table-login">
-                <tr>
-                    <td colspan="2">
-                        <h3>Đăng nhập Admin</h3>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tài khoản:</td>
-                    <td><input type="text" name="username"></td>
-                </tr>
-                <tr>
-                    <td>Mật khẩu:</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" name="dangnhap" value="Đăng nhập">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<div class="limiter">
+		<div class="container-login100" style="background-image: url('style_login/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-41">
+					login Admin
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5 " method="POST">
 
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="User name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						
+						<input type="submit" name="dangnhap" value="Đăng nhập" class="login100-form-btn">
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 </body>
 </html>

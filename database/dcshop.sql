@@ -264,7 +264,8 @@ CREATE TABLE `tbl_danhmucbaiviet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_danhmucbaiviet`
+-- Dumping data for table `tbl_
+mucbaiviet`
 --
 
 INSERT INTO `tbl_danhmucbaiviet` (`id_danhmucbaiviet`, `tendanhmuc_baiviet`, `thutu`) VALUES
