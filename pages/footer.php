@@ -24,11 +24,7 @@
     p{
         color: white;
     }
-	a {
-    color: #fff;
-    text-decoration: none;
-    background-color: transparent;
-}
+	
 </style>
 <!-- <footer>
     <div class="content" style="">
