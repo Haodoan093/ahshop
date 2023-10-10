@@ -9,7 +9,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     nav {
         width: 200px;
         height: 100%;
-        background-color: #999;
+        background-color: #000;
         position: fixed
     }
     .admincp_list {
@@ -77,7 +77,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
                 alt="Avatar">
         </div>
         
-        <h2 class="animate__animated animate__bounce" style="font-size:23px;padding-left:15px;padding-top:10px">A.H.Shop
+        <h2 class="animate__animated animate__bounce" style="font-size:23px;padding-left:15px;padding-top:10px">Admin
         </h2>
     </div>
     <ul class="admincp_list">
