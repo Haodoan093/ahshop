@@ -36,31 +36,7 @@
         font-size: 14px;
     }
 
-    table input[type="submit"] {
-        background-color: #800080; /* Purple (tím) color */
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .them_danhmuc input[type="submit"] {
-        background-color: #800080; /* Purple (tím) color */
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 4px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .them_danhmuc input[type="submit"]:hover {
-        background-color: #4B0082; /* Darker purple on hover */
-        transform: scale(1.05);
-    }
+  
 </style>
 
 <table class="them_danhmuc"border="1" width=50% style="border-collapse: collapse;">
@@ -76,7 +52,7 @@
             </tr>
             <tr>
                 <!-- nooi hai cot -->
-                <td colspan="2"><input type="submit" name="themdanhmucbv" value="Thêm danh mục bài viết"></td>
+                <td colspan="2"><input type="submit" class="btn btn-primary" name="themdanhmucbv" value="Thêm danh mục bài viết"></td>
             </tr>
   </form>
   

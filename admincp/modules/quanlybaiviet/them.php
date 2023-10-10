@@ -48,16 +48,7 @@
         }
 
         /* Style for the submit button */
-        table input[type="submit"] {
-            background-color: #28a745; /* Green color for the button */
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and transform */
-        }
+  
 
         table input[type="submit"]:hover {
             background-color: #218838; /* Darker green color on hover */
@@ -112,7 +103,7 @@
             </tr>
             <tr>
                 <!-- nooi hai cot -->
-                <td colspan="2"><input type="submit" name="thembaiviet" value="Thêm bài viết"></td>
+                <td colspan="2"><input type="submit" class="btn btn-success" name="thembaiviet" value="Thêm bài viết"></td>
             </tr>
   </form>
   

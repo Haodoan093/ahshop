@@ -4,9 +4,15 @@ $sql_chitiet = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhm
 $query_chitiet = mysqli_query($mysqli, $sql_chitiet);
 while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
 ?>
+<style>
+    .anhsp img{
+        width: 400px;
+    
+    }
+</style>
     <div class="wrapper_chitiet">
         <div class="hinhanh_sanpham">
-            <img width="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row_chitiet['hinhanh'] ?>">
+            <img class="anhsp" width="400px"  src="admincp/modules/quanlysp/uploads/<?php echo $row_chitiet['hinhanh'] ?>">
 
         </div>
         <form method="POST" action="pages/main/themgiohang.php?idsanpham=<?php echo $row_chitiet['id_sanpham'] ?>">

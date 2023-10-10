@@ -38,21 +38,7 @@
         font-size: 14px;
     }
 
-    table input[type="submit"] {
-        background-color: #ff6600; /* Orange color */
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease; /* Smooth color transition */
-        animation: pulse 2s infinite; /* Animation definition */
-    }
-
-    table input[type="submit"]:hover {
-        background-color: #ff3300; /* Darker orange on hover */
-    }
+   
 
     @keyframes pulse {
         0% {
@@ -86,7 +72,7 @@
             </tr>
             <tr>
                 <!-- nooi hai cot -->
-                <td colspan="2"><input type="submit" name="suadanhmucbv" value="Sửa danh mục bài viết"></td>
+                <td colspan="2"><input type="submit" class="btn btn-danger" name="suadanhmucbv" value="Sửa danh mục bài viết"></td>
             </tr>
         <?php
           }
