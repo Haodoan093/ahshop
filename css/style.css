@@ -38,6 +38,7 @@ body{
  input.themgiohang {
         padding: 10px 20px;
         background-color: #708090;
+        color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -331,10 +332,10 @@ i.fas:hover {
 /* Thiết kế cho sidebar */
 .sidebar {
     width: 100%;
-    background-color:#ccc;
+    background-color:#999;
     color: #212529;
     padding: 20px;
-    height: 95%;
+    height: 98%;
     margin-top: 5px;
     margin-left: 5px;
     float: left;

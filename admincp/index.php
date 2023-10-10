@@ -40,9 +40,12 @@ if (!isset($_SESSION['dangnhap'])) {
       </div>
       <div style="width:100%;margin-left:200px">
         <?php
-        include("modules/header.php");
+        include("modules/header.php");?>
+        <div style="margin-top: 100px; z-index: 1000;">
+        <?php
         include("modules/main.php");
         ?>
+       </div>
       </div>
     </div>
 
