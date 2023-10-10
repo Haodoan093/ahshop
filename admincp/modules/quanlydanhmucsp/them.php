@@ -1,4 +1,4 @@
-<p>THÊM DANH MỤC SẢN PHẨM</p>
+
 <style>
     body {
         font-family: Arial, sans-serif;

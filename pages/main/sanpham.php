@@ -16,7 +16,7 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
 
         </div>
         <form method="POST" action="pages/main/themgiohang.php?idsanpham=<?php echo $row_chitiet['id_sanpham'] ?>">
-            <div class="chitiet_sanpham">
+            <div class="chitiet_sanpham" style="color:black;">
                 <h3>Tên : <?php echo $row_chitiet['tensanpham'] ?></h3>
                 <p>Mã : <?php echo $row_chitiet['masp'] ?></p>
                 <p>Giá : <?php echo number_format($row_chitiet['giasp'], 0, ',', '.') . ' VND' ?></p>

@@ -13,18 +13,14 @@
         background-color: #1a1a1a;
         
     }
-    img{
-        width: 20px;
-        height:20px
-    }
     .icon p{
+		
         padding: 20px 20px;
         
     }
-    p{
-        color: white;
-    }
-	
+	.evo-in{
+		color: white;
+	}
 </style>
 <!-- <footer>
     <div class="content" style="">
@@ -48,21 +44,21 @@
     </div>
 </footer> -->
 <footer class="footer">
-	<div class="container">
-		<div class="row">
+	<div class="container" >
+		<div class="row" style="color:white;">
 			<div class="col-lg-7 col-md-12 col-12">
 				<div class="row">
 					<div class="col-sm-6 col-lg-6 col-12 footer-nav-logo widget">
 						<a href="/" class="logo-wrapper" title="Evo Tools">
 							
 						</a>
-						<p>
+						<p class="evo-in">
 							Quần áo bán chạy số 1 Việt Nam 
 						</p>
 					</div>
 					<div class="col-sm-6 col-lg-6 col-12 footer-nav-info widget">
-						<p class="footer-title">Bạn cần hỗ trợ</p>
-						<p class="footer-tel">
+						<p class="evo-in">Bạn cần hỗ trợ</p>
+						<p class="evo-in">
 							
 							<a href="tel:19006750" title="19006750">1900 6750</a>
 							
@@ -109,7 +105,7 @@
 			<div class="col-lg-5 col-md-12 col-12 fix-ipad-footer">
 				<div class="row">
 					<div class="col-sm-6 col-lg-6 col-6 footer-nav-menu widget">
-						<p class="footer-title">Hướng dẫn mua hàng</p>
+						<p class="evo-in" class="footer-title">Hướng dẫn mua hàng</p>
 						<div class="footer-menu" style="padding-left:40px" >
 							
 							<div><a href="/" title="Trang chủ" rel="nofollow">Trang chủ</a></div>
@@ -127,7 +123,7 @@
 						</div>
 					</div>
 					<div class="col-sm-6 col-lg-6 col-6 footer-nav-menu widget">
-						<p class="footer-title">Hỗ trợ khách hàng</p>
+						<p class="evo-in" class="footer-title">Hỗ trợ khách hàng</p>
 						<div class="footer-menu">
 							
 							
@@ -151,7 +147,7 @@
 	</div>
 	<div class="copyright text-center">
 		
-	<p style="display: inline;">© Bản quyền thuộc về Evo Themes</p> <span class="s480-f">|</span> <p style="display: inline;">Cung cấp bởi</p> <a href="https://www.sapo.vn/?utm_campaign=cpn:kho_theme-plm:footer&amp;utm_source=Tu_nhien&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=kho_theme-sapo" title="Sapo" target="_blank" rel="nofollow">Sapo</a>
+	<p class="evo-in" style="display: inline;">© Bản quyền thuộc về Evo Themes</p> <span class="s480-f">|</span> <p class="evo-in" style="display: inline;">Cung cấp bởi</p> <a href="https://www.sapo.vn/?utm_campaign=cpn:kho_theme-plm:footer&amp;utm_source=Tu_nhien&amp;utm_medium=referral&amp;utm_content=fm:text_link-km:-sz:&amp;utm_term=&amp;campaign=kho_theme-sapo" title="Sapo" target="_blank" rel="nofollow">Sapo</a>
 		
 		
 		<div class="back-to-top text-center show" title="Lên đầu trang"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px" viewBox="0 0 284.929 284.929" style="enable-background:new 0 0 284.929 284.929;" xml:space="preserve"><path d="M282.082,195.285L149.028,62.24c-1.901-1.903-4.088-2.856-6.562-2.856s-4.665,0.953-6.567,2.856L2.856,195.285   C0.95,197.191,0,199.378,0,201.853c0,2.474,0.953,4.664,2.856,6.566l14.272,14.271c1.903,1.903,4.093,2.854,6.567,2.854   c2.474,0,4.664-0.951,6.567-2.854l112.204-112.202l112.208,112.209c1.902,1.903,4.093,2.848,6.563,2.848   c2.478,0,4.668-0.951,6.57-2.848l14.274-14.277c1.902-1.902,2.847-4.093,2.847-6.566   C284.929,199.378,283.984,197.188,282.082,195.285z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"></path></svg></div>

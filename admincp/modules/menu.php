@@ -9,35 +9,31 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     nav {
         width: 200px;
         height: 100%;
-        background-color: #000;
+        background-color: #999;
         position: fixed
+    }
+    .admincp_list {
+        margin: 0px;
+        padding: 0px;
     }
 
    
 
     ul {
-        background-color: #000;
+        background-color: #222;
         text-align: center;
         height: 100%;
 
     }
 
-    .admincp_list li {
-        float: left;
-
-
-    }
-
     .admincp_list li a {
+        font-size: 16px;
         text-decoration: none;
         color: white;
         display: block;
-        padding: 12px 22px;
+        padding: 22px 22px;
         transition: background-color 0.3s ease, color 0.3s ease;
-        width: 160px;
-        border-radius: 20px;
-
-
+        width: 100%;
     }
 
     .admincp_list li a:hover {
@@ -87,12 +83,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     <ul class="admincp_list">
 
         <li><a href="index.php">Thống kê</a></li>
-        <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Quản lý danh mục sản phẩm</a></li>
-        <li><a href="index.php?action=quanlysanpham&query=them ">Quản lý sản phẩm</a></li>
-        <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Quản lý danh mục bài viết</a></li>
-        <li><a href="index.php?action=quanlybaiviet&query=them ">Quản lý bài viết</a></li>
+        <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Danh mục sản phẩm</a></li>
+        <li><a href="index.php?action=quanlysanpham&query=them ">Sản phẩm</a></li>
+        <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Danh mục bài viết</a></li>
+        <li><a href="index.php?action=quanlybaiviet&query=them ">Bài viết</a></li>
 
-        <li><a href="index.php?action=quanlydonhang&query=lietke ">Quản lý đơn hàng</a></li>
+        <li><a href="index.php?action=quanlydonhang&query=lietke ">Đơn hàng</a></li>
         <li><a href="index.php?action=quanlyweb&query=capnhat ">Quản lý Website</a></li>
         <li><a href="index.php?action=dangxuat ">Đăng xuất</a></li>
         <link rel="preconnect" href="https://fonts.googleapis.com">

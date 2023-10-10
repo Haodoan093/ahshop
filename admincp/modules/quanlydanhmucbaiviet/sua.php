@@ -55,7 +55,7 @@
 
 
 
-<p>Sửa danh mục bài viết</p>
+
 <table border="1" width=50% style="border-collapse: collapse;">
   <form method="POST"  action="modules/quanlydanhmucbaiviet/xuly.php?idbaiviet=<?php echo $_GET['idbaiviet']?>">
  <!-- khi gui du lieu dung POST,lay GET -->

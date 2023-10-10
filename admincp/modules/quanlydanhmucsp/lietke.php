@@ -76,7 +76,7 @@
             text-align: center;
         }
     </style>
-  <p>Danh sách danh mục sản phẩm</p>
+ 
     <table class="styled-table">
         <thead>
             <tr>

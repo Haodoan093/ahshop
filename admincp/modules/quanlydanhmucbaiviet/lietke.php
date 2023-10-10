@@ -76,7 +76,7 @@
             text-align: center;
         }
     </style>
-  <p>Danh sách danh mục bài viết</p>
+
     <table class="styled-table">
         <thead>
             <tr>

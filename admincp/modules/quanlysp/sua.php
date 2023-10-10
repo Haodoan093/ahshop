@@ -72,7 +72,7 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
     }
 </style>
 
-<p>Sửa sản phẩm</p>
+
 <table class="sua_sanpham" border="1" width=50% style="border-collapse: collapse;">
     <?php
     while ($row = mysqli_fetch_array($query_sua_sp)) {

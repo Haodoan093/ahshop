@@ -1,4 +1,4 @@
-<p>Thêm Sản Phẩm</p>
+
 <style>
     /* Reset default margin and padding for better consistency */
     body,

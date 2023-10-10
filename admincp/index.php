@@ -30,16 +30,17 @@ if (!isset($_SESSION['dangnhap'])) {
     <?php
     include("config/config.php");
 
-    include("modules/header.php");
+    
     ?>
-    <div style="display: flex;,width:100%">
+    <div style="display: flex;width:100%">
       <div style="max-width:200px">
         <?php
         include("modules/menu.php");
         ?>
       </div>
-      <div style="width:1200px;margin-left:200px">
+      <div style="width:100%;margin-left:200px">
         <?php
+        include("modules/header.php");
         include("modules/main.php");
         ?>
       </div>
