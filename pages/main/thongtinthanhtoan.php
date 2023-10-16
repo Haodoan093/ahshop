@@ -138,13 +138,14 @@
                     </label>
                 </div>
                 
-                <div class="form-check">
+                <!-- <div class="form-check">
                     <input class="form-check-input" type="radio" name="payment" id="exampleRadios4" value="paypal">
                     <img src="images/paypal.jpg" height="32" width="32" alt="">
                     <label class="form-check-label" for="exampleRadios4">
                         Paypal
                     </label>
-                </div>
+                </div> -->
+                <div id="paypal-button-container"></div>
                 <p >Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
                 <input type="submit" value="Thanh toán ngay" name="checkout" class="btn btn-danger">
             </div>
