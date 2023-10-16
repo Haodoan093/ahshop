@@ -28,11 +28,16 @@
                 } elseif ($tmp == 'sanpham') {
                     include("main/sanpham.php");
                 } elseif ($tmp == 'dangky') {
-                    include("main/dangky.php");
+                    header("Location: pages/main/dangky.php");
+                    exit;
                 } elseif ($tmp == 'quenmatkhau') {
-                    include("main/quenmatkhau.php");
+                
+                    header("Location: pages/main/quenmatkhau.php");
+                    exit;
                 } elseif ($tmp == 'matkhaumoi') {
-                    include("main/matkhaumoi.php");
+                   // include("main/matkhaumoi.php");
+                    header("Location: pages/main/matkhaumoi.php");
+                    exit;
                 } elseif ($tmp == 'thanhtoan') {
                     include("main/thanhtoan.php");
                 } elseif ($tmp == 'dangnhap') {
@@ -40,7 +45,9 @@
                 } elseif ($tmp == 'timkiem') {
                     include("main/timkiem.php");
                 } elseif ($tmp == 'thaydoimatkhau') {
-                    include("main/thaydoimatkhau.php");
+                  //  include("main/thaydoimatkhau.php");
+                    header("Location: pages/main/thaydoimatkhau.php");
+                    exit;
                 } elseif ($tmp == 'vanchuyen') {
                     include("main/vanchuyen.php");
                 } elseif ($tmp == 'thanhtoant') {
