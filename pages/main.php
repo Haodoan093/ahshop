@@ -45,9 +45,9 @@
                 } elseif ($tmp == 'timkiem') {
                     include("main/timkiem.php");
                 } elseif ($tmp == 'thaydoimatkhau') {
-                  //  include("main/thaydoimatkhau.php");
-                    header("Location: pages/main/thaydoimatkhau.php");
-                    exit;
+                   include("main/thaydoimatkhau.php");
+                  
+                
                 } elseif ($tmp == 'vanchuyen') {
                     include("main/vanchuyen.php");
                 } elseif ($tmp == 'thanhtoant') {

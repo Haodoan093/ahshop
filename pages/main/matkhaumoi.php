@@ -1,6 +1,7 @@
 <?php
-
-
+include('../../admincp/config/config.php');
+require('../../mail/send/sendmail.php');
+session_start();
 echo $_SESSION['xacnhan'];
 echo $_SESSION['email'];
 if (isset($_POST['doimatkhau'])) {
@@ -16,11 +17,13 @@ if (isset($_POST['doimatkhau'])) {
         $sql_update = mysqli_query($mysqli, "UPDATE tbl_dangky SET matkhau='" . $matkhau_moi . "' WHERE email='" . $taikhoan . "'");
         echo '<p class="success-message">Mật khẩu đã được thay đổi thành công.</p>';
         unset($_SESSION['xacnhan']);
+        header('Location:../../index.php?quanly=dangky');
+        ob_end_flush();
+       
     }
 }
 
 if (isset($_POST['guilaima'])) {
-    include('config.php');
 
     $code_xn = rand(100000, 999999);
    
@@ -47,104 +50,261 @@ if (isset($_POST['guilaima'])) {
     $guiEmail = new GuiGmail();
     $guiEmail->DatHang($tieude, $noidung, $maildathang);
     $_SESSION['xacnhan'] = $code_xn;
-    header('Location:index.php?quanly=matkhaumoi');
+    header('Location:../../index.php?quanly=matkhaumoi');
     ob_end_flush();
 }
 ?>
 
 <style>
-    /* Định dạng cho phần nội dung "Đổi Mật Khẩu" */
-    h3 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #333; /* Màu chữ cho tiêu đề */
-    }
+/* CSS Libraries Used 
 
-    .error-message {
-        color: red;
-        font-weight: bold;
-    }
+*Animate.css by Daniel Eden.
+*FontAwesome 4.7.0
+*Typicons
 
-    .success-message {
-        color: green;
-        font-weight: bold;
-    }
+*/
 
-    /* Form đổi mật khẩu */
-    form.tbldoimatkhau {
-        max-width: 400px;
-        margin: 0 auto;
-        background-color: #f8f8f8; /* Màu nền cho form */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng form */
-    }
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+body {
+    background-image: url('https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: 100%;
+    background-position: center;
+    /* Các thuộc tính khác cho body */
+}
 
-    .table-doimatkhau {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+body, html {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #1d243d;
+  padding: 0;
+  margin: 0;
+}
 
-    .table-doimatkhau td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
-    .table-doimatkhau td:first-child {
-        width: 40%;
-    }
+.container{
+  margin: 0;
+  top: 50px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  background-color: rgb( 33, 41, 66 );
+  border-radius: 9px;
+  border-top: 10px solid #79a6fe;
+  border-bottom: 10px solid #8BD17C;
+  width: 400px;
+  height: 500px;
+  box-shadow: 1px 1px 108.8px 19.2px rgb(25,31,53);
+  background-image: url('https://images.pexels.com/photos/775203/pexels-photo-775203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover; /* Đảm bảo hình nền trải dài khắp phần tử */
+    background-position: center; /* Căn chỉnh hình ảnh vào giữa */
 
-    input[type="text"], input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
 
-    input[type="submit"] {
-        background-color: #d67d05; /* Màu cam đất */
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng chuyển đổi màu nền và đổ bóng */
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nút */
-    }
+}
 
-    input[type="submit"]:hover {
-        background-color: #c46100; /* Màu cam đậm khi di chuột qua */
-        transform: scale(1.05);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm khi di chuột qua */
-    }
+.box h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #5c6bc0; 
+  font-size: 24px;
+  margin-top:94px;;
+}
+
+.box h4 span {
+    font-size: 24px;
+  color: #dfdeee;
+  font-weight: lighter;
+}
+
+.box h5 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  margin-top: -15px;
+  margin-bottom: 70px;
+}
+
+.box input[type = "text"],.box input[type = "password"] {
+  display: block;
+  margin: 20px auto;
+ 
+  border: 0;
+  border-radius: 5px;
+  padding: 14px 10px;
+  width: 320px;
+  outline: none;
+ 
+      -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+  
+}
+::-webkit-input-placeholder {
+  color: #565f79;
+}
+
+.box input[type = "text"]:focus,.box input[type = "password"]:focus {
+  border: 1px solid #79A6FE;
+  
+}
+
+a{
+  color: #5c7fda;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ label input[type = "checkbox"] {
+  display: none; /* hide the default checkbox */
+}
+
+/* style the artificial checkbox */
+label span {
+  height: 13px;
+  width: 13px;
+  border: 2px solid #464d64;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  float: left;
+  left: 7.5%;
+}
+
+.btn1 {
+  border:0;
+  background: #483c71;
+  color: #dfdeee;
+  border-radius: 100px;
+  width: 340px;
+  height: 49px;
+  font-size: 16px;
+  position: absolute;
+  top: 79%;
+  left: 8%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  background: #5d33e6;
+}
+
+.rmb {
+  position: absolute;
+  margin-left: -24%;
+  margin-top: 0px;
+  color: #dfdeee;
+  font-size: 13px;
+}
+
+.forgetpass {
+  position: relative;
+  float: right;
+  right: 28px;
+}
+
+.dnthave{
+    position: absolute;
+    top: 92%;
+    left: 24%;
+}
+
+[type=checkbox]:checked + span:before {/* <-- style its checked state */
+    font-family: FontAwesome;
+    font-size: 16px;
+    content: "\f00c";
+    position: absolute;
+    top: -4px;
+    color: #896cec;
+    left: -1px;
+    width: 13px;
+}
+
+.typcn {
+  position: absolute;
+  left: 339px;
+  top: 282px;
+  color: #3b476b;
+  font-size: 22px;
+  cursor: pointer;
+}      
+
+.typcn.active {
+  color: #7f60eb;
+}
+
+.error {
+  background: #ff3333;
+  text-align: center;
+  width: 337px;
+  height: 20px;
+  padding: 2px;
+  border: 0;
+  border-radius: 5px;
+  margin: 10px auto 10px;
+  position: absolute;
+  top: 31%;
+  left: 7.2%;
+  color: white;
+  display: none;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    top: 605px;
+    width: 100%;
+    color: #78797d;
+    font-size: 14px;
+    text-align: center;
+}
+
+.footer .fa {
+  color: #7f5feb;;
+}
+input[type="submit"][name="guilaima"] {
+  font-size: 12px; /* Điều chỉnh kích thước font thành chữ nhỏ */
+  position: absolute; /* Đặt vị trí tuyệt đối */
+  top: 10px; /* Cách trên 10px */
+  right: 10px; /* Cách phải 10px */
+}
 </style>
 
 <p style="color: green;">Mã xác nhận đã được gửi về Gmail của bạn !!!</p>
 
-<form class="tbldoimatkhau" action="" autocomplete="off" method="POST">
-    <table class="table-doimatkhau">
-        <tr>
-            <td colspan="3">
-                <h3>Đổi mật khẩu</h3>
-            </td>
-        </tr>
-        <tr>
-            <td>Nhập mã xác nhận:</td>
-            <td colspan="2"><input type="text" name="xacnhan" placeholder="Xác nhận mật khẩu mới..." required></td>
-        </tr>
-        <tr>
-            <td>Mật khẩu mới:</td>
-            <td colspan="2"><input type="password" name="password_moi" placeholder="Mật khẩu mới..." required></td>
-        </tr>
-        <tr>
-            <td colspan="1">
-                <input type="submit" name="guilaima" value="Gửi lại mã">
-            </td>
-            <td colspan="2">
-                <input type="submit" name="doimatkhau" value="Đổi mật khẩu">
-            </td>
-        </tr>
-    </table>
-</form>
+<body id="particles-js"></body>
+<div class="animated bounceInDown">
+    <div class="container">
+        <span class="error animated tada" id="msg"></span>
+        <form name="form1" class="box" autocomplete="off" method="POST">
+            <h4>New<span> Password</span></h4>
+            <h5>Điền mã xác nhận đã được gửi về email</h5>
+
+            <input type="text" name="xacnhan" placeholder="Mã xác nhận"  autocomplete="off">
+            <i class="typcn typcn-eye" id="eye"></i>
+            <input type="password" name="password_moi"placeholder="New passsword" id="pwd" autocomplete="off">
+         
+          
+          
+            <input type="submit" name="doimatkhau" value="Đặt mật khẩu" class="btn1">
+            <input type="submit" name="guilaima" value="Gửi lại mã">
+        </form>
+        
+    </div>
+    <div class="footer">
+        <span>Made with <i class="fa fa-heart pulse"></i> <a href="https://www.google.de/maps/place/Augsburger+Puppenkiste/@48.360357,10.903245,17z/data=!3m1!4b1!4m2!3m1!1s0x479e98006610a511:0x73ac6b9f80c4048f"><a href="https://codepen.io/lordgamer2354">By Hao Doan</a></span>
+    </div>
+</div>
+    
+

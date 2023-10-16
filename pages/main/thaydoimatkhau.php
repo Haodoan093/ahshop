@@ -2,26 +2,24 @@
         <?php
         
         if (isset($_POST['doimatkhau'])) {
-            $taikhoan = $_POST['email'];
+           
             $matkhau_cu = md5($_POST['password_cu']);
             $matkhau_moi = $_POST['password_moi'];
             $xacnhan = $_POST['xacnhan'];
 
             if ($matkhau_moi !== $xacnhan) {
                 echo '<p class="error-message">Mật khẩu mới và xác nhận mật khẩu không khớp.</p>';
-            }elseif($taikhoan !== $_SESSION['email']){
-                echo '<p class="error-message">Tài khoản không đúng.</p>';
-            } else {
-                $sql = "SELECT * FROM tbl_dangky WHERE email='".$taikhoan."' AND matkhau='".$matkhau_cu."' LIMIT 1";
+            }else {
+                $sql = "SELECT * FROM tbl_dangky WHERE email='".$_SESSION['email']."' AND matkhau='".$matkhau_cu."' LIMIT 1";
                 $row = mysqli_query($mysqli, $sql);
                 $count = mysqli_num_rows($row);
 
                 if ($count > 0) {
                     $password_moi = md5($_POST['password_moi']);
-                    $sql_update = mysqli_query($mysqli, "UPDATE tbl_dangky SET matkhau='".$password_moi."' WHERE email='".$taikhoan."'");
+                    $sql_update = mysqli_query($mysqli, "UPDATE tbl_dangky SET matkhau='".$password_moi."' WHERE email='".$_SESSION['email']."'");
                     echo '<p>Mật khẩu đã được thay đổi thành công.</p>';
                 } else {
-                    echo '<p class="error-message">Tài khoản hoặc mật khẩu cũ không đúng. Vui lòng kiểm tra lại.</p>';
+                    echo '<p class="error-message">Mật khẩu cũ không đúng. Vui lòng kiểm tra lại.</p>';
                 }
             }
         }
@@ -98,10 +96,7 @@
                         <h3>Đổi mật khẩu</h3>
                     </td>
                 </tr>
-                <tr>
-                    <td>Tài khoản:</td>
-                    <td><input type="text" name="email" placeholder="Email..."></td>
-                </tr>
+              
                 <tr>
                     <td>Mật khẩu cũ:</td>
                     <td><input type="text" name="password_cu" placeholder="Password cữ..."></td>
