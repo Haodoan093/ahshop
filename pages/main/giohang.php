@@ -1,60 +1,132 @@
 <style>
+  /* Định dạng thanh tiêu đề tên tài khoản */
   .tentaikhoan {
-
-
-    top: 20px;
-    /* Đặt khoảng cách từ trên xuống */
     background-color: #008800;
-    /* Đặt màu nền */
-    padding: 2px;
-    /* Đặt khoảng cách bên trong */
-    border-radius: 5px;
-    /* Đặt góc bo tròn */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* Đặt hiệu ứng bóng đổ */
-    text-align: center;
-    /* Căn giữa nội dung trong khung */
-    font-size: 16x;
-    /* Đặt kích thước font chữ lớn hơn */
     color: #fff;
-    /* Đặt màu chữ */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
     cursor: pointer;
-    /* Đổi con trỏ chuột thành bàn tay khi chạm vào */
     transition: background-color 0.3s ease;
-    /* Tạo hiệu ứng chuyển đổi màu nền */
   }
 
   .tentaikhoan:hover {
     background-color: #002200;
-    /* Đổi màu nền khi di chuột vào */
   }
 
-  @keyframes bounce {
 
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-    40% {
-      transform: translateY(-10px);
-    }
+table, th, td {
+    border: 1px solid #ccc;
+}
 
-    60% {
-      transform: translateY(-5px);
-    }
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #000;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Style the payment options */
+.form-check {
+    margin-bottom: 10px;
+}
+
+.form-check-label {
+    font-weight: bold;
+}
+
+/* Style the submit button */
+.btn.btn-danger {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn.btn-danger:hover {
+    background-color: #FF3C00;
+}
+
+
+
+    /* Định dạng nút "Mua" */
+    .mua-button {
+    background-color: #008800;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
   }
 
-  .tentaikhoan.animated {
-    animation: bounce 1s infinite;
-    /* Tạo hiệu ứng animation */
+  .mua-button:hover {
+    background-color: #002200;
+  }
+
+  /* Định dạng nút "Xóa" */
+  .xoa-button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .xoa-button:hover {
+    background-color: #cc0000;
+  }
+
+  /* Định dạng nút "Xóa tất cả" */
+  .xoa-tat-ca-button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  .xoa-tat-ca-button:hover {
+    background-color: #cc0000;
   }
 </style>
-
 <div class="container">
+  
   <div class="row">
     <div class="col-md-12">
       <div class="arrow-steps clearfix">

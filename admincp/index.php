@@ -16,8 +16,7 @@ if (!isset($_SESSION['dangnhap'])) {
   <title>Admincp</title>
   <link rel="stylesheet" type="text/css" href="css/styleadmincp.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <style>
     div {}
@@ -30,7 +29,7 @@ if (!isset($_SESSION['dangnhap'])) {
     <?php
     include("config/config.php");
 
-    
+
     ?>
     <div style="display: flex;width:100%">
       <div style="max-width:200px">
@@ -40,12 +39,12 @@ if (!isset($_SESSION['dangnhap'])) {
       </div>
       <div style="width:100%;margin-left:200px">
         <?php
-        include("modules/header.php");?>
+        include("modules/header.php"); ?>
         <div style="margin-top: 100px; z-index: 1000;">
-        <?php
-        include("modules/main.php");
-        ?>
-       </div>
+          <?php
+          include("modules/main.php");
+          ?>
+        </div>
       </div>
     </div>
 
@@ -60,7 +59,7 @@ if (!isset($_SESSION['dangnhap'])) {
     CKEDITOR.replace('tomtat');
   </script>
   <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
       thongke();
 
 
@@ -72,10 +71,16 @@ if (!isset($_SESSION['dangnhap'])) {
         ykeys: ['date', 'order', 'sales', 'quantity'],
         labels: ['', 'Đơn hàng', 'Danh thu', 'Số lượng bán ra'],
 
+
       });
+      char.options.labels = ['Date', 'Orders', 'Sales', 'Quantity Sold']; // Đổi tên nhãn
+
+      char.options.lineColors = ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f']; // Đổi màu đường
+
+      char.options.pointSize = 4; // Đổi kích thước của điểm dữ liệu
 
 
-      $(".select-date").change(function () {
+      $(".select-date").change(function() {
         var thoigian = $(this).val();
         if (thoigian == '7ngay') {
           var text = '7 ngày qua';
@@ -95,12 +100,13 @@ if (!isset($_SESSION['dangnhap'])) {
           data: {
             thoigian: thoigian
           },
-          success: function (data) {
+          success: function(data) {
             char.setData(data);
             $('#text-date').text(text);
           }
         });
       });
+
       function thongke() {
         var text = '365 ngày qua';
 
@@ -109,7 +115,7 @@ if (!isset($_SESSION['dangnhap'])) {
           url: "modules/thongke.php",
           method: "POST",
           dataType: "JSON",
-          success: function (data) {
+          success: function(data) {
             char.setData(data);
             $('#text-date').text(text);
           }
@@ -117,9 +123,6 @@ if (!isset($_SESSION['dangnhap'])) {
       }
 
     });
-
-
-
   </script>
 
 </body>

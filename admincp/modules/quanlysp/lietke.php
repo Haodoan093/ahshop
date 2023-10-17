@@ -24,7 +24,8 @@
       }
 
       th {
-          background-color: #f2f2f2;
+          background-color: #555555;
+          color: #fff;
       }
 
       img {
@@ -51,7 +52,7 @@
       }
 
       .delete-button {
-          background-color: #9c27b0;
+          background-color: darkturquoise;
           color: white;
       }
 

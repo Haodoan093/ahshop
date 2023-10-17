@@ -52,7 +52,7 @@
 
     /* Style for the submit button */
     table input[type="submit"] {
-        background-color: #28a745;
+        background-color: mediumaquamarine;
         /* Green color for the button */
         color: #fff;
         padding: 10px 20px;

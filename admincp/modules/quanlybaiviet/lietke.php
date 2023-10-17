@@ -24,7 +24,8 @@ $query_lietke_bv = mysqli_query($mysqli, $sql_lietke_bv);
     }
 
     th {
-        background-color: #f2f2f2;
+        background-color: #444444;
+        color: #fff;
     }
 
     img {

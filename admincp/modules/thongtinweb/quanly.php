@@ -87,7 +87,7 @@
   
         <tr>
   
-            <td> <textarea rows="12" name="thongtinlienhe"><?php echo $row['thongtinlienhe']?> </textarea></td>
+            <td> <textarea rows="18" name="thongtinlienhe"><?php echo $row['thongtinlienhe']?> </textarea></td>
         </tr>
 
       

@@ -3,87 +3,68 @@
       AND tbl_cart_details.code_cart='$_GET[code]' ORDER BY tbl_cart_details.id_cart_details DESC";
       $query_donhang = mysqli_query($mysqli,$sql_donhang);
   ?>
- 
  <style>
-        /* Reset default margin and padding for better consistency */
-        body, h1, h2, p, ul, li {
-            margin: 0;
-            padding: 0;
-        }
+    /* Reset default margin and padding for better consistency */
+    body, h1, p, ul, li {
+        margin: 0;
+        padding: 0;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #696969;
+    }
 
-        p {
-            font-size: 24px;
-            text-align: center;
-            margin-top: 20px;
-            font-weight: bold; /* Make text bold */
-        }
+    p {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+    }
 
-        /* Style for the table */
-        .styled-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Style for the table */
+    .styled-table {
+        width: 90%;
+        margin: 20px auto;
+        background-color: #fff;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .styled-table th, .styled-table td {
-            padding: 15px; /* Increase padding for better spacing */
-            border: 1px solid #ddd;
-            font-size: 18px; /* Increase font size */
-            text-align: center; /* Center align all cells */
-        }
+    .styled-table th, .styled-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        text-align: center;
+    }
 
-        .styled-table th {
-            background-color: #f2f2f2;
-        }
+    .styled-table th {
+        background-color:#79CDCD;
+        color: #333;
+    }
 
-        /* Style for edit and delete links */
-        .edit-link, .delete-link {
-            display: inline-block;
-            padding: 6px 12px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-        }
+    .styled-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-        .edit-link {
-            background-color: #800080; /* Purple for edit */
-            color: #fff;
-            margin-right: 10px;
-        }
+    /* Style for the total row */
+    .styled-table td[colspan="6"] {
+        text-align: right;
+        font-weight: bold;
+        background-color: #f2f2f2;
+    }
+</style>
 
-        .edit-link:hover {
-            background-color: #4b004b; /* Darker purple on hover */
-        }
 
-        .delete-link {
-            background-color: #000; /* Black for delete */
-            color: #fff;
-        }
-
-        .delete-link:hover {
-            background-color: #333; /* Darker black on hover */
-        }
-
-        /* Center "Quản lý" column */
-        .center-column {
-            text-align: center;
-        }
-    </style>
-  <p>Đơn hàng</p>
+  <p style="color: #fff;">Đơn hàng</p>
     <table class="styled-table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Mã đơn hàng</th>
                 <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
                 <th>Số lượng</th>
                 <th>Đơn giá</th>
                 <th>Thành tiền</th>
@@ -104,6 +85,7 @@
                 <td><?php echo $i ?></td>
                 <td><?php echo $row['code_cart']; ?></td>
                 <td><?php echo $row['tensanpham']; ?></td>
+                <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px"></td>
                 <td><?php echo $row['soluongmua']; ?></td>
                 <td> <?php echo number_format($row['giasp'],0,',','.').'VND'?></td>
                 <td><?php echo number_format($row['soluongmua']*$row['giasp'],0,',','.').'VND'; ?></td>
@@ -115,7 +97,7 @@
             }
             ?>
              <tr>
-            <td colspan="6">Tổng tiền : <?php echo number_format($tongtien,0,',','.').'VND'; ?></td>
+            <td colspan="7">Tổng tiền : <?php echo number_format($tongtien,0,',','.').'VND'; ?></td>
          
             </tr>
         </tbody>

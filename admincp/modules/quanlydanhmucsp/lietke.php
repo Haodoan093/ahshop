@@ -36,10 +36,10 @@
             font-size: 18px; /* Increase font size */
             text-align: center; /* Center align all cells */
         }
-
-        .styled-table th {
-            background-color: #999;
-        }
+        .styled-table thead {
+        background-color: #555555; /* Màu nền trắng cho thead */
+        color: #fff; /* Màu chữ đen cho thead */
+    }
 
         /* Style for edit and delete links */
         .edit-link, .delete-link {
@@ -53,7 +53,7 @@
         }
 
         .edit-link {
-            background-color: #800080; /* Purple for edit */
+            background-color: green; /* Purple for edit */
             color: #fff;
             margin-right: 10px;
         }
@@ -63,7 +63,7 @@
         }
 
         .delete-link {
-            background-color: #000; /* Black for delete */
+            background-color: darkturquoise; /* Black for delete */
             color: #fff;
         }
 

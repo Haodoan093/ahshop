@@ -1,3 +1,62 @@
+<style>
+
+    /* Add decorative styles to the progress steps */
+
+
+/* Style the table header and rows */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+}
+
+th {
+    background-color: #000;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Style the payment options */
+.form-check {
+    margin-bottom: 10px;
+}
+
+.form-check-label {
+    font-weight: bold;
+}
+
+/* Style the submit button */
+.btn.btn-danger {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn.btn-danger:hover {
+    background-color: #FF3C00;
+}
+
+</style>
+</style>
 <div class="container">
     <!-- Responsive Arrow Progress Bar -->
     <div class="arrow-steps clearfix">

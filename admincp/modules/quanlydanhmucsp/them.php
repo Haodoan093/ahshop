@@ -36,7 +36,7 @@
     }
 
     table input[type="submit"] {
-        background-color: #800080; /* Purple (tím) color */
+        background-color: mediumaquamarine; /* Purple (tím) color */
         color: #fff;
         padding: 10px 20px;
         border: none;
@@ -47,7 +47,7 @@
     }
 
     .them_danhmuc input[type="submit"] {
-        background-color: #800080; /* Purple (tím) color */
+        background-color: mediumaquamarine; /* Purple (tím) color */
         color: #fff;
         border: none;
         padding: 10px 20px;

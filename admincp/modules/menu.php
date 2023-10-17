@@ -73,11 +73,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     <div class="h1">
 
         <div class="avatar">
-            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/369091312_803132351601523_5195796201063561121_n.jpg?stp=dst-jpg_p206x206&_nc_cat=102&ccb=1-7&_nc_sid=aee45a&_nc_ohc=K0Ca2f1ISk4AX87YSMM&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQ4DuadVOtyeisKEy3pKv_YM6exFI3agoneLiQ8UVxJCA&oe=654BC799"
+            <img src="https://images.pexels.com/photos/18749414/pexels-photo-18749414.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="Avatar">
         </div>
         
-        <h2 class="animate__animated animate__bounce" style="font-size:23px;padding-left:15px;padding-top:10px">Admin
+        <h2 class=" " style="font-size:23px;padding-left:15px;padding-top:10px">Admin
         </h2>
     </div>
     <ul class="admincp_list">

@@ -38,7 +38,8 @@
         }
 
         .styled-table th {
-            background-color: #f2f2f2;
+            background-color: #555555;
+            color: #fff;
         }
 
         /* Style for edit and delete links */
@@ -53,13 +54,13 @@
         }
 
         .edit-link {
-            background-color: #800080; /* Purple for edit */
+            background-color: green; /* Purple for edit */
             color: #fff;
             margin-right: 10px;
         }
 
         .edit-link:hover {
-            background-color: #4b004b; /* Darker purple on hover */
+            background-color: yellowgreen; /* Darker purple on hover */
         }
 
         .delete-link {
