@@ -37,7 +37,7 @@ body{
     /* Định dạng nút "Thêm giỏ hàng" */
  input.themgiohang {
         padding: 10px 20px;
-        background-color: #708090;
+        background-color: #ffa14e;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -49,7 +49,7 @@ body{
 
     /* Hiệu ứng hover cho nút "Thêm giỏ hàng" */
  input.themgiohang:hover {
-        background-color: #5F9EA0;
+        background-color:#ffd91a;
         transform: scale(1.05); /* Phóng to nút khi di chuột vào */
  }
 /* Định dạng phần header */
@@ -332,12 +332,12 @@ i.fas:hover {
 /* Thiết kế cho sidebar */
 .sidebar {
     width: 100%;
-    background-color:#999;
+    background-color:#444444;
     color: #212529;
     padding: 20px;
     height: 98%;
     margin-top: 5px;
-    margin-left: 5px;
+   
     float: left;
     transition: width 0.3s ease;
     border-radius:5px; /* Đặt góc bo tròn */
@@ -376,8 +376,8 @@ i.fas:hover {
 }
 
 .list_sidebar li a:hover {
-    background-color: #000; /* Màu cam khi di chuột qua */
-    color: #ccc; /* Màu chữ trắng khi di chuột qua */
+    background-color: #F0FFF0; /* Màu cam khi di chuột qua */
+    color: #fff; /* Màu chữ trắng khi di chuột qua */
     transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột qua */
     
 }

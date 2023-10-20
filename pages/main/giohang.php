@@ -16,45 +16,48 @@
   }
 
 
-  
-table {
+
+  table {
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 20px;
-}
+  }
 
-table, th, td {
+  table,
+  th,
+  td {
     border: 1px solid #ccc;
-}
+  }
 
-th, td {
+  th,
+  td {
     padding: 10px;
-}
+  }
 
-th {
+  th {
     background-color: #000;
     color: #fff;
-}
+  }
 
-tr:nth-child(even) {
+  tr:nth-child(even) {
     background-color: #f2f2f2;
-}
+  }
 
-tr:nth-child(odd) {
+  tr:nth-child(odd) {
     background-color: #fff;
-}
+  }
 
-/* Style the payment options */
-.form-check {
+  /* Style the payment options */
+  .form-check {
     margin-bottom: 10px;
-}
+  }
 
-.form-check-label {
+  .form-check-label {
     font-weight: bold;
-}
+  }
 
-/* Style the submit button */
-.btn.btn-danger {
+  /* Style the submit button */
+  .btn.btn-danger {
     background-color: #FF5733;
     color: #fff;
     padding: 10px 20px;
@@ -62,21 +65,22 @@ tr:nth-child(odd) {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-}
+  }
 
-.btn.btn-danger:hover {
+  .btn.btn-danger:hover {
     background-color: #FF3C00;
-}
+  }
 
 
 
-    /* Định dạng nút "Mua" */
-    .mua-button {
+  /* Định dạng nút "Mua" */
+  .mua-button {
     background-color: #008800;
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    border-radius: 50%;
+    /* Biến đổi thành hình nút tròn */
     text-align: center;
     font-size: 16px;
     cursor: pointer;
@@ -94,10 +98,12 @@ tr:nth-child(odd) {
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    border-radius: 50%;
+    /* Biến đổi thành hình nút tròn */
     text-align: center;
     font-size: 16px;
-    cursor: pointer;text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
   }
 
@@ -111,13 +117,16 @@ tr:nth-child(odd) {
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 50%; /* Biến đổi thành hình nút tròn */
+    border-radius: 50%;
+    /* Biến đổi thành hình nút tròn */
     text-align: center;
     font-size: 16px;
-    cursor: pointer;text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
     transition: background-color 0.3s ease;
   }
-  a{
+
+  a {
     text-decoration: none;
   }
 
@@ -126,7 +135,9 @@ tr:nth-child(odd) {
   }
 </style>
 <div class="container">
-  
+  <?php 
+if(isset($_SESSION['id_khachhang'])){
+?>
   <div class="row">
     <div class="col-md-12">
       <div class="arrow-steps clearfix">
@@ -136,6 +147,7 @@ tr:nth-child(odd) {
         <div class="step"> <span>Lịch sử đơn hàng</a><span> </div>
       </div>
     </div>
+    <?php } ?>
     <p class="tentaikhoan" class="col-md-12">
       <?php if (isset($_SESSION['dangky'])) {
         echo 'Xin chào : ' . $_SESSION['dangky'];

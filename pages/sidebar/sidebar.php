@@ -2,7 +2,7 @@
 ob_start(); // Bắt đầu bộ đệm đầu ra
 ?>
 <div class="sidebar">
-  <h4 >Danh mục sản phẩm</h4>
+ 
   <ul class="list_sidebar">
     <?php
     $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";

@@ -16,7 +16,7 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width:100%">
-    <a class="navbar-brand" href="index.php">Logo</a>
+    <a class="navbar-brand" href="index.php"><img src="../images/" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,9 +26,7 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
             <li class="nav-item active">
                 <a class="nav-link" href="index.php" style="font-size: 16px; padding-left: 32px;">Trang chủ <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?quanly=giohang"style="font-size: 16px; padding-left: 28px;">Giỏ hàng</a>
-            </li>
+           
             <li class="nav-item"> <a class="nav-link" href="index.php?quanly=tintuc"style="font-size: 16px; padding-left: 32px;">Tin tức</a></li>
              <li class="nav-item"> <a class="nav-link" href="index.php?quanly=lienhe"style="font-size: 16px; padding-left: 32px;">Liên hệ</a></li>
             <li class="nav-item dropdown">
@@ -40,7 +38,7 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
                     $i = 0;
                     while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
                         $i++;
-                        if ($i < 6) {
+                        if ($i < 8) {
                     ?>
                             <a class="dropdown-item" href="index.php?quanly=danhmucsanpham&id=<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></a>
 
@@ -52,6 +50,9 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
 
 
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?quanly=giohang"style="font-size: 16px; padding-left: 28px;">Giỏ hàng</a>
             </li>
          
                         <?php

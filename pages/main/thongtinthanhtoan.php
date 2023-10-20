@@ -2,59 +2,62 @@
     /* Add decorative styles to the progress steps */
 
 
-/* Style the table header and rows */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-}
+    /* Style the table header and rows */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-table, th, td {
-    border: 1px solid #ccc;
-}
+    table,
+    th,
+    td {
+        border: 1px solid #ccc;
+    }
 
-th, td {
-    padding: 10px;
-}
+    th,
+    td {
+        padding: 10px;
+    }
 
-th {
-    background-color: #000;
-    color: #fff;
-}
+    th {
+        background-color: #000;
+        color: #fff;
+    }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-tr:nth-child(odd) {
-    background-color: #fff;
-}
+    tr:nth-child(odd) {
+        background-color: #fff;
+    }
 
-/* Style the payment options */
-.form-check {
-    margin-bottom: 10px;
-}
+    /* Style the payment options */
+    .form-check {
+        margin-bottom: 10px;
+    }
 
-.form-check-label {
-    font-weight: bold;
-}
+    .form-check-label {
+        font-weight: bold;
+    }
 
-/* Style the submit button */
-.btn.btn-danger {
-    background-color: #FF5733;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
+    /* Style the submit button */
+    .btn.btn-danger {
+        background-color: #FF5733;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-.btn.btn-danger:hover {
-    background-color: #FF3C00;
-}
-
-</style><div class="container">
+    .btn.btn-danger:hover {
+        background-color: #FF3C00;
+    }
+</style>
+<div class="container">
     <!-- Responsive Arrow Progress Bar -->
     <div class="arrow-steps clearfix">
 
@@ -68,7 +71,7 @@ tr:nth-child(odd) {
     </div>
 
     <form action="pages/main/xulythanhtoan.php" method="POST">
-    <div class="row">
+        <div class="row">
             <?php
             $id_dangky =  $_SESSION['id_khachhang'];
             $sql_get_vanchuyen = mysqli_query($mysqli, "SELECT * FROM tbl_shipping WHERE id_dangky = '$id_dangky' LIMIT 1");
@@ -162,8 +165,8 @@ tr:nth-child(odd) {
                     margin: 11px;
                 }
             </style>
-            
-   
+
+
             <div class="col-md-4 hinhthucthanhtoan">
                 <h4>Phương thức thanh toán</h4>
 
@@ -187,13 +190,13 @@ tr:nth-child(odd) {
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" id="exampleRadios3" value="vnpay">
+                    <input class="form-check-input" type="radio" name="payment"0 id="exampleRadios3" value="vnpay">
                     <img src="images/vnpay.jpg" height="40" width="40" alt="">
                     <label class="form-check-label" for="exampleRadios3">
                         VNpay
                     </label>
                 </div>
-                
+
                 <!-- <div class="form-check">
                     <input class="form-check-input" type="radio" name="payment" id="exampleRadios4" value="paypal">
                     <img src="images/paypal.jpg" height="32" width="32" alt="">
@@ -202,10 +205,11 @@ tr:nth-child(odd) {
                     </label>
                 </div> -->
                 <div id="paypal-button-container"></div>
-                <p >Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
-                <input type="submit" value="Thanh toán ngay" name="checkout" class="btn btn-danger">
+                <p id="result-message"></p>
+                <p>Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
+                <input type="submit" value="Thanh toán ngay" name="redirect" id="redirect" class="btn btn-danger">
             </div>
-    </div>
- 
+        </div>
+
 </div>
 </form>
