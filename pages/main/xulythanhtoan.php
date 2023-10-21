@@ -2,7 +2,7 @@
 <?php
 session_start();
 include("../../admincp/config/config.php");
-require('../../mail/send/sendmail.php');
+
 require('../../carbon/autoload.php');
 require_once('config_vnpay.php');
 
@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
 $now = Carbon::now('Asia/Ho_Chi_Minh');
+$_SESSION['now'] = $now->toDateTimeString();
 
 $id_khachhang = $_SESSION['id_khachhang'];
 $code_order = rand(0, 9999);
@@ -115,55 +116,6 @@ if ($cart_payment == 'tienmat' || $cart_payment == 'chuyenkhoan') {
         echo json_encode($returnData);
       }
   // vui lòng tham khảo thêm tại code demo
-} else if ($cart_payment == 'momo') {
-} else if ($cart_payment == 'paypal') {
-}
-if($cart_query){
-//  $tieude = "AHSHOP CẢM ƠN !";
+} 
 
-//  $noidung = "
-//  <style>
-//    .guimail {
-//      font-family: Arial, sans-serif;
-//      background-color: #f2f2f2;
-//      padding: 20px;
-//      border-radius: 5px;
-//      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-//    }
-//    p {
-//      margin: 0;
-//    }
-//  </style>
-//    <div class='guimail'>
-//      <p>CẢM ƠN BẠN ĐÃ ĐẶT HÀNG</p>
-//      <p>Mã đơn hàng : $code_order</p>
-//      <p>Đơn hàng sẽ được giao sớm nhất</p>
-//    </div>
-//  ";
-//  $tong=$_SESSION['tongtien'];
-//  foreach($_SESSION['cart'] as $key=>$val){
-//     $noidung.="<ul>
-//     <li>".$val['tensanpham']."</li>
-//     <li>".$val['masp']."</li>
-//     <li>Giá : ".number_format($val['giasp'],0,',','.').' VND'."</li>
-//     <li>Số lượng :".$val['soluong']."</li>
-//     <li>Ngày đặt :".$now."</li>
-//     <li>Tổng tiền : ".number_format($tong,0,',','.').' VND'."</li>
-
-
-//     </ul>";
-
-
-//  }
-//  $maildathang=$_SESSION['email'];
-//  // Tạo một đối tượng từ lớp GuiGmail và gọi phương thức đatHang() để gửi email
-//  $guiEmail = new GuiGmail();
-//  $guiEmail->DatHang($tieude,$noidung,$maildathang);
-
-
-// unset($_SESSION['cart']);
-// unset($_SESSION['tongtien']);
-}
-
-// 
 ?>

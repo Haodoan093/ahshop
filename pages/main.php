@@ -7,6 +7,7 @@
         <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <div class="maincontent">
                 <?php
+                  
                 if (isset($_GET['quanly'])) {
                     $tmp = $_GET['quanly'];
                 } else {
@@ -48,7 +49,13 @@
                    include("main/thaydoimatkhau.php");
                   
                 
-                } elseif ($tmp == 'vanchuyen') {
+                } elseif ($tmp == 'lichsu') {
+                    include("main/lichsudonhang.php");
+                   
+                 
+                } elseif ($tmp == 'xemdonhang') {
+                    include("main/xemdonhang.php");
+                }elseif ($tmp == 'vanchuyen') {
                     include("main/vanchuyen.php");
                 } elseif ($tmp == 'thanhtoant') {
                     include("main/thongtinthanhtoan.php");

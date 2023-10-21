@@ -44,14 +44,38 @@
 
     /* Style the submit button */
     .btn.btn-danger {
+        margin-bottom: 10px;
         background-color: #FF5733;
         color: #fff;
-        padding: 10px 20px;
+        padding: 10px 125px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
     }
+        .btn-momo {
+            margin-bottom: 10px;
+        background-color: #FF5733;
+        color: #fff;
+        padding: 10px 20px; /* Reduced padding for a more compact button */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase; /* Uppercase text */
+        transition: background-color 0.3s; /* Add a smooth transition effect for the background color */
+        }
+        /* Optional: Add hover effect to change background color on hover */
+        .btn-momo:hover {
+            background-color: #FF8844; /* Change to a slightly different color on hover */
+        }
+    
+
+    /* Optional: Increase the bottom margin for better spacing between buttons */
+    .btn-momo + .btn-momo {
+        margin-top: 10px;
+    }
+
 
     .btn.btn-danger:hover {
         background-color: #FF3C00;
@@ -182,20 +206,15 @@
                         Chuyển khoản
                     </label>
                 </div>
+               
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" id="exampleRadios2" value="momo">
-                    <img src="images/momo.jpg" height="32" width="32" alt="">
-                    <label class="form-check-label" for="exampleRadios2">
-                        MOMO
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment"0 id="exampleRadios3" value="vnpay">
+                    <input class="form-check-input" type="radio" name="payment" 0 id="exampleRadios3" value="vnpay">
                     <img src="images/vnpay.jpg" height="40" width="40" alt="">
                     <label class="form-check-label" for="exampleRadios3">
                         VNpay
                     </label>
                 </div>
+                </form>
 
                 <!-- <div class="form-check">
                     <input class="form-check-input" type="radio" name="payment" id="exampleRadios4" value="paypal">
@@ -204,12 +223,25 @@
                         Paypal
                     </label>
                 </div> -->
-                <div id="paypal-button-container"></div>
-                <p id="result-message"></p>
                 <p>Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
                 <input type="submit" value="Thanh toán ngay" name="redirect" id="redirect" class="btn btn-danger">
+                <div id="paypal-button-container"></div>
+                <p id="result-message"></p>
+               
+                 
+                <img src="images/momo.jpg" height="40" width="40" alt="">
+                <form class="" action="pages/main/xulythanhtoanmomo.php" method="POST" target="_blank" enctype="application/x-www-form-urlencoded">
+    
+                <input type="submit" value="Thanh toán MOMO QRCODE" name="momo"  class="btn btn-momo">
+
+                </form>
+                
+                <form class="" action="pages/main/xulythanhtoanmomo_atm.php" method="POST" target="_blank" enctype="application/x-www-form-urlencoded">
+    
+                <input type="submit" value="Thanh toán MOMO ATM" name="momo"  class="btn btn-momo">
+
+                </form>
             </div>
         </div>
 
 </div>
-</form>

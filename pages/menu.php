@@ -58,6 +58,7 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
                         <?php
                            if (isset($_SESSION['dangky'])) {
                             ?>
+                             <li class="nav-item"> <a class="nav-link"href="index.php?quanly=lichsu"style="font-size: 16px; padding-left: 32px;">Lịch sử đơn hàng</a></li>
                         <li class="nav-item"> <a class="nav-link"href="index.php?quanly=thaydoimatkhau"style="font-size: 16px; padding-left: 32px;">Đổi mật khẩu</a></li>
                         <li class="nav-item"> <a class="nav-link"  href="index.php?dangxuat=1"style="font-size: 16px; padding-left: 32px;">Đăng xuất</a></li>
 
