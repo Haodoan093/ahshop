@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 06, 2023 at 09:38 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 22, 2023 lúc 01:15 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dcshop`
+-- Cơ sở dữ liệu: `dcshop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Cấu trúc bảng cho bảng `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_admin`
+-- Đang đổ dữ liệu cho bảng `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`id_admin`, `username`, `password`, `admin_status`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `tbl_admin` (`id_admin`, `username`, `password`, `admin_status`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_baiviet`
+-- Cấu trúc bảng cho bảng `tbl_baiviet`
 --
 
 CREATE TABLE `tbl_baiviet` (
@@ -58,7 +58,7 @@ CREATE TABLE `tbl_baiviet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_baiviet`
+-- Đang đổ dữ liệu cho bảng `tbl_baiviet`
 --
 
 INSERT INTO `tbl_baiviet` (`id_baiviet`, `tenbaiviet`, `hinhanh`, `tomtat`, `noidung`, `id_danhmuc`, `tinhtrang`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `tbl_baiviet` (`id_baiviet`, `tenbaiviet`, `hinhanh`, `tomtat`, `noi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_cart`
+-- Cấu trúc bảng cho bảng `tbl_cart`
 --
 
 CREATE TABLE `tbl_cart` (
@@ -84,34 +84,19 @@ CREATE TABLE `tbl_cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_cart`
+-- Đang đổ dữ liệu cho bảng `tbl_cart`
 --
 
 INSERT INTO `tbl_cart` (`id_cart`, `id_khachhang`, `code_cart`, `cart_status`, `cart_date`, `cart_payment`, `cart_shipping`) VALUES
-(43, 13, '1301', 0, '2023-09-27 10:33:46', '0', 0),
-(44, 13, '2016', 0, '2023-09-27 10:35:48', '0', 0),
-(45, 20, '9783', 0, '2023-09-27 10:45:16', '0', 0),
-(46, 20, '2014', 0, '2023-09-27 10:46:06', '0', 0),
-(47, 20, '2394', 0, '2023-09-27 10:46:41', '0', 0),
-(48, 20, '2670', 0, '2023-09-27 11:00:33', '0', 0),
-(49, 13, '262', 0, '2023-09-27 11:02:47', '0', 0),
-(50, 20, '4979', 0, '2023-09-27 11:04:33', '0', 0),
-(51, 13, '7033', 0, '2023-09-27 11:04:56', '0', 0),
-(52, 13, '8660', 0, '2023-10-04 14:02:25', '0', 0),
-(53, 13, '1295', 0, '2023-10-04 15:48:45', '0', 0),
-(54, 13, '9505', 0, '2023-10-04 23:29:39', '0', 0),
-(55, 13, '1076', 0, '2023-10-04 23:31:52', '0', 0),
-(56, 13, '4292', 0, '2023-10-04 23:33:28', '0', 0),
-(57, 13, '9354', 0, '2023-10-04 23:34:56', '0', 0),
-(58, 21, '6301', 1, '2023-10-05 23:41:18', '0', 0),
-(59, 13, '3034', 1, '2023-10-06 09:14:35', '0', 8),
-(60, 13, '3356', 1, '2023-10-06 09:16:56', 'tienmat', 8),
-(61, 13, '897', 1, '2023-10-06 09:18:57', 'chuyenkhoan', 8);
+(88, 13, '8770', 0, '2023-10-21 16:49:56', 'tienmat', 8),
+(89, 13, '982', 0, '2023-10-21 16:50:08', 'vnpay', 8),
+(90, 13, '3550', 0, '2023-10-21 16:53:37', 'momo', 8),
+(91, 29, '3562', 0, '2023-10-21 20:03:08', 'momo', 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_cart_details`
+-- Cấu trúc bảng cho bảng `tbl_cart_details`
 --
 
 CREATE TABLE `tbl_cart_details` (
@@ -122,79 +107,19 @@ CREATE TABLE `tbl_cart_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_cart_details`
+-- Đang đổ dữ liệu cho bảng `tbl_cart_details`
 --
 
 INSERT INTO `tbl_cart_details` (`id_cart_details`, `code_cart`, `id_sanpham`, `soluongmua`) VALUES
-(1, '2481', 22, 1),
-(2, '7660', 22, 1),
-(3, '3614', 22, 1),
-(4, '5860', 15, 1),
-(5, '5853', 24, 1),
-(6, '5853', 23, 1),
-(7, '1722', 23, 1),
-(8, '6378', 24, 1),
-(9, '1565', 37, 1),
-(10, '2881', 22, 1),
-(11, '6736', 19, 1),
-(12, '2326', 37, 1),
-(13, '1667', 28, 1),
-(14, '6791', 28, 3),
-(15, '6791', 24, 4),
-(16, '2329', 25, 2),
-(17, '2329', 39, 1),
-(18, '9507', 24, 1),
-(19, '2072', 24, 1),
-(20, '476', 24, 1),
-(21, '4004', 24, 1),
-(22, '7807', 39, 1),
-(23, '9826', 38, 1),
-(24, '6703', 25, 1),
-(25, '3325', 39, 1),
-(26, '894', 37, 1),
-(27, '9367', 35, 1),
-(28, '6048', 25, 1),
-(29, '8289', 37, 1),
-(30, '3000', 25, 1),
-(31, '3918', 31, 1),
-(32, '9179', 24, 1),
-(33, '7376', 37, 2),
-(34, '7376', 24, 3),
-(35, '9204', 37, 1),
-(36, '5786', 37, 2),
-(37, '2109', 39, 2),
-(38, '321', 37, 1),
-(39, '321', 25, 1),
-(40, '7765', 31, 2),
-(41, '2627', 32, 1),
-(42, '1301', 37, 1),
-(43, '2016', 25, 1),
-(44, '9783', 32, 1),
-(45, '2014', 24, 1),
-(46, '2394', 24, 1),
-(47, '2670', 38, 1),
-(48, '262', 32, 1),
-(49, '4979', 25, 1),
-(50, '7033', 24, 1),
-(51, '8660', 25, 2),
-(52, '8660', 32, 3),
-(53, '1295', 35, 1),
-(54, '9505', 40, 1),
-(55, '1076', 39, 2),
-(56, '1076', 25, 3),
-(57, '4292', 40, 2),
-(58, '4292', 31, 1),
-(59, '9354', 39, 2),
-(60, '9354', 37, 2),
-(61, '6301', 40, 1),
-(62, '3034', 40, 1),
-(63, '3356', 40, 1),
-(64, '897', 39, 1);
+(94, '8770', 40, 1),
+(95, '982', 39, 1),
+(96, '3550', 38, 1),
+(97, '3562', 29, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_dangky`
+-- Cấu trúc bảng cho bảng `tbl_dangky`
 --
 
 CREATE TABLE `tbl_dangky` (
@@ -207,25 +132,25 @@ CREATE TABLE `tbl_dangky` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_dangky`
+-- Đang đổ dữ liệu cho bảng `tbl_dangky`
 --
 
 INSERT INTO `tbl_dangky` (`id_dangky`, `tenkhachhang`, `email`, `diachi`, `matkhau`, `dienthoai`) VALUES
 (12, 'Đoàn Chính Hào', 'thanhnu093@gmail.com', 'Ứng Hoà -Hà Nội', 'c81e728d9d4c2f636f067f89cc14862c', '0348721231'),
-(13, 'Đoàn Chính Hào', 'haodoan093@gmail.com', 'Hà Nội', 'c81e728d9d4c2f636f067f89cc14862c', '0346523144'),
+(13, 'Đoàn Chính Hào', 'haodoan093@gmail.com', 'Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '0346523144'),
 (14, 'Nguyễn Ánh', 'tokuda093@gmail.com', 'Thanh Xuân - Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '0346523127'),
 (15, 'Anh GA', 'thanhnu193@gmail.com', 'Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '0346527821'),
 (16, 'Đoàn Văn Kiên', 'anhta193@gmail.com', 'Hà Nội', '1', '0346521231'),
-(17, 'Đoàn Văn Kiên', 'tha12u093@gmail.com', '', 'c4ca4238a0b923820dcc509a6f75849b', '0346523189'),
 (18, 'Duong Linh Chi', 'duonglinhchi@gmail.com', 'Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '0348721254'),
 (19, 'Nguyễn Ngọc Ánh', 'anh01642778814@gmail.com', 'Thanh Xuân - Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '0962531636'),
 (20, 'Sái minh hiếu', 'saiminhhieu0712@gmail.com', 'Hà Nội', 'c81e728d9d4c2f636f067f89cc14862c', '0346523143'),
-(21, 'Nguyễn Ngọc', 'haodoan013@gmail.com', 'Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '03461221212');
+(21, 'Nguyễn Ngọc', 'haodoan013@gmail.com', 'Hà Nội', 'c4ca4238a0b923820dcc509a6f75849b', '03461221212'),
+(29, 'Dam dan', 'damquocdan@gmail.com', 'Sóc Sơn', 'c4ca4238a0b923820dcc509a6f75849b', '098877887');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_danhmuc`
+-- Cấu trúc bảng cho bảng `tbl_danhmuc`
 --
 
 CREATE TABLE `tbl_danhmuc` (
@@ -235,7 +160,7 @@ CREATE TABLE `tbl_danhmuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_danhmuc`
+-- Đang đổ dữ liệu cho bảng `tbl_danhmuc`
 --
 
 INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `tendanhmuc`, `thutu`) VALUES
@@ -254,7 +179,7 @@ INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `tendanhmuc`, `thutu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_danhmucbaiviet`
+-- Cấu trúc bảng cho bảng `tbl_danhmucbaiviet`
 --
 
 CREATE TABLE `tbl_danhmucbaiviet` (
@@ -264,8 +189,7 @@ CREATE TABLE `tbl_danhmucbaiviet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_
-mucbaiviet`
+-- Đang đổ dữ liệu cho bảng `tbl_danhmucbaiviet`
 --
 
 INSERT INTO `tbl_danhmucbaiviet` (`id_danhmucbaiviet`, `tendanhmuc_baiviet`, `thutu`) VALUES
@@ -277,7 +201,7 @@ INSERT INTO `tbl_danhmucbaiviet` (`id_danhmucbaiviet`, `tendanhmuc_baiviet`, `th
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_lienhe`
+-- Cấu trúc bảng cho bảng `tbl_lienhe`
 --
 
 CREATE TABLE `tbl_lienhe` (
@@ -286,7 +210,7 @@ CREATE TABLE `tbl_lienhe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_lienhe`
+-- Đang đổ dữ liệu cho bảng `tbl_lienhe`
 --
 
 INSERT INTO `tbl_lienhe` (`id`, `thongtinlienhe`) VALUES
@@ -295,7 +219,33 @@ INSERT INTO `tbl_lienhe` (`id`, `thongtinlienhe`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sanpham`
+-- Cấu trúc bảng cho bảng `tbl_momo`
+--
+
+CREATE TABLE `tbl_momo` (
+  `id_momo` int(11) NOT NULL,
+  `partnercode` varchar(200) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `amount` varchar(50) NOT NULL,
+  `order_info` varchar(100) NOT NULL,
+  `order_type` varchar(50) NOT NULL,
+  `trans_id` int(11) NOT NULL,
+  `pay_type` varchar(50) NOT NULL,
+  `code_cart` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_momo`
+--
+
+INSERT INTO `tbl_momo` (`id_momo`, `partnercode`, `order_id`, `amount`, `order_info`, `order_type`, `trans_id`, `pay_type`, `code_cart`) VALUES
+(11, 'MOMOBKUN20180529', 1697881977, '2490000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '3550'),
+(12, 'MOMOBKUN20180529', 1697893334, '499000', 'Thanh toán qua MoMo ATM', 'momo_wallet', 2147483647, 'napas', '3562');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_sanpham`
 --
 
 CREATE TABLE `tbl_sanpham` (
@@ -312,7 +262,7 @@ CREATE TABLE `tbl_sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_sanpham`
+-- Đang đổ dữ liệu cho bảng `tbl_sanpham`
 --
 
 INSERT INTO `tbl_sanpham` (`id_sanpham`, `tensanpham`, `masp`, `giasp`, `soluong`, `hinhanh`, `tomtat`, `noidung`, `tinhtrang`, `id_danhmuc`) VALUES
@@ -344,7 +294,7 @@ INSERT INTO `tbl_sanpham` (`id_sanpham`, `tensanpham`, `masp`, `giasp`, `soluong
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_shipping`
+-- Cấu trúc bảng cho bảng `tbl_shipping`
 --
 
 CREATE TABLE `tbl_shipping` (
@@ -357,17 +307,18 @@ CREATE TABLE `tbl_shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_shipping`
+-- Đang đổ dữ liệu cho bảng `tbl_shipping`
 --
 
 INSERT INTO `tbl_shipping` (`id_shipping`, `name`, `phone`, `address`, `note`, `id_dangky`) VALUES
 (5, 'Hào Đoàn Chính', '0346523128', 'Bắc từ Liêm , Hà Nội', '', 21),
-(8, 'Hào Đoàn Chính', '0346523128', 'Bắc từ Liêm , Hà Nội', '2', 13);
+(8, 'Hào Đoàn Chính', '0346523128', 'Bắc từ Liêm , Hà Nội', '2', 13),
+(9, 'Đàm Quốc Dân', '034123123', 'Từ Sơn - Bấc Ninh', '', 29);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_thongke`
+-- Cấu trúc bảng cho bảng `tbl_thongke`
 --
 
 CREATE TABLE `tbl_thongke` (
@@ -379,7 +330,7 @@ CREATE TABLE `tbl_thongke` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_thongke`
+-- Đang đổ dữ liệu cho bảng `tbl_thongke`
 --
 
 INSERT INTO `tbl_thongke` (`id`, `ngaydat`, `donhang`, `doanhthu`, `soluongban`) VALUES
@@ -388,147 +339,240 @@ INSERT INTO `tbl_thongke` (`id`, `ngaydat`, `donhang`, `doanhthu`, `soluongban`)
 (3, '2023-08-30', 51, '6000020', 13),
 (4, '2023-06-21', 66, '5009002', 41),
 (5, '2023-10-02', 23, '1230000', 32),
-(6, '2023-10-04', 4, '13898000', 8);
+(6, '2023-10-04', 4, '13898000', 8),
+(7, '2023-10-09', 1, '2190000', 1),
+(8, '2023-10-17', 3, '3570000', 3),
+(9, '2023-10-20', 3, '17710000', 9),
+(10, '2023-10-21', 5, '7367000', 6);
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Cấu trúc bảng cho bảng `tbl_vnpay`
+--
+
+CREATE TABLE `tbl_vnpay` (
+  `id_vnpay` int(11) NOT NULL,
+  `vnp_amount` varchar(100) NOT NULL,
+  `vnp_bankcode` varchar(100) NOT NULL,
+  `vnp_banktranno` varchar(100) NOT NULL,
+  `vnp_cardtype` varchar(100) NOT NULL,
+  `vnp_orderInfo` varchar(200) NOT NULL,
+  `vnp_paydate` varchar(200) NOT NULL,
+  `vnp_tmncode` varchar(100) NOT NULL,
+  `vnp_transactionno` varchar(200) NOT NULL,
+  `code_cart` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_vnpay`
+--
+
+INSERT INTO `tbl_vnpay` (`id_vnpay`, `vnp_amount`, `vnp_bankcode`, `vnp_banktranno`, `vnp_cardtype`, `vnp_orderInfo`, `vnp_paydate`, `vnp_tmncode`, `vnp_transactionno`, `code_cart`) VALUES
+(15, '2190000', 'NCB', 'VNP14150735', 'ATM', 'Thanh toán đơn hàng đặt tịa website AHSHOP', '20231021165028', '4L85GX41', '14150735', '982');
+
+--
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Chỉ mục cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `tbl_baiviet`
+-- Chỉ mục cho bảng `tbl_baiviet`
 --
 ALTER TABLE `tbl_baiviet`
-  ADD PRIMARY KEY (`id_baiviet`);
+  ADD PRIMARY KEY (`id_baiviet`),
+  ADD KEY `FK_tbl_baiviet_tbl_danhmucbaiviet` (`id_danhmuc`);
 
 --
--- Indexes for table `tbl_cart`
+-- Chỉ mục cho bảng `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  ADD PRIMARY KEY (`id_cart`);
+  ADD PRIMARY KEY (`id_cart`),
+  ADD KEY `FK_tbl_cart_tbl_dangky` (`id_khachhang`);
 
 --
--- Indexes for table `tbl_cart_details`
+-- Chỉ mục cho bảng `tbl_cart_details`
 --
 ALTER TABLE `tbl_cart_details`
-  ADD PRIMARY KEY (`id_cart_details`);
+  ADD PRIMARY KEY (`id_cart_details`),
+  ADD KEY `FK_tbl_cart_details_tbl_sanpham` (`id_sanpham`);
 
 --
--- Indexes for table `tbl_dangky`
+-- Chỉ mục cho bảng `tbl_dangky`
 --
 ALTER TABLE `tbl_dangky`
   ADD PRIMARY KEY (`id_dangky`);
 
 --
--- Indexes for table `tbl_danhmuc`
+-- Chỉ mục cho bảng `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
   ADD PRIMARY KEY (`id_danhmuc`);
 
 --
--- Indexes for table `tbl_danhmucbaiviet`
+-- Chỉ mục cho bảng `tbl_danhmucbaiviet`
 --
 ALTER TABLE `tbl_danhmucbaiviet`
   ADD PRIMARY KEY (`id_danhmucbaiviet`);
 
 --
--- Indexes for table `tbl_lienhe`
+-- Chỉ mục cho bảng `tbl_lienhe`
 --
 ALTER TABLE `tbl_lienhe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_sanpham`
+-- Chỉ mục cho bảng `tbl_momo`
+--
+ALTER TABLE `tbl_momo`
+  ADD PRIMARY KEY (`id_momo`);
+
+--
+-- Chỉ mục cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  ADD PRIMARY KEY (`id_sanpham`);
+  ADD PRIMARY KEY (`id_sanpham`),
+  ADD KEY `FK_tbl_sanpham_tbl_danhmuc` (`id_danhmuc`);
 
 --
--- Indexes for table `tbl_shipping`
+-- Chỉ mục cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
-  ADD PRIMARY KEY (`id_shipping`);
+  ADD PRIMARY KEY (`id_shipping`),
+  ADD KEY `FK_tbl_shipping_tbl_dangky` (`id_dangky`);
 
 --
--- Indexes for table `tbl_thongke`
+-- Chỉ mục cho bảng `tbl_thongke`
 --
 ALTER TABLE `tbl_thongke`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Chỉ mục cho bảng `tbl_vnpay`
+--
+ALTER TABLE `tbl_vnpay`
+  ADD PRIMARY KEY (`id_vnpay`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_baiviet`
+-- AUTO_INCREMENT cho bảng `tbl_baiviet`
 --
 ALTER TABLE `tbl_baiviet`
   MODIFY `id_baiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_cart`
+-- AUTO_INCREMENT cho bảng `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
--- AUTO_INCREMENT for table `tbl_cart_details`
+-- AUTO_INCREMENT cho bảng `tbl_cart_details`
 --
 ALTER TABLE `tbl_cart_details`
-  MODIFY `id_cart_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_cart_details` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
--- AUTO_INCREMENT for table `tbl_dangky`
+-- AUTO_INCREMENT cho bảng `tbl_dangky`
 --
 ALTER TABLE `tbl_dangky`
-  MODIFY `id_dangky` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_dangky` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `tbl_danhmuc`
+-- AUTO_INCREMENT cho bảng `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
   MODIFY `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `tbl_danhmucbaiviet`
+-- AUTO_INCREMENT cho bảng `tbl_danhmucbaiviet`
 --
 ALTER TABLE `tbl_danhmucbaiviet`
   MODIFY `id_danhmucbaiviet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbl_lienhe`
+-- AUTO_INCREMENT cho bảng `tbl_lienhe`
 --
 ALTER TABLE `tbl_lienhe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_sanpham`
+-- AUTO_INCREMENT cho bảng `tbl_momo`
+--
+ALTER TABLE `tbl_momo`
+  MODIFY `id_momo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
   MODIFY `id_sanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT for table `tbl_shipping`
+-- AUTO_INCREMENT cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
-  MODIFY `id_shipping` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_shipping` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbl_thongke`
+-- AUTO_INCREMENT cho bảng `tbl_thongke`
 --
 ALTER TABLE `tbl_thongke`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_vnpay`
+--
+ALTER TABLE `tbl_vnpay`
+  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `tbl_baiviet`
+--
+ALTER TABLE `tbl_baiviet`
+  ADD CONSTRAINT `FK_tbl_baiviet_tbl_danhmucbaiviet` FOREIGN KEY (`id_danhmuc`) REFERENCES `tbl_danhmucbaiviet` (`id_danhmucbaiviet`);
+
+--
+-- Các ràng buộc cho bảng `tbl_cart`
+--
+ALTER TABLE `tbl_cart`
+  ADD CONSTRAINT `FK_tbl_cart_tbl_dangky` FOREIGN KEY (`id_khachhang`) REFERENCES `tbl_dangky` (`id_dangky`);
+
+--
+-- Các ràng buộc cho bảng `tbl_cart_details`
+--
+ALTER TABLE `tbl_cart_details`
+  ADD CONSTRAINT `FK_tbl_cart_details_tbl_sanpham` FOREIGN KEY (`id_sanpham`) REFERENCES `tbl_sanpham` (`id_sanpham`);
+
+--
+-- Các ràng buộc cho bảng `tbl_sanpham`
+--
+ALTER TABLE `tbl_sanpham`
+  ADD CONSTRAINT `FK_tbl_sanpham_tbl_danhmuc` FOREIGN KEY (`id_danhmuc`) REFERENCES `tbl_danhmuc` (`id_danhmuc`);
+
+--
+-- Các ràng buộc cho bảng `tbl_shipping`
+--
+ALTER TABLE `tbl_shipping`
+  ADD CONSTRAINT `FK_tbl_shipping_tbl_dangky` FOREIGN KEY (`id_dangky`) REFERENCES `tbl_dangky` (`id_dangky`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
