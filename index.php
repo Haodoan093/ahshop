@@ -19,9 +19,9 @@
             session_start();
             include("admincp/config/config.php");
             require('mail/send/sendmail.php');
-          
-            include("pages/header.php");
             include("pages/menu.php");
+            include("pages/header.php");
+           
             include("pages/main.php");
             include("pages/carousel.php");
             

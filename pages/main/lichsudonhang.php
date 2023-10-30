@@ -157,7 +157,7 @@ $query_lietke_donhang = mysqli_query($mysqli, $sql_lietke_donhang);
                 <td>
 
 
-                    <a class="as" href="index.php?quanly=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a>
+                    <a class="as" href="index.php?quanly=xemdonhang&code=<?php echo $row['code_cart'] ?>">Xem đơn</a>
                 </td>
                 <td>
                     <?php

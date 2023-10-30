@@ -12,13 +12,13 @@ body{
 .hinhanh_sanpham{
   
     float: left;
-    width: 90%;
+    width: 60%;
 }
 .chitiet_sanpham{
     float : left;
-    width: 45%;
+
     margin: 10px;
-    margin-left: 200px;
+ 
 }
  /* Định dạng wrapper chứa thông tin sản phẩm */
  .wrapper_chitiet {
@@ -335,8 +335,8 @@ i.fas:hover {
     background-color:#444444;
     color: #212529;
     padding: 20px;
-    height: 98%;
-    margin-top: 5px;
+  
+    margin-top: 71px;
    
     float: left;
     transition: width 0.3s ease;
@@ -400,7 +400,7 @@ i.fas:hover {
 }
 /* Tabs */
 .tabs {
-    width: 600px;
+    width: 500px;
     background-color: rgb(73, 71, 71);
     border-radius: 5px 5px 5px 5px;
   }
@@ -422,7 +422,7 @@ i.fas:hover {
   }
   ul#tabs-nav li:hover,
   ul#tabs-nav li.active {
-    background-color: rgb(134, 97, 219);
+    background-color: rgb(8, 144, 146);
   }
   #tabs-nav li a {
     text-decoration: none;

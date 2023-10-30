@@ -8,6 +8,24 @@
     
 </head>
 <body>
+  
+<h3>TIN TỨC MỚI NHẤT</h3>
+<ul class="product_list">
+
+  <?php while ($row_bv = mysqli_fetch_array($query_bv)) {
+  ?>
+    <li>
+      <a href="index.php?quanly=baiviet&idbaiviet=<?php echo $row_bv['id_baiviet'] ?>">
+        <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh'] ?>">
+        <p class="title_product"><?php echo $row_bv['tenbaiviet'] ?></p>
+
+      </a>
+    </li>
+
+  <?php }
+  ?>
+
+</ul>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 70%; margin: auto; margin-top: 3%; margin-bottom: 3%;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

@@ -21,7 +21,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
 
     ul {
         background-color: #222;
-        text-align: center;
+        /* text-align: center; */
         height: 100%;
 
     }
@@ -67,7 +67,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
         border-radius: 50%;
         /* Đảm bảo hình ảnh không vượt ra khỏi khung tròn */
     }
-    
+    .menu{ 
+       padding-left: 0 !important;
+       padding-right: 0 !important;
+    }
+    .icon{
+        margin-right: 20px;
+        margin-left: 5px;
+    }
 </style>
 <nav>
     <div class="h1">
@@ -82,15 +89,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
     </div>
     <ul class="admincp_list">
 
-        <li><a href="index.php">Thống kê</a></li>
-        <li><a href="index.php?action=quanlydanhmucsanpham&query=them">Danh mục sản phẩm</a></li>
-        <li><a href="index.php?action=quanlysanpham&query=them ">Sản phẩm</a></li>
-        <li><a href="index.php?action=quanlydanhmucbaiviet&query=them ">Danh mục bài viết</a></li>
-        <li><a href="index.php?action=quanlybaiviet&query=them ">Bài viết</a></li>
+        <li><a class="menu" href="index.php"><i class="fa-solid fa-chart-line icon"></i>Thống kê</a></li>
+        <li><a class="menu" href="index.php?action=quanlydanhmucsanpham&query=them"><i class="fa-solid fa-shop icon"></i>Danh mục sản phẩm</a></li>
+        <li><a class="menu"  href="index.php?action=quanlysanpham&query=them "><i class="fa-solid fa-shirt icon"></i>Sản phẩm</a></li>
+        <li><a class="menu"  href="index.php?action=quanlydanhmucbaiviet&query=them "><i class="fa-solid fa-rectangle-list icon"></i>Danh mục bài viết</a></li>
+        <li><a class="menu"  href="index.php?action=quanlybaiviet&query=them "><i class="fa-solid fa-book icon"></i>Bài viết</a></li>
 
-        <li><a href="index.php?action=quanlydonhang&query=lietke ">Đơn hàng</a></li>
-        <li><a href="index.php?action=quanlyweb&query=capnhat ">Quản lý Website</a></li>
-        <li><a href="index.php?action=dangxuat ">Đăng xuất</a></li>
+        <li><a class="menu"  href="index.php?action=quanlydonhang&query=lietke "><i class="fa-solid fa-cube icon"></i>Đơn hàng</a></li>
+        <li><a class="menu"  href="index.php?action=quanlyweb&query=capnhat "><i class="fa-solid fa-phone-volume icon"></i>Quản lý Website</a></li>
+        <li><a class="menu" href="index.php?action=dangxuat "><i class="fa-solid fa-arrow-right-from-bracket icon"></i>Đăng xuất</a></li>
         <link rel="preconnect" href="https://fonts.googleapis.com">
     </ul>
 </nav>
