@@ -82,114 +82,143 @@ if (isset($_GET['sapxep']) && $_GET['sapxep'] == 0) {
     background-color: #333;
     color: #fff;
   }
+
   .price_goc {
     text-align: center;
-  text-decoration: line-through; /* Gạch ngang giá gốc */
-  color: #999; /* Màu chữ của giá gốc */
-  font-size: 16px; /* Kích thước chữ của giá gốc */
-  margin-top: 5px; /* Khoảng cách từ giá gốc đến giá sản phẩm */
-}
+    text-decoration: line-through;
+    /* Gạch ngang giá gốc */
+    color: #999;
+    /* Màu chữ của giá gốc */
+    font-size: 16px;
+    /* Kích thước chữ của giá gốc */
+    margin-top: 5px;
+    /* Khoảng cách từ giá gốc đến giá sản phẩm */
+  }
 
+  .loc {
+    display: flex;
+    /* Sử dụng flexbox để xếp hàng ngang */
+    margin-bottom: 20px;
+  }
 </style>
 <h3>Sản phẩm mới nhất</h3>
 <?php
 
 $t = $_SESSION['trang'];
 ?>
-<div class="dropdown-center text-end">
-  <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Giá
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" name="tangdan" href="?sapxep=0&trang=<?php echo $t ?>">Tăng dần</a></li>
-    <li><a class="dropdown-item" name="giamdan" href="?sapxep=1&trang=<?php echo $t ?>">Giảm dần</a></li>
-    <li><a class="dropdown-item" name="giamdan" href="?">Bỏ sắp xếp</a></li>
-  </ul>
+<div class="loc">
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Giá
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" name="tangdan" href="?sapxep=0&trang=<?php echo $t ?>">Tăng dần</a></li>
+      <li><a class="dropdown-item" name="giamdan" href="?sapxep=1&trang=<?php echo $t ?>">Giảm dần</a></li>
+      <li><a class="dropdown-item" name="giamdan" href="?">Bỏ sắp xếp</a></li>
+    </ul>
+  </div>
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Tình trạng
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=1&trang=<?php echo $t ?>">Mới</a></li>
+      <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=0&trang=<?php echo $t ?>">Giảm giá</a></li>
+      <li><a class="dropdown-item" name="tinhtrang" href="?">Tất cả</a></li>
+    </ul>
+  </div>
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Ưu đãi
+    </button>
+    <ul class="dropdown-menu">
+      <?php
+      for ($discount = 10; $discount <= 90; $discount += 10) {
+        echo '<li><a class="dropdown-item" name="uudai" href="?uudai=' . $discount . '&trang=' . $t . '">' . $discount . '%</a></li>';
+      }
+      ?>
+      <li><a class="dropdown-item" name="uudai" href="?">Tất cả</a></li>
+    </ul>
+  </div>
+
 </div>
-<div class="dropdown-center text-end">
-  <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Tình trạng
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=1&trang=<?php echo $t ?>">Mới</a></li>
-    <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=0&trang=<?php echo $t ?>">Giảm giá</a></li>
-    <li><a class="dropdown-item" name="tinhtrang" href="?">Tất cả</a></li>
-  </ul>
-</div>
+
 
 <ul class="product_list">
   <?php while ($row = mysqli_fetch_array($query_pro)) {
-    if($row['loaihang'] == 1 & $row['giamgia'] != 0) {
-      $goc=$row['giasp']/(1-$row['giamgia']/100);
+    if ($row['loaihang'] == 1 & $row['giamgia'] != 0) {
+      $goc = $row['giasp'] / (1 - $row['giamgia'] / 100);
   ?>
-    <li>
-      <div class="card" style="position: relative;">
-        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-          <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-          <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-          <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-          <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
-          <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-          </p>
-        </a>
-        <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
-        <img width="100%" src="images/new.png" alt="">
+      <li>
+        <div class="card" style="position: relative;">
+          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
+            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
+            <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
+            </p>
+          </a>
+          <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
+            <img width="100%" src="images/new.png" alt="">
+          </div>
+          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
-        <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-      </div>
-    </li>
-    <?php }else if( $row['loaihang'] == 1){  
-  ?>
-    <li>
-      <div class="card" style="position: relative;">
-        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-          <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-          <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-          <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-          <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
-          <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-          </p>
-        </a>
-        <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
-        <img width="100%" src="images/new.png" alt="">
+      </li>
+    <?php } else if ($row['loaihang'] == 1) {
+    ?>
+      <li>
+        <div class="card" style="position: relative;">
+          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
+            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
+
+            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
+            </p>
+          </a>
+          <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
+            <img width="100%" src="images/new.png" alt="">
+          </div>
+          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
-        <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-      </div>
-    </li> 
-  <?php }else if( $row['giamgia'] != 0){  $goc=$row['giasp']/(1-$row['giamgia']/100);
-  ?>
-    <li>
-      <div class="card" style="position: relative;">
-        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-          <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-          <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-          <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-          <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
-          <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-          </p>
-        </a>
-        <div class="sale" style="position: absolute;top: -6%;left: -13%;width: 125px;/* height: 108px; ">
-        <img width="100%" src="images/sell.png" alt="">
+      </li>
+    <?php } else if ($row['giamgia'] != 0) {
+      $goc = $row['giasp'] / (1 - $row['giamgia'] / 100);
+    ?>
+      <li>
+        <div class="card" style="position: relative;">
+          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
+            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
+            <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
+            </p>
+          </a>
+          <div class="sale" style="position: absolute;top: -6%;left: -13%;width: 125px;/* height: 108px; ">
+            <img width="100%" src="images/sell.png" alt="">
+          </div>
+          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
-        <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-      </div>
-    </li>  <?php }else{ ?>
-    <li>
-      <div class="card" style="position: relative;">
-        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-          <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-          <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-          <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-          <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-          </p>
-        </a>
-        <div class="sale" style="position: absolute;top: -6%;left: -13%;width: 125px;/* height: 108px; ">
-          <img width="100%" src="images/sell.png" alt="">
+      </li> <?php } else { ?>
+      <li>
+        <div class="card" style="position: relative;">
+          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
+            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
+            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
+            </p>
+          </a>
+          <div class="sale" style="position: absolute;top: -6%;left: -13%;width: 125px;/* height: 108px; ">
+            <img width="100%" src="images/sell.png" alt="">
+          </div>
+          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
-        <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-      </div>
-    </li><?php 
-}} ?>
+      </li><?php
+          }
+        } ?>
 </ul>
 <div style="clear:both;"></div>
 <?php
