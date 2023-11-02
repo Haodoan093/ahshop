@@ -82,6 +82,14 @@ if (isset($_GET['sapxep']) && $_GET['sapxep'] == 0) {
     background-color: #333;
     color: #fff;
   }
+  .price_goc {
+    text-align: center;
+  text-decoration: line-through; /* Gạch ngang giá gốc */
+  color: #999; /* Màu chữ của giá gốc */
+  font-size: 16px; /* Kích thước chữ của giá gốc */
+  margin-top: 5px; /* Khoảng cách từ giá gốc đến giá sản phẩm */
+}
+
 </style>
 <h3>Sản phẩm mới nhất</h3>
 <?php
@@ -120,7 +128,7 @@ $t = $_SESSION['trang'];
           <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
           <p class="title_product"><?php echo $row['tensanpham'] ?></p>
           <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-          <p class="price_product">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+          <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
           <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
           </p>
         </a>
@@ -130,7 +138,24 @@ $t = $_SESSION['trang'];
         <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
       </div>
     </li>
-  <?php }else{ ?>
+  <?php }else if( $row['giamgia'] != 0){  $goc=$row['giasp']/(1-$row['giamgia']/100);
+  ?>
+    <li>
+      <div class="card" style="position: relative;">
+        <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
+          <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
+          <p class="title_product"><?php echo $row['tensanpham'] ?></p>
+          <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
+          <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+          <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
+          </p>
+        </a>
+        <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
+          <img width="100%" src="" alt="">
+        </div>
+        <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
+      </div>
+    </li>  <?php }else{ ?>
     <li>
       <div class="card" style="position: relative;">
         <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
