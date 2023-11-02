@@ -83,9 +83,11 @@
           <th>Hình ảnh</th>
           <th>Giá sản phẩm</th>
           <th>Số lượng</th>
+          <th>Giảm giá</th>
           <th>Mã sản phẩm</th>
           <th>Danh mục</th>
           <th>Tóm tắt</th>
+          <th>Loại hàng</th>
           <th>Trạng thái</th>
           <th>Quản lý</th>
       </tr>
@@ -100,9 +102,11 @@
               <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px"></td>
               <td><?php echo $row['giasp']; ?></td>
               <td><?php echo $row['soluong'] ?></td>
+              <td><?php echo $row['giamgia'] . '%' ?></td>
               <td><?php echo $row['masp']; ?></td>
               <td><?php echo $row['tendanhmuc']; ?></td>
               <td><?php echo $row['tomtat'] ?></td>
+              <td><?php echo $row['loaihang'] == 1 ? "Mới" : "Giảm giá"; ?></td>
               <td><?php echo $row['tinhtrang'] == 1 ? "Kích hoạt" : "Ẩn"; ?></td>
               <td>
                   <a class="edit-button" href="?action=quanlysanpham&query=sua&idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a>
@@ -110,6 +114,7 @@
               </td>
           </tr>
       <?php
+      
         }
         ?>
   </table>

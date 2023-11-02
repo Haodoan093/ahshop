@@ -97,6 +97,10 @@
                 <td><input type="text" name="soluong" required></td>
             </tr>
             <tr>
+                <td>Giảm giá</td>
+                <td><input type="number" name="giamgia" ></td>
+            </tr>
+            <tr>
                 <td>Hình ảnh</td>
                 <td><input type="file" name="hinhanh" ></td>
             </tr>
@@ -121,6 +125,15 @@
                         <?php
                         }
                         ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Loại hàng</td>
+                <td>
+                    <select name="loaihang">
+                        <option value="1">Mới</option>
+                        <option value="0">Giảm giá</option>
                     </select>
                 </td>
             </tr>

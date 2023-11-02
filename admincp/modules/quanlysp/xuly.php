@@ -4,6 +4,8 @@ $tensanpham=$_POST["tensanpham"];
 $masp =$_POST["masp"];
 $giasp =$_POST["giasp"];
 $soluong =$_POST["soluong"];
+$giamgia =$_POST["giamgia"];
+
 //xu ly hinh anh
 $hinhanh=$_FILES['hinhanh']['name'];
 $hinhanh_tmp=$_FILES['hinhanh']['tmp_name'];
@@ -12,8 +14,19 @@ $hinhanh=time().'_'.$hinhanh;
 $tomtat =$_POST["tomtat"];
 $noidung =$_POST["noidung"];
 $tinhtrang =$_POST["tinhtrang"];
+$loaihang =$_POST["loaihang"];
 $danhmuc =$_POST["danhmuc"];
 
+if($giamgia!=0){
+   $giasp = $giasp * (1 - $giamgia / 100);
+}else{
+   if(isset($_GET["giamgiagoc"]))
+   {
+      $giasp=$giasp/(1-$_GET["giamgiagoc"]/100);
+   }
+      
+  
+}
 
 
 function productExists($mysqli, $tensanpham, $masp)
@@ -33,8 +46,8 @@ if(isset($_POST['themsanpham']))
    if (productExists($mysqli, $tensanpham, $masp)) {
       header('Location: ../../index.php?action=quanlysanpham&query=them&message=Thông tin đã tồn tại !');
   } else {
-   $sql_them = "INSERT INTO tbl_sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,tinhtrang,id_danhmuc) 
-   VALUE('".$tensanpham."','".$masp."','".$giasp."','".$soluong."','".$hinhanh."','".$tomtat."','".$noidung."','".$tinhtrang."','".$danhmuc."')";
+   $sql_them = "INSERT INTO tbl_sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,tinhtrang,id_danhmuc,giamgia,loaihang) 
+   VALUE('".$tensanpham."','".$masp."','".$giasp."','".$soluong."','".$hinhanh."','".$tomtat."','".$noidung."','".$tinhtrang."','".$danhmuc."','".$giamgia."','".$loaihang."')";
    mysqli_query($mysqli,$sql_them);
 
    move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
@@ -52,7 +65,7 @@ $idsp=$_GET["idsanpham"];
      
       $sql_update = "UPDATE tbl_sanpham  SET tensanpham='".$tensanpham."', masp='".$masp."',giasp='".$giasp."',soluong='".$soluong."',
    
-      hinhanh='".$hinhanh."',tomtat='".$tomtat."',noidung='".$noidung."',tinhtrang='".$tinhtrang."',id_danhmuc='".$danhmuc."' WHERE id_sanpham='$_GET[idsanpham]'";
+      hinhanh='".$hinhanh."',tomtat='".$tomtat."',noidung='".$noidung."',tinhtrang='".$tinhtrang."',id_danhmuc='".$danhmuc."',giamgia='".$giamgia."',loaihang='".$loaihang."' WHERE id_sanpham='$_GET[idsanpham]'";
       $sql="SELECT * FROM tbl_sanpham WHERE id_sanpham = '$_GET[idsanpham]' LIMIT 1";
       move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
     //loi khi sua   

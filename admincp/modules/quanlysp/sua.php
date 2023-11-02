@@ -83,7 +83,7 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
         while ($row = mysqli_fetch_array($query_sua_sp)) {
         ?>
 
-            <form name="myForm" method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <form name="myForm" method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>&giamgiagoc=<?php echo $row['giamgia'] ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <!-- khi gui du lieu dung POST,lay GET -->
                 <tr>
                     <td>Tên sản phẩm</td>
@@ -100,6 +100,10 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                 <tr>
                     <td>Số lượng</td>
                     <td><input type="text" value="<?php echo $row['soluong'] ?>" name="soluong"required></td>
+                </tr>
+                <tr>
+                    <td>Giảm giá</td>
+                    <td><input type="number" value="<?php echo $row['giamgia'] ?>" name="giamgia"></td>
                 </tr>
 
                 <tr>
@@ -139,7 +143,28 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
                     <td>Nội dung</td>
                     <td> <textarea rows="100" name="noidung"><?php echo $row['noidung'] ?></textarea></td>
                 </tr>
+                <tr>
+                    <td>Loại hàng</td>
+                    <td>
+                        <select name="loaihang">
+                            <?php
+                            if ($row['loaihang'] == 1) {
 
+                            ?>
+                                <option value="1" selected>Mới</option>
+                                <option value="2">Giảm giá</option>
+                            <?php
+                            } else {
+
+
+                            ?>
+                                <option value="1">Mới</option>
+                                <option value="0" selected>Giảm giá</option>
+                            <?php
+                            }
+                            ?>
+                    </td>
+                </tr>
                 <tr>
                     <td>Tình trạng</td>
                     <td>
