@@ -236,7 +236,7 @@ if (isset($_POST['guima'])) {
         </svg>
         <div class="form">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email">
+          <input type="email" name="email" id="email" required>
           <input type="submit" name="guima" id="submit" value="Gửi mã xác nhận">
         </div>
       </div>

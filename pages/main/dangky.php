@@ -354,30 +354,40 @@ if (isset($_POST['quenmatkhau'])) {
             visibility: visible;
             -webkit-transition: all .3s ease;
         }
+
         /* CSS cho nút "Quên mật khẩu" */
-.form-structor .login .center .submit-btn[name="quenmatkhau"] {
-    background-color: transparent; /* Xóa màu nền */
-    color: #6B92A4; /* Màu chữ cho nút */
-    border: 0;
-    border-radius: 0; /* Xóa viền bo góc */
-    display: inline-block; /* Hiển thị như nút một dòng */
-    margin: 10px auto; /* Duy trì khoảng cách từ trên xuống */
-    padding: 0; /* Loại bỏ lề và đệm */
-    font-size: 12px; /* Điều chỉnh kích thước chữ */
-    font-weight: normal; /* Điều chỉnh độ đậm */
-    cursor: pointer;
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: all 0.3s ease;
-}
+        .form-structor .login .center .submit-btn[name="quenmatkhau"] {
+            background-color: transparent;
+            /* Xóa màu nền */
+            color: #6B92A4;
+            /* Màu chữ cho nút */
+            border: 0;
+            border-radius: 0;
+            /* Xóa viền bo góc */
+            display: inline-block;
+            /* Hiển thị như nút một dòng */
+            margin: 10px auto;
+            /* Duy trì khoảng cách từ trên xuống */
+            padding: 0;
+            /* Loại bỏ lề và đệm */
+            font-size: 12px;
+            /* Điều chỉnh kích thước chữ */
+            font-weight: normal;
+            /* Điều chỉnh độ đậm */
+            cursor: pointer;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transition: all 0.3s ease;
+        }
 
-/* CSS cho nút "Quên mật khẩu" khi di chuột qua */
-.form-structor .login .center .submit-btn[name="quenmatkhau"]:hover {
-    transition: all 0.3s ease;
-    background-color: transparent; /* Màu nền khi di chuột qua */
-    color: #6B92A4; /* Màu chữ khi di chuột qua */
-}
-
+        /* CSS cho nút "Quên mật khẩu" khi di chuột qua */
+        .form-structor .login .center .submit-btn[name="quenmatkhau"]:hover {
+            transition: all 0.3s ease;
+            background-color: transparent;
+            /* Màu nền khi di chuột qua */
+            color: #6B92A4;
+            /* Màu chữ khi di chuột qua */
+        }
     </style>
 </head>
 
@@ -393,16 +403,16 @@ if (isset($_POST['quenmatkhau'])) {
                 <div class="signup">
                     <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
                     <div class="form-holder">
-                        <input type="text" name="hovaten" class="input" placeholder="Name" />
-                        <input type="email" name="email" class="input" placeholder="Email" />
-                        <input type="text" name="dienthoai" class="input" placeholder="Phone Number" />
-                        <input type="text" name="diachi" class="input" placeholder="Address" />
-                        <input type="text" name="matkhau" class="input" placeholder="Password" />
+                        <input type="text" name="hovaten" class="input" placeholder="Name" required/>
+                        <input type="email" name="email" class="input" placeholder="Email" required/>
+                        <input type="text" name="dienthoai" class="input" placeholder="Phone Number" required/>
+                        <input type="text" name="diachi" class="input" placeholder="Address" required/>
+                        <input type="text" name="matkhau" class="input" placeholder="Password" required/>
                     </div>
                     <button class="submit-btn" name="dangky">Sign up</button>
                 </div>
             </form>
-            <form class="tbldangnhap" action="" method="POST">
+            <form class="tbldangnhap" action="" method="POST" >
                 <div class="login slide-up">
                     <div class="center">
                         <h2 class="form-title" id="login"><span>or</span>Log in</h2>
@@ -410,9 +420,10 @@ if (isset($_POST['quenmatkhau'])) {
                             <input type="email" name="emaillogin" class="input" placeholder="Email" />
                             <input type="password" class="input" name="password" placeholder="Password" />
                         </div>
+                       
+                        <button class="submit-btn" name="quenmatkhau" > Forgot password</button>
                         <button class="submit-btn" name="dangnhap" onclick="return validateFormLogin();">Log in</button>
 
-                        <button class="submit-btn" name="quenmatkhau" onclick="return validateFormForgetPassword();"> Forgot password</button>
                     </div>
                 </div>
             </form>
@@ -464,12 +475,7 @@ if (isset($_POST['quenmatkhau'])) {
             }
         }
 
-        function validateFormForgetPassword() {
-            var email = document.getElementsByName("emaillogin")[0].value;
-
-          
-            return true;
-        }
+     
     </script>
 </body>
 

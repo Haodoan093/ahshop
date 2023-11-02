@@ -29,45 +29,130 @@
   /* CSS cho thẻ h3 */
   h3 {
     margin-bottom: 20px;
+   
     font-size: 32px;
     text-align: center; /* Căn giữa theo chiều ngang */
   }
+  .pic-ctn {
+  width: 100vw;
+  height: 200px;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+  position: relative;
+  width: 100vw;
+  height: 300px;
+ 
+}
+.pic{
+  width: 80%;
+}
+
+.pic-ctn > img {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 10s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 2s;
+}
+img:nth-child(3) {
+  animation-delay: 4s;
+}
+img:nth-child(4) {
+  animation-delay: 6s;
+}
+img:nth-child(5) {
+  animation-delay: 8s;
+}
+.ca {
+  display: flex;
+  flex-direction: row; /* Sắp xếp theo hàng ngang */
+  justify-content: space-between; /* Cách đều các phần tử trong hàng */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin-bottom: 100px;
+  padding-right: 30px;
+
+}
+
 </style>
 </head>
 <body>
-  
+<h3>GALLERY</h3>
+<div class="ca">
+<div class="pic-ctn">
+    <img  src="https://pubcdn.ivymoda.com/files/news/2023/10/23/3ba30d59e7497a1aebb9dee83cd475a7.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/75606fe95735c6be71e47784b4ee55ae.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/84122f992c83a8f0046e0cc6242584f2.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/a93485b2213cc23d0913e1d32ebadc52.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/ab6cef1bc439783f092c0c3d2f7eb5b7.jpg" alt="" class="pic">
+  </div>
+  <div class="pic-ctn">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/75606fe95735c6be71e47784b4ee55ae.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/84122f992c83a8f0046e0cc6242584f2.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/a93485b2213cc23d0913e1d32ebadc52.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/ab6cef1bc439783f092c0c3d2f7eb5b7.jpg" alt="" class="pic">
+    <img  src="https://pubcdn.ivymoda.com/files/news/2023/10/23/3ba30d59e7497a1aebb9dee83cd475a7.jpg" alt="" class="pic">
+  </div>
+ 
+  <div class="pic-ctn">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/84122f992c83a8f0046e0cc6242584f2.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/a93485b2213cc23d0913e1d32ebadc52.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/ab6cef1bc439783f092c0c3d2f7eb5b7.jpg" alt="" class="pic">
+    <img  src="https://pubcdn.ivymoda.com/files/news/2023/10/23/3ba30d59e7497a1aebb9dee83cd475a7.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/75606fe95735c6be71e47784b4ee55ae.jpg" alt="" class="pic">
+  </div>
+  <div class="pic-ctn">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/a93485b2213cc23d0913e1d32ebadc52.jpg" alt="" class="pic">
+  <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/ab6cef1bc439783f092c0c3d2f7eb5b7.jpg" alt="" class="pic">
+    <img  src="https://pubcdn.ivymoda.com/files/news/2023/10/23/3ba30d59e7497a1aebb9dee83cd475a7.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/75606fe95735c6be71e47784b4ee55ae.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/84122f992c83a8f0046e0cc6242584f2.jpg" alt="" class="pic">
+  </div>
+  <div class="pic-ctn">
+ 
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 70%; margin: auto; margin-top: 3%; margin-bottom: 3%;">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/ab6cef1bc439783f092c0c3d2f7eb5b7.jpg" alt="" class="pic">
+    <img  src="https://pubcdn.ivymoda.com/files/news/2023/10/23/3ba30d59e7497a1aebb9dee83cd475a7.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/75606fe95735c6be71e47784b4ee55ae.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/84122f992c83a8f0046e0cc6242584f2.jpg" alt="" class="pic">
+    <img src="https://pubcdn.ivymoda.com/files/news/2023/10/23/a93485b2213cc23d0913e1d32ebadc52.jpg" alt="" class="pic">
+    
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://pubcdn.ivymoda.com/files/news/2023/10/04/ff74da15a8c24facbaeb14418c38360a.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://pubcdn.ivymoda.com/files/news/2023/10/19/9e3e410ed9963aae6e11288e9712c34d.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://pubcdn.ivymoda.com/files/news/2023/10/17/410c124260c9f30bb988fac6d746c18f.jpg" class="d-block w-100" alt="...">
-    </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
 </div>
-    <div style="width: 100px;">
-        <img src="../images/Screenshot 2023-10-18 125927.png" alt="">
-    </div>
 
 
+    <!-- sas -->
+    
+<!-- sas -->
     <?php
   $sql_bv = "SELECT * FROM tbl_baiviet WHERE tinhtrang=1 ORDER BY id_baiviet DESC";
   $query_bv = mysqli_query($mysqli, $sql_bv);
