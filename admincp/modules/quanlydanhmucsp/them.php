@@ -61,17 +61,23 @@
         transform: scale(1.05);
     }
 </style>
-
+<?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
+<body>
 <table class="them_danhmuc"border="1" width=50% style="border-collapse: collapse;">
-  <form method="POST"  action="modules/quanlydanhmucsp/xuly.php">
+  <form method="POST" name="formdm" action="modules/quanlydanhmucsp/xuly.php" onsubmit="return validateFormdmBV()">
  <!-- khi gui du lieu dung POST,lay GET -->
             <tr>
                 <td>Tên danh mục</td>
-                <td><input type="text" name="tendanhmuc"></td>
+                <td><input type="text" name="tendanhmuc" required></td>
             </tr>
             <tr>
                 <td>Thứ tự</td>
-                <td><input type="text" name="thutu"></td>
+                <td><input type="text" name="thutu" required></td>
             </tr>
             <tr>
                 <!-- nooi hai cot -->
@@ -83,3 +89,17 @@
   
  
 </table>
+<script>
+        function validateFormdm() {
+            var tendm = document.forms["formdm"]["tendanhmuc"].value;
+            var thutu = document.forms["formdm"]["thutu"].value;
+            
+            if (tendm === "" ||  thutu === "" ) {
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return false;
+            }
+         
+           
+        }
+    </script>
+</body>
