@@ -4,13 +4,32 @@ if (isset($_GET['trang'])) {
 } else {
   $page = 1;
 }
+$_SESSION['trang'] = $page;
+
+
 if ($page == '' || $page == 1) {
   $begin = 0;
 } else {
   $begin = ($page * 16) - 16;
 }
-$sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
-$query_pro = mysqli_query($mysqli, $sql_pro);
+if(isset($_GET['sapxep']) && $_GET['sapxep'] == 0) {
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
+
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.giasp ASC LIMIT $begin,16";
+  $query_pro = mysqli_query($mysqli, $sql_pro);
+
+}else if(isset($_GET['sapxep']) && $_GET['sapxep'] == 1) {
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
+
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.giasp DESC LIMIT $begin,16";
+  $query_pro = mysqli_query($mysqli, $sql_pro);
+}else{
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
+  $query_pro = mysqli_query($mysqli, $sql_pro);
+}
+
+
+
 ?>
 
 <style>
@@ -60,6 +79,21 @@ $query_pro = mysqli_query($mysqli, $sql_pro);
   }
 </style>
 <h3>Sản phẩm mới nhất</h3>
+<?php
+
+$t=$_SESSION['trang'];
+?>
+<div class="dropdown-center text-end">
+  <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Giá 
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" name="tangdan" href="?sapxep=0&trang=<?php echo $t ?>">Tăng dần</a></li>
+    <li><a class="dropdown-item" name="giamdan" href="?sapxep=1&trang=<?php echo $t ?>">Giảm dần</a></li>
+    <li><a class="dropdown-item" name="giamdan" href="?">Bỏ sắp xếp</a></li>
+  </ul>
+</div>
+
 <ul class="product_list">
   <?php while ($row = mysqli_fetch_array($query_pro)) {
   ?>

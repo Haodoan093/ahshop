@@ -1,5 +1,6 @@
 <div id="main">
     <div class="row">
+       
         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
             <?php
             include("sidebar/sidebar.php") ?>
