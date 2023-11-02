@@ -1,13 +1,14 @@
 <?php
-require('../../../fpdf/fpdf.php');
+require('../../../tfpdf.php');
 require("../../config/config.php");
 $sql_donhang= "SELECT * FROM tbl_cart_details,tbl_sanpham WHERE tbl_cart_details.id_sanpham=tbl_sanpham.id_sanpham
 AND tbl_cart_details.code_cart='$_GET[code]' ORDER BY tbl_cart_details.id_cart_details DESC";
 $query_donhang = mysqli_query($mysqli,$sql_donhang);
 
-$pdf = new FPDF();
+$pdf = new tFPDF();
 $pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
+$pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
+$pdf->SetFont('DejaVu','',14);
 
 $pdf->SetFillColor(193,229,252);
 $pdf->Write(10,'Don hang gom co:');
