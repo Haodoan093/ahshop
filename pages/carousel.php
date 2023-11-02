@@ -28,6 +28,8 @@
 
   /* CSS cho thẻ h3 */
   h3 {
+    margin-bottom: 20px;
+    font-size: 32px;
     text-align: center; /* Căn giữa theo chiều ngang */
   }
 </style>

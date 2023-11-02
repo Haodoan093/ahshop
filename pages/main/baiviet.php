@@ -24,11 +24,12 @@
   /* Style for each individual article */
   ul.baiviet li {
     margin-bottom: 20px;
+    margin-left: 50px;
     border: 1px solid #ccc;
     padding: 146px;
     padding-top: 10px;
     padding-left: 176px;
-    width: 70%;
+    width: 95%;
     background-color: #f9f9f9;
   }
 
@@ -63,8 +64,7 @@
                ?>
                   <li> 
                      <!-- <h4><?php echo $row_bv['tenbaiviet']?></h4> -->
-                       <!-- <img src="admincp/modules/quanlybaiviet/uploads/<?php echo $row_bv['hinhanh']?>" >  -->
-                       <!-- <p class ="tomtatbaiviet"><?php echo $row_bv['tomtat']?></p> -->
+                    
                        <p class ="noidungbaiviet"><?php echo $row_bv['noidung']?></p>
               
                   </li>

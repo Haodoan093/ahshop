@@ -101,15 +101,7 @@ $trang = ceil($row_count / 16);
 
 
 
-<?php
-$sql_bv = "SELECT * FROM tbl_baiviet WHERE tinhtrang=1 ORDER BY id_baiviet DESC";
-$query_bv = mysqli_query($mysqli, $sql_bv);
 
-
-
-
-
-?>
 
 
 
