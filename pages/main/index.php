@@ -26,6 +26,10 @@ if (isset($_GET['sapxep']) && $_GET['sapxep'] == 0) {
   $where = " WHERE tbl_sanpham.loaihang='$_GET[tinhtrang]' ORDER BY tbl_sanpham.id_sanpham DESC";
   $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.loaihang='$_GET[tinhtrang]' ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
   $query_pro = mysqli_query($mysqli, $sql_pro);
+}else if (isset($_GET['uudai'])) {
+  $where = " WHERE tbl_sanpham.giamgia='$_GET[uudai]' ORDER BY tbl_sanpham.id_sanpham DESC";
+  $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.giamgia='$_GET[uudai]' ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
+  $query_pro = mysqli_query($mysqli, $sql_pro);
 } else {
   $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
   $query_pro = mysqli_query($mysqli, $sql_pro);
