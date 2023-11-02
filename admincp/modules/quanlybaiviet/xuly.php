@@ -14,20 +14,38 @@ $danhmuc =$_POST["danhmuc"];
 
 
 
-
+function baivietExists($mysqli, $tenbaiviet)
+{
+   $sqlbv = "SELECT * FROM tbl_baiviet WHERE tenbaiviet='$tenbaiviet'";
+   $result = mysqli_query($mysqli, $sqlbv);
+   return mysqli_num_rows($result) > 0;
+}
+function baivietExistsID($mysqli, $tenbaiviet, $id)
+{
+   $sqlbv = "SELECT * FROM tbl_baiviet WHERE tenbaiviet='$tenbaiviet' AND id_baiviet!='$id'";
+   $result = mysqli_query($mysqli, $sqlbv);
+   return mysqli_num_rows($result) > 0;
+}
 
 if(isset($_POST['thembaiviet']))
 { //them san pham 
+   if (baivietExists($mysqli, $tenbaiviet)) {
+      header('Location: ../../index.php?action=quanlybaiviet&query=them&message=Thông tin đã tồn tại !');
+   } else {
    $sql_them = "INSERT INTO tbl_baiviet(tenbaiviet,hinhanh,tomtat,noidung,tinhtrang,id_danhmuc) 
    VALUE('".$tenbaiviet."','".$hinhanh."','".$tomtat."','".$noidung."','".$tinhtrang."','".$danhmuc."')";
    mysqli_query($mysqli,$sql_them);
 
    move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
    header('Location:../../index.php?action=quanlybaiviet&query=them');
+   }
 
 }elseif(isset($_POST['suabaiviet'])){
    // sua san pham 
-
+   $idbv=$_GET["idbaiviet"];
+   if (baivietExists($mysqli, $tenbaiviet)) {
+      header('Location: ../../index.php?action=quanlybaiviet&query=sua&idbaiviet='.$idbv.'&message=Thông tin đã tồn tại !');
+   } else {
    if($hinhanh!=''){
      
       $sql_update = "UPDATE tbl_baiviet  SET tenbaiviet='".$tenbaiviet."', 
@@ -50,6 +68,7 @@ if(isset($_POST['thembaiviet']))
    mysqli_query($mysqli,$sql_update);
    
    header('Location:../../index.php?action=quanlybaiviet&query=them');
+}
 
 }else{
    //xoa san pham

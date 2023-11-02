@@ -72,15 +72,22 @@
     </style>
 
 <p>Sửa sản phẩm</p>
+<?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
+<body>
 <table class="sua_sanpham" border="1" width=50% style="border-collapse: collapse;">
   <?php 
   while($row = mysqli_fetch_array($query_sua_sp)) {
   ?>
-  <form method="POST"  action="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row['id_baiviet']?>"     enctype="multipart/form-data">
+  <form method="POST" name="formBV"  action="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row['id_baiviet']?>"     enctype="multipart/form-data"onsubmit="return validateForm()">
     <!-- khi gui du lieu dung POST,lay GET -->
             <tr>
                 <td>Tên bài viết</td>
-                <td><input type="text" value="<?php echo $row['tenbaiviet']?>" name="tenbaiviet"></td>
+                <td><input type="text" value="<?php echo $row['tenbaiviet']?>" name="tenbaiviet" required></td>
             </tr>
            
             <tr>
@@ -151,6 +158,23 @@
     <?php
                         }
     ?>
-  
- 
+
 </table>
+    <script>
+        function validateForm() {
+            var tenbaiviet = document.forms["formBV"]["tenbaiviet"].value;
+            var hinhanh = document.forms["formBV"]["hinhanh"].value;
+            var tomtat = document.forms["formBV"]["tomtat"].value;
+            var noidung = document.forms["formBV"]["noidung"].value;
+            if (tenbaiviet === "" ||  tomtat === "" || noidung === "") {
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return false;
+            }
+            if ( hinhanh == "" ) {
+                alert("Vui long tải hình ảnh !");
+                return false;
+            }
+           
+        }
+    </script>
+</body>
