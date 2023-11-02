@@ -16,20 +16,38 @@ $danhmuc =$_POST["danhmuc"];
 
 
 
-
-
+function productExists($mysqli, $tensanpham, $masp)
+{
+    $sql = "SELECT * FROM tbl_sanpham WHERE tensanpham='$tensanpham' OR masp='$masp'";
+    $result = mysqli_query($mysqli, $sql);
+    return mysqli_num_rows($result) > 0;
+}
+function productExistsID($mysqli, $tensanpham, $masp, $id)
+{
+   $sql = "SELECT * FROM tbl_sanpham WHERE (tensanpham='$tensanpham' OR masp='$masp') AND id_sanpham!='$id'";
+   $result = mysqli_query($mysqli, $sql);
+   return mysqli_num_rows($result) > 0;
+}
 if(isset($_POST['themsanpham']))
 { //them san pham 
+   if (productExists($mysqli, $tensanpham, $masp)) {
+      header('Location: ../../index.php?action=quanlysanpham&query=them&message=Thông tin đã tồn tại !');
+  } else {
    $sql_them = "INSERT INTO tbl_sanpham(tensanpham,masp,giasp,soluong,hinhanh,tomtat,noidung,tinhtrang,id_danhmuc) 
    VALUE('".$tensanpham."','".$masp."','".$giasp."','".$soluong."','".$hinhanh."','".$tomtat."','".$noidung."','".$tinhtrang."','".$danhmuc."')";
    mysqli_query($mysqli,$sql_them);
 
    move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
    header('Location:../../index.php?action=quanlysanpham&query=them');
+  }
 
 }elseif(isset($_POST['suasanpham'])){
    // sua san pham 
+$idsp=$_GET["idsanpham"];
+   if (productExistsID($mysqli, $tensanpham, $masp,$idsp)) {
+      header('Location:../../index.php?action=quanlysanpham&query=sua&idsanpham='.$idsp.'&message=Thông tin đã tồn tại !');
 
+  } else {
    if($hinhanh!=''){
      
       $sql_update = "UPDATE tbl_sanpham  SET tensanpham='".$tensanpham."', masp='".$masp."',giasp='".$giasp."',soluong='".$soluong."',
@@ -52,6 +70,7 @@ if(isset($_POST['themsanpham']))
    mysqli_query($mysqli,$sql_update);
    
    header('Location:../../index.php?action=quanlysanpham&query=them');
+}
 
 }else{
    //xoa san pham

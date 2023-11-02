@@ -71,100 +71,128 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
         transform: scale(1.05);
     }
 </style>
+<?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
+<body>
+    <table class="sua_sanpham" border="1" width=50% style="border-collapse: collapse;">
+        <?php
+        while ($row = mysqli_fetch_array($query_sua_sp)) {
+        ?>
+
+            <form name="myForm" method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
+                <!-- khi gui du lieu dung POST,lay GET -->
+                <tr>
+                    <td>Tên sản phẩm</td>
+                    <td><input type="text" value="<?php echo $row['tensanpham'] ?>" name="tensanpham" required></td>
+                </tr>
+                <tr>
+                    <td>Mã sản phẩm</td>
+                    <td><input type="text" value="<?php echo $row['masp'] ?>" name="masp"required></td>
+                </tr>
+                <tr>
+                    <td>Giá sản phẩm</td>
+                    <td><input type="text" value="<?php echo $row['giasp'] ?>" name="giasp"required></td>
+                </tr>
+                <tr>
+                    <td>Số lượng</td>
+                    <td><input type="text" value="<?php echo $row['soluong'] ?>" name="soluong"required></td>
+                </tr>
+
+                <tr>
+                    <td>Danh mục sản phẩm</td>
+                    <td>
+                        <select name="danhmuc">
+                            <?php
+                            $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
+                            $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+                            while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                                if ($row_danhmuc['id_danhmuc'] == $row['id_danhmuc']) {
 
 
-<table class="sua_sanpham" border="1" width=50% style="border-collapse: collapse;">
-    <?php
-    while ($row = mysqli_fetch_array($query_sua_sp)) {
-    ?>
-        <form method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>" enctype="multipart/form-data">
-            <!-- khi gui du lieu dung POST,lay GET -->
-            <tr>
-                <td>Tên sản phẩm</td>
-                <td><input type="text" value="<?php echo $row['tensanpham'] ?>" name="tensanpham"></td>
-            </tr>
-            <tr>
-                <td>Mã sản phẩm</td>
-                <td><input type="text" value="<?php echo $row['masp'] ?>" name="masp"></td>
-            </tr>
-            <tr>
-                <td>Giá sản phẩm</td>
-                <td><input type="text" value="<?php echo $row['giasp'] ?>" name="giasp"></td>
-            </tr>
-            <tr>
-                <td>Số lượng</td>
-                <td><input type="text" value="<?php echo $row['soluong'] ?>" name="soluong"></td>
-            </tr>
+                            ?>
+                                    <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                                <?php
+                                } else {
+                                ?>
+                                    <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                            <?php
+                                }
+                            }
+                            ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hình ảnh</td>
+                    <td><input type="file" name="hinhanh">
+                        <img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tóm tắt</td>
+                    <td> <textarea rows="100" name="tomtat"> <?php echo $row['tomtat'] ?></textarea></td>
+                </tr>
+                <tr>
+                    <td>Nội dung</td>
+                    <td> <textarea rows="100" name="noidung"><?php echo $row['noidung'] ?></textarea></td>
+                </tr>
 
-            <tr>
-                <td>Danh mục sản phẩm</td>
-                <td>
-                    <select name="danhmuc">
-                        <?php
-                        $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
-                        $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
-                        while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
-                            if ($row_danhmuc['id_danhmuc'] == $row['id_danhmuc']) {
+                <tr>
+                    <td>Tình trạng</td>
+                    <td>
+                        <select name="tinhtrang">
+                            <?php
+                            if ($row['tinhtrang'] == 1) {
 
-
-                        ?>
-                                <option selected value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                            ?>
+                                <option value="1" selected>Kích hoạt</option>
+                                <option value="2">Ẩn</option>
                             <?php
                             } else {
+
+
                             ?>
-                                <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
-                        <?php
+                                <option value="1">Kích hoạt</option>
+                                <option value="2" selected>Ẩn</option>
+                            <?php
                             }
-                        }
-                        ?>
-                </td>
-            </tr>
-            <tr>
-                <td>Hình ảnh</td>
-                <td><input type="file" name="hinhanh">
-                    <img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px">
-                </td>
-            </tr>
-            <tr>
-                <td>Tóm tắt</td>
-                <td> <textarea rows="100" name="tomtat"> <?php echo $row['tomtat'] ?></textarea></td>
-            </tr>
-            <tr>
-                <td>Nội dung</td>
-                <td> <textarea rows="100" name="noidung"><?php echo $row['noidung'] ?></textarea></td>
-            </tr>
+                            ?>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- nooi hai cot -->
+                    <td colspan="2"><input type="submit" name="suasanpham" value="Sửa sản phẩm"></td>
+                </tr>
+            </form>
 
-            <tr>
-                <td>Tình trạng</td>
-                <td>
-                    <select name="tinhtrang">
-                        <?php
-                        if ($row['tinhtrang'] == 1) {
-
-                        ?>
-                            <option value="1" selected>Kích hoạt</option>
-                            <option value="2">Ẩn</option>
-                        <?php
-                        } else {
+        <?php
+        }
+        ?>
 
 
-                        ?>
-                            <option value="1">Kích hoạt</option>
-                            <option value="2" selected>Ẩn</option>
-                        <?php
-                        }
-                        ?>
-                </td>
-            </tr>
-            <tr>
-                <!-- nooi hai cot -->
-                <td colspan="2"><input type="submit" name="suasanpham" value="Sửa sản phẩm"></td>
-            </tr>
-        </form>
+    </table>
 
-    <?php
-    }
-    ?>
+    <script>
+        function validateForm() {
+            var tensanpham = document.forms["myForm"]["tensanpham"].value;
+            var masp = document.forms["myForm"]["masp"].value;
+            var giasp = document.forms["myForm"]["giasp"].value;
+            var soluong = document.forms["myForm"]["soluong"].value;
+            var hinhanh = document.forms["myForm"]["hinhanh"].value;
+            var tomtat = document.forms["myForm"]["tomtat"].value;
+            var noidung = document.forms["myForm"]["noidung"].value;
+            if (hinhanh == "") {
+                alert("Vui long tải hình ảnh !");
+                return false;
+            }
+            if (tensanpham == "" || masp == "" || giasp == "" || soluong == "" || hinhanh == "" || tomtat == "" || noidung == "") {
+                alert("Vui lòng nhập đầy đủ tin");
+                return false;
+            }
 
-
-</table>
+        }
+    </script>
+</body>

@@ -1,4 +1,3 @@
-
 <style>
     /* Reset default margin and padding for better consistency */
     body,
@@ -71,70 +70,93 @@
         /* Slightly scale up the button on hover */
     }
 </style>
+<?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
 
-<table border="1" width=50% style="border-collapse: collapse;">
-    <form method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data">
-        <!-- khi gui du lieu dung POST,lay GET -->
-        <tr>
-            <td>Tên sản phẩm</td>
-            <td><input type="text" name="tensanpham"></td>
-        </tr>
-        <tr>
-            <td>Mã sản phẩm</td>
-            <td><input type="text" name="masp"></td>
-        </tr>
-        <tr>
-            <td>Giá sản phẩm</td>
-            <td><input type="text" name="giasp"></td>
-        </tr>
-        <tr>
-            <td>Số lượng</td>
-            <td><input type="text" name="soluong"></td>
-        </tr>
-        <tr>
-            <td>Hình ảnh</td>
-            <td><input type="file" name="hinhanh"></td>
-        </tr>
-        <tr>
-            <td>Tóm tắt</td>
-            <td> <textarea rows="100" name="tomtat"></textarea></td>
-        </tr>
-        <tr>
-            <td>Nội dung</td>
-            <td> <textarea rows="100" name="noidung"></textarea></td>
-        </tr>
+<body>
+    <table border="1" width="50%" style="border-collapse: collapse;">
+        <form name="myForm" method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <tr>
+                <td>Tên sản phẩm</td>
+                <td><input type="text" name="tensanpham" required></td>
+            </tr>
+            <tr>
+                <td>Mã sản phẩm</td>
+                <td><input type="text" name="masp" required></td>
+            </tr>
+            <tr>
+                <td>Giá sản phẩm</td>
+                <td><input type="text" name="giasp" required></td>
+            </tr>
+            <tr>
+                <td>Số lượng</td>
+                <td><input type="text" name="soluong" required></td>
+            </tr>
+            <tr>
+                <td>Hình ảnh</td>
+                <td><input type="file" name="hinhanh" ></td>
+            </tr>
+            <tr>
+                <td>Tóm tắt</td>
+                <td><textarea rows="4" name="tomtat" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Nội dung</td>
+                <td><textarea rows="4" name="noidung" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Danh mục sản phẩm</td>
+                <td>
+                    <select name="danhmuc" required>
+                        <?php
+                        $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
+                        $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+                        while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                        ?>
+                            <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Tình trạng</td>
+                <td>
+                    <select name="tinhtrang">
+                        <option value="1">Kích hoạt</option>
+                        <option value="2">Ẩn</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="themsanpham" value="Thêm sản phẩm"></td>
+            </tr>
+        </form>
+    </table>
 
-        <tr>
-            <td>Danh mục sản phẩm</td>
-            <td>
-                <select name="danhmuc">
-                    <?php
-                    $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
-                    $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
-                    while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
-                    ?>
-                        <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
-                    <?php
-                    }
-                    ?>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Tình trạng</td>
-            <td>
-                <select name="tinhtrang">
-                    <option value="1">Kích hoạt</option>
-                    <option value="2">Ẩn</option>
-            </td>
-        </tr>
-        <tr>
-            <!-- nooi hai cot -->
-            <td colspan="2"><input type="submit" name="themsanpham" value="Thêm sản phẩm"></td>
-        </tr>
-    </form>
-
-
-
-
-</table>
+    <script>
+        function validateForm() {
+            var tensanpham = document.forms["myForm"]["tensanpham"].value;
+            var masp = document.forms["myForm"]["masp"].value;
+            var giasp = document.forms["myForm"]["giasp"].value;
+            var soluong = document.forms["myForm"]["soluong"].value;
+            var hinhanh = document.forms["myForm"]["hinhanh"].value;
+            var tomtat = document.forms["myForm"]["tomtat"].value;
+            var noidung = document.forms["myForm"]["noidung"].value;
+            if ( hinhanh == "" ) {
+                alert("Vui long tải hình ảnh !");
+                return false;
+            }
+            if (tensanpham == "" || masp == "" || giasp == "" || soluong == "" || hinhanh == "" || tomtat == "" || noidung == "") {
+                alert("Vui lòng nhập đầy đủ tin");
+                return false;
+            }
+          
+        }
+    </script>
+</body>
