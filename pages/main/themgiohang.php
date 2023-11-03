@@ -105,6 +105,43 @@
 
     }
  
-    header('Location:../../index.php?quanly=giohang');
+    header('Location:../../index.php?quanly=sanpham&id='.$id.'');
   }
+    //them vao gio hang
+    if (isset($_POST['mua'])) {
+      $id=$_GET['idsanpham'];
+      $soluong=1; 
+      $spl=  "SELECT * FROM tbl_sanpham WHERE id_sanpham='".$id."'LIMIT 1";
+      $query=mysqli_query($mysqli,$spl);
+      $row= mysqli_fetch_array($query);
+      if ($row){
+          $new_product=array(array('tensanpham'=>$row['tensanpham'],'id'=>$id,'soluong'=> $soluong,'giasp'=>$row['giasp'],
+          'hinhanh'=>$row['hinhanh'],'masp'=>$row['masp']));
+          //kiem tra gio hang ton tai
+          if(isset($_SESSION['cart'])){
+              $found=false;
+              foreach($_SESSION['cart'] as $cart_item) {
+                  if($cart_item['id']==$id){
+                    //neu du lieu trung
+                      $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong']+1,'giasp'=>$cart_item['giasp'],
+                      'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
+                      $found=true;
+                  }else{
+                      $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong'],'giasp'=>$cart_item['giasp'],
+                      'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
+                  }
+              }if($found==false) {
+                //lien ket du lieu new_product voi product
+                $_SESSION['cart']=array_merge($product,$new_product);}
+                else {
+                  $_SESSION['cart']=$product;}
+  
+          }else{
+            $_SESSION['cart'] =$new_product;
+          }
+  
+      }
+   
+      header('Location:../../index.php?quanly=giohang');
+    }
 ?>

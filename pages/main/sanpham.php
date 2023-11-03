@@ -23,10 +23,21 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
                 <p>Giá : <?php echo number_format($row_chitiet['giasp'], 0, ',', '.') . ' VND' ?></p>
 
                 <p>Số lượng : <?php echo $row_chitiet['soluong'] ?></p>
+                <p>Đã bán : <?php echo $row_chitiet['daban'] ?></p>
                 <p>Danh muc : <?php echo $row_chitiet['tendanhmuc'] ?></p>
                 <!-- <p> <?php echo $row_chitiet['tomtat'] ?></p>
                 <p> <?php echo $row_chitiet['noidung'] ?></p> -->
-                <p><input class="themgiohang" name="themgiohang" type="submit" value="Thêm giỏ hàng"></p>
+                <?php if ($row_chitiet['soluong'] > 0) { ?>
+                    <p><input class="themgiohang" name="themgiohang" type="submit" value="Thêm giỏ hàng"></p>
+                    <p><input class="themgiohang" name="mua" type="submit" value="Mua"></p>
+                <?php
+                }else {
+                ?>
+                <p><input class="themgiohang" name="" type="" value="Hết hàng"></p>
+
+                  <?php
+                }
+                ?>
                 <div class="clear">
                     <div class="tabs">
                         <ul id="tabs-nav">
@@ -50,7 +61,7 @@ while ($row_chitiet = mysqli_fetch_array($query_chitiet)) {
                         </div> <!-- END tabs-content -->
                     </div> <!-- END tabs -->
                 </div>
-                </form>
+            </form>
         </div>
 
     </div>

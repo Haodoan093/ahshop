@@ -70,7 +70,9 @@
                 $id_sanpham = $value['id'];
                 $soluong = $value['soluong'];
                 $insert_order_details = "INSERT INTO tbl_cart_details(id_sanpham,code_cart,soluongmua) VALUE('" . $id_sanpham . "','" . $code_cart . "','" . $soluong . "')";
+                $sql_update = "UPDATE tbl_sanpham  SET daban='".$soluong."' WHERE id_sanpham='$id_sanpham'";
                 mysqli_query($mysqli, $insert_order_details);
+                mysqli_query($mysqli, $sql_update) or die(mysqli_error($mysqli));
             }
         
             echo "Thanh toans MOMO thanh cong";
