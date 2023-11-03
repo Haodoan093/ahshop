@@ -26,7 +26,7 @@ if (isset($_GET['sapxep']) && $_GET['sapxep'] == 0) {
   $where = " WHERE tbl_sanpham.loaihang='$_GET[tinhtrang]' ORDER BY tbl_sanpham.id_sanpham DESC";
   $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.loaihang='$_GET[tinhtrang]' ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
   $query_pro = mysqli_query($mysqli, $sql_pro);
-}else if (isset($_GET['uudai'])) {
+} else if (isset($_GET['uudai'])) {
   $where = " WHERE tbl_sanpham.giamgia='$_GET[uudai]' ORDER BY tbl_sanpham.id_sanpham DESC";
   $sql_pro = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc AND tbl_sanpham.giamgia='$_GET[uudai]' ORDER BY tbl_sanpham.id_sanpham DESC LIMIT $begin,16";
   $query_pro = mysqli_query($mysqli, $sql_pro);
@@ -150,7 +150,7 @@ $t = $_SESSION['trang'];
 
 <ul class="product_list">
   <?php while ($row = mysqli_fetch_array($query_pro)) {
-    if ($row['loaihang'] == 1 & $row['giamgia'] != 0) {
+    if ($row['loaihang'] == 1) {
       $goc = $row['giasp'] / (1 - $row['giamgia'] / 100);
   ?>
       <li>
@@ -159,7 +159,10 @@ $t = $_SESSION['trang'];
             <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
             <p class="title_product"><?php echo $row['tensanpham'] ?></p>
             <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-            <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <?php if ($row['giamgia'] != 0) {
+            ?>
+              <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <?php } ?>
             <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
             </p>
           </a>
@@ -169,25 +172,7 @@ $t = $_SESSION['trang'];
           <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
       </li>
-    <?php } else if ($row['loaihang'] == 1) {
-    ?>
-      <li>
-        <div class="card" style="position: relative;">
-          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-
-            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-            </p>
-          </a>
-          <div class="sale" style="position: absolute;top: -7%;left: -7%;width: 125px;/* height: 108px; ">
-            <img width="100%" src="images/new.png" alt="">
-          </div>
-          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-        </div>
-      </li>
-    <?php } else if ($row['giamgia'] != 0) {
+    <?php } else {
       $goc = $row['giasp'] / (1 - $row['giamgia'] / 100);
     ?>
       <li>
@@ -196,7 +181,10 @@ $t = $_SESSION['trang'];
             <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
             <p class="title_product"><?php echo $row['tensanpham'] ?></p>
             <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-            <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <?php if ($row['giamgia'] != 0) {
+            ?>
+              <p class="price_goc">Giá gốc : <?php echo number_format($goc, 0, ',', '.') . 'VND' ?> </p>
+            <?php } ?>
             <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
             </p>
           </a>
@@ -205,22 +193,7 @@ $t = $_SESSION['trang'];
           </div>
           <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
         </div>
-      </li> <?php } else { ?>
-      <li>
-        <div class="card" style="position: relative;">
-          <a href="index.php?quanly=sanpham&id=<?php echo $row['id_sanpham'] ?>">
-            <img class="img img-responsive rounded-1" with="100%" src="admincp/modules/quanlysp/uploads/<?php echo $row['hinhanh'] ?>">
-            <p class="title_product"><?php echo $row['tensanpham'] ?></p>
-            <p class="price_product">Giá : <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?> </p>
-            <p style="text-align: center;color:#d1d1d1"><?php echo $row['tendanhmuc'] ?></p>
-            </p>
-          </a>
-          <div class="sale" style="position: absolute;top: -6%;left: -13%;width: 125px;/* height: 108px; ">
-            <img width="100%" src="images/sell.png" alt="">
-          </div>
-          <div class="buy" style="position: absolute;top: 92%;left: 81%;"><i class="fa-solid fa-cart-shopping fa-beat-fade"></i></div>
-        </div>
-      </li><?php
+      </li> <?php
           }
         } ?>
 </ul>
