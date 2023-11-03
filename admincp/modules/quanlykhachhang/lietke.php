@@ -82,8 +82,10 @@
           <th>Tên khách hàng</th>
           <th>Email</th>
           <th>Số điện thoại</th>
-          <th>Mật khẩu</th>
+          
           <th>Địa chỉ</th>
+          <th>Số đơn hàng</th>
+          <th>Chi tiêu</th>
         
           <th>Quản lý</th>
       </tr>
@@ -94,13 +96,18 @@
         ?>
           <tr>
               <td><?php echo $i ?></td>
-              <td><?php echo $row['tenkhachhang']; ?></td>
+              <td><?php echo $row['tenkhachhang']; if($row['chitieu']>5000000){
+                ?><i style="margin-left: 10px;" class="fa-regular fa-star"></i>
+                <?php
+              }  ?></td>
               <!-- <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px"></td> -->
               <td><?php echo $row['email']; ?></td>
               <td><?php echo $row['dienthoai'] ?></td>
-              <td><?php echo $row['matkhau'] ?></td>
-              <td><?php echo $row['diachi']; ?></td>
               
+              <td><?php echo $row['diachi']; ?></td>
+              <td><?php echo $row['sodonhang'] ?></td>
+              <td>
+              <?php echo number_format($row['chitieu'], 0, ',', '.') . 'VND' ?> </td>
               <td>
                   <a class="edit-button" href="?action=quanlykhachhang&query=xem&idkhachhang=<?php echo $row['id_dangky'] ?>">Xem</a>
                   <a class="delete-button" href="modules\quanlykhachhang\xuly.php?idkhachhang=<?php echo $row['id_dangky'] ?>">Xóa</a>

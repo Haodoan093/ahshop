@@ -15,6 +15,10 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
+    
+    #donut-chart {
+        text-align: center;
+    }
 
     .h3 {
         text-align: center;
@@ -53,3 +57,4 @@
     </select>
     <div id="chart"></div>
 </div>
+<div id="donut-chart" style="height: 300px;"></div>

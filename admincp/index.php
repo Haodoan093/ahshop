@@ -125,6 +125,19 @@ if (!isset($_SESSION['dangnhap'])) {
 
     });
   </script>
+  <script>
+    var donutChart = new Morris.Donut({
+        element: 'donut-chart',
+        data: [
+            { label: 'Sản phẩm A', value: 30 },
+            { label: 'Sản phẩm B', value: 20 },
+            { label: 'Sản phẩm C', value: 15 },
+            { label: 'Sản phẩm D', value: 35 },
+        ],
+        resize: true,
+    });
+</script>
+
 
 </body>
 
