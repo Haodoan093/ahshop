@@ -34,8 +34,11 @@ if ($cart_payment == 'tienmat' || $cart_payment == 'chuyenkhoan') {
     $soluong = $value['soluong'];
     $insert_order_details = "INSERT INTO tbl_cart_details(id_sanpham,code_cart,soluongmua) VALUE('" . $id_sanpham . "','" . $code_order . "','" . $soluong . "')";
     $sql_update = "UPDATE tbl_sanpham SET daban = daban + $soluong, soluong = soluong - $soluong WHERE id_sanpham = '$id_sanpham'";
+    $sql_updatekh = "UPDATE tbl_dangky SET sodonhang = sodonhang + 1, chitieu = chitieu + " . $_SESSION['tongtien'] . " WHERE id_dangky = '$id_khachhang'";
+
     mysqli_query($mysqli, $insert_order_details);
     mysqli_query($mysqli, $sql_update) or die(mysqli_error($mysqli));
+    mysqli_query($mysqli, $sql_updatekh) or die(mysqli_error($mysqli));
   }
   header('Location:camon.php');
   ob_end_flush();

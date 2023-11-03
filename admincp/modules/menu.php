@@ -95,6 +95,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
         <li><a class="menu"  href="index.php?action=quanlydanhmucbaiviet&query=them "><i class="fa-solid fa-rectangle-list icon"></i>Danh mục bài viết</a></li>
         <li><a class="menu"  href="index.php?action=quanlybaiviet&query=them "><i class="fa-solid fa-book icon"></i>Bài viết</a></li>
 
+        <li><a class="menu"  href="index.php?action=quanlykhachhang&query=xemkhachhang "><i class="fa-regular fa-user icon"></i></i>Khách hàng</a></li>
+
         <li><a class="menu"  href="index.php?action=quanlydonhang&query=lietke "><i class="fa-solid fa-cube icon"></i>Đơn hàng</a></li>
         <li><a class="menu"  href="index.php?action=quanlyweb&query=capnhat "><i class="fa-solid fa-phone-volume icon"></i>Quản lý Website</a></li>
         <li><a class="menu" href="index.php?action=dangxuat "><i class="fa-solid fa-arrow-right-from-bracket icon"></i>Đăng xuất</a></li>

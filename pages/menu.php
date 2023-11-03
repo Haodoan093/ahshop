@@ -82,10 +82,14 @@ if (isset($_GET['dangxuat']) && $_GET['dangxuat'] == 1) {
             <button class="btn btn-outline-success my-2 my-sm-0" name="timkiem" type="submit">Search</button>
         </form>
         <ul style="display: flex; padding: 0; margin-top: 6px; margin-bottom: 0;">
+        <li class="menu-2">
+                <a class="a=menu" href="index.php?quanly=thongtincanhan" style="font-size: 16px; padding-left: 28px;"><i class="fa-solid fa-user" style="color: #e0dcdc;"></i></a>
+            </li>
             <li class="menu-2"> <a class="a=menu" href="index.php?quanly=lienhe" style="font-size: 16px; padding-left: 32px;"><i class="fa-solid fa-headphones" style="color: #ebebeb;"></i></a></li>
             <li class="menu-2">
                 <a class="a=menu" href="index.php?quanly=giohang" style="font-size: 16px; padding-left: 28px;"><i class="fa-solid fa-cart-shopping" style="color: #e0dcdc;"></i></a>
             </li>
+          
 
         </ul>
     </div>

@@ -2,30 +2,31 @@
   session_start();
   include('../../admincp/config/config.php');
   //them so luong
+
   if (isset($_GET['cong'])){
     $id=$_GET['cong'];
+    $sql = "SELECT soluong FROM tbl_sanpham WHERE id_sanpham = $id";
+    $result = mysqli_query($mysqli, $sql);
     foreach($_SESSION['cart'] as $cart_item) {
       if($cart_item['id']!=$id){
         $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong'],'giasp'=>$cart_item['giasp'],
         'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
         $_SESSION['cart']=$product;
       }else{
+        $row = mysqli_fetch_assoc($result);
+        $soLuongSanPham = $row['soluong'];
        $tangsoluong=$cart_item['soluong']+1;
-         if($cart_item['soluong']<99){
+       if ($tangsoluong <= $soLuongSanPham && $cart_item['soluong'] < 99) {
           $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$tangsoluong,'giasp'=>$cart_item['giasp'],
           'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
-        
          }else{
           $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong'],'giasp'=>$cart_item['giasp'],
           'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
          }
         $_SESSION['cart']=$product;
       }
-     
     }
-   
     header('Location:../../index.php?quanly=giohang');
-
   }
   ///tru so luong
   if (isset($_GET['tru'])){
@@ -77,6 +78,7 @@
     $spl=  "SELECT * FROM tbl_sanpham WHERE id_sanpham='".$id."'LIMIT 1";
     $query=mysqli_query($mysqli,$spl);
     $row= mysqli_fetch_array($query);
+    
     if ($row){
         $new_product=array(array('tensanpham'=>$row['tensanpham'],'id'=>$id,'soluong'=> $soluong,'giasp'=>$row['giasp'],
         'hinhanh'=>$row['hinhanh'],'masp'=>$row['masp']));
@@ -85,10 +87,16 @@
             $found=false;
             foreach($_SESSION['cart'] as $cart_item) {
                 if($cart_item['id']==$id){
+                 
+                  $soLuongSanPham = $row['soluong'];
+                 $tangsoluong=$cart_item['soluong']+1;
+                 if ($tangsoluong <= $soLuongSanPham && $cart_item['soluong'] < 99) {
                   //neu du lieu trung
-                    $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong']+1,'giasp'=>$cart_item['giasp'],
+                    $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$tangsoluong,'giasp'=>$cart_item['giasp'],
                     'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
                     $found=true;
+                 }
+                   
                 }else{
                     $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong'],'giasp'=>$cart_item['giasp'],
                     'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
@@ -122,10 +130,15 @@
               $found=false;
               foreach($_SESSION['cart'] as $cart_item) {
                   if($cart_item['id']==$id){
+                    $soLuongSanPham = $row['soluong'];
+                    $tangsoluong=$cart_item['soluong']+1;
+                    if ($tangsoluong <= $soLuongSanPham && $cart_item['soluong'] < 99) {
                     //neu du lieu trung
-                      $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong']+1,'giasp'=>$cart_item['giasp'],
+                      $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$tangsoluong,'giasp'=>$cart_item['giasp'],
                       'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);
+                    
                       $found=true;
+                    }
                   }else{
                       $product[]=array('tensanpham'=>$cart_item['tensanpham'],'id'=>$cart_item['id'],'soluong'=>$cart_item['soluong'],'giasp'=>$cart_item['giasp'],
                       'hinhanh'=>$cart_item['hinhanh'],'masp'=>$cart_item['masp']);

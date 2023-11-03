@@ -49,6 +49,10 @@
                 } elseif ($tmp == 'thaydoimatkhau') {
                    include("main/thaydoimatkhau.php");
                   
+                } elseif ($tmp == 'thongtincanhan') {
+                    include("main/thongtinuser.php");
+                   
+                 
                 
                 } elseif ($tmp == 'lichsu') {
                     include("main/lichsudonhang.php");

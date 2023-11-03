@@ -18,7 +18,10 @@ $loaihang =$_POST["loaihang"];
 $danhmuc =$_POST["danhmuc"];
 
 if($giamgia!=0){
+   if($_GET["giamgiagoc"]!=$giamgia){
+   $giasp=$giasp/(1-$_GET["giamgiagoc"]/100);
    $giasp = $giasp * (1 - $giamgia / 100);
+   }
 }else{
    if(isset($_GET["giamgiagoc"]))
    {

@@ -144,6 +144,12 @@ $t = $_SESSION['trang'];
       <li><a class="dropdown-item" name="uudai" href="?">Tất cả</a></li>
     </ul>
   </div>
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Bán chạy
+    </button>
+
+  </div>
 
 </div>
 

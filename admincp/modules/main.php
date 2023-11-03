@@ -50,6 +50,11 @@
                         include("modules/quanlydanhmucbaiviet/sua.php");
                       
                     }
+                    elseif ($tmp == 'quanlykhachhang' && $query=='xemkhachhang'){
+                      
+                        include("modules/quanlykhachhang/lietke.php");
+                      
+                    }
                     //bai viet
                     elseif ($tmp == 'quanlybaiviet' && $query=='them'){
                       
