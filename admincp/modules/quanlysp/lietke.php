@@ -75,7 +75,67 @@
       .status-hidden {
           color: #FF0000;
       }
+      .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 50px;
+  }
+  .loc {
+    display: flex;
+    /* Sử dụng flexbox để xếp hàng ngang */
+    margin-bottom: 20px;
+    margin-left: 60px;
+  }
+  .dropdown-menu li {
+  background-color: #555555; /* Đặt màu nền theo ý muốn */
+}
+.dropdown-menu a {
+  color: #fff; /* Đặt màu chữ theo ý muốn */
+}
+
   </style>
+  
+  <div class="button-container">
+      <a class="edit-button" href="?action=quanlysanpham&query=themsp">Thêm sản phẩm</a>
+  </div>
+  <div class="loc">
+  <div class="dropdown text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Giá
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" name="tangdan" href="?sapxep=0&trang=<?php echo $t ?>">Tăng dần</a></li>
+      <li><a class="dropdown-item" name="giamdan" href="?sapxep=1&trang=<?php echo $t ?>">Giảm dần</a></li>
+      <li><a class="dropdown-item" name="giamdan" href="?">Bỏ sắp xếp</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Tình trạng
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=1&trang=<?php echo $t ?>">Mới</a></li>
+      <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=0&trang=<?php echo $t ?>">Giảm giá</a></li>
+      <li><a class="dropdown-item" name="tinhtrang" href="?">Tất cả</a></li>
+    </ul>
+  </div>
+ 
+  <div class="dropdown-center text-end">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Bán chạy
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" name="tinhtrang" href="?tinhtrang=1&trang=<?php echo $t ?>">Bán chạy nhất</a></li>
+      
+      <li><a class="dropdown-item" name="tinhtrang" href="?">Tất cả</a></li>
+    </ul>
+
+  </div>
+
+</div>
+
   <table>
       <tr>
           <th>ID</th>
@@ -84,6 +144,7 @@
           <th>Giá sản phẩm</th>
           <th>Số lượng</th>
           <th>Giảm giá</th>
+          <th>Đã bán</th>
           <th>Mã sản phẩm</th>
           <th>Danh mục</th>
           <th>Tóm tắt</th>
@@ -103,6 +164,7 @@
               <td><?php echo $row['giasp']; ?></td>
               <td><?php echo $row['soluong'] ?></td>
               <td><?php echo $row['giamgia'] . '%' ?></td>
+              <td><?php echo $row['daban']; ?></td>
               <td><?php echo $row['masp']; ?></td>
               <td><?php echo $row['tendanhmuc']; ?></td>
               <td><?php echo $row['tomtat'] ?></td>
@@ -114,7 +176,7 @@
               </td>
           </tr>
       <?php
-      
+
         }
         ?>
   </table>

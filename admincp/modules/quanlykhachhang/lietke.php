@@ -76,6 +76,19 @@
           color: #FF0000;
       }
   </style>
+  <div class="loc" style="padding-right: 100px;">
+  <div class="dropdown">
+    <button class="btn btn-secondary bg-white dropdown-toggle text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Lọc
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="?filter=thanthiet">Khách hàng thân thiết</a></li>
+        <li><a class="dropdown-item" href="?filter=tatca">Tất cả</a></li>
+        <li><a class="dropdown-item" href="?">Bỏ sắp xếp</a></li>
+    </ul>
+</div>
+
+  </div>
   <table>
       <tr>
           <th>ID</th>
@@ -117,4 +130,9 @@
       
         }
         ?>
+
   </table>
+
+  
+      
+          

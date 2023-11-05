@@ -22,9 +22,13 @@
                     }
                     elseif ($tmp == 'quanlysanpham' && $query=='them'){
                         //them san pham
-                        include("modules/quanlysp/them.php");
+                       
                         include("modules/quanlysp/lietke.php");
-                    }  elseif ($tmp == 'quanlysanpham' && $query=='sua'){
+                    }elseif ($tmp == 'quanlysanpham' && $query=='themsp'){
+                        //them san pham
+                        include("modules/quanlysp/them.php");
+                        
+                    }   elseif ($tmp == 'quanlysanpham' && $query=='sua'){
                         //them san pham
                         include("modules/quanlysp/sua.php");
         

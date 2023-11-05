@@ -24,7 +24,7 @@
     /* Style for the table */
     table {
         border-collapse: collapse;
-        width: 100%;
+        width: 80%;
         margin: 20px auto;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
