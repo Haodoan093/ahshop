@@ -28,7 +28,7 @@
                 } elseif ($tmp == 'lienhe') {
                     include("main/lienhe.php");
                 } elseif ($tmp == 'sanpham') {
-                    include("main/sanpham.php");
+                    include("shop/dist/sanpham.php");
                 } elseif ($tmp == 'dangky') {
                     header("Location: pages/main/dangky.php");
                     exit;
