@@ -88,8 +88,6 @@ if (!isset($_SESSION['dangnhap'])) {
         var thoigian = $(this).val();
         if (thoigian == '7ngay') {
           var text = '7 ngày qua';
-        } else if (thoigian == '28ngay') {
-          var text = '28 ngày qua';
         } else if (thoigian == '90ngay') {
           var text = '90 ngày qua';
         } else {
