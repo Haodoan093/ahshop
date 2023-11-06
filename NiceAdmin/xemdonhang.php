@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include('config/config.php'); ?>
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Contact - NiceAdmin Bootstrap Template</title>
+  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,9 +40,8 @@
 </head>
 
 <body>
-
 <?php
-       include('config/config.php');
+ 
           include("header.php");
           ?>
 
@@ -68,23 +68,23 @@
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
-      
+
         </ul>
       </li><!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
             <a href="tables-general.php">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="tables-data.php" class="active">
+              <i class="bi bi-circle"></i><span>Sản Phẩm</span>
             </a>
           </li>
         </ul>
@@ -113,7 +113,6 @@
         </ul>
       </li><!-- End Charts Nav -->
 
-
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
@@ -126,7 +125,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link " href="pages-contact.php">
+        <a class="nav-link collapsed" href="pages-contact.php">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -161,92 +160,84 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Contact</h1>
+      <h1>Bảng Sản Phẩm</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Contact</li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">Data</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section contact">
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
 
-      <div class="row gy-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sản Phẩm</h5>
+              <?php
+              $sql_donhang = "SELECT * FROM tbl_cart_details,tbl_sanpham WHERE tbl_cart_details.id_sanpham=tbl_sanpham.id_sanpham
+      AND tbl_cart_details.code_cart='$_GET[code]' ORDER BY tbl_cart_details.id_cart_details DESC";
+              $query_donhang = mysqli_query($mysqli, $sql_donhang);
+              ?>
+              <!-- Table with stripped rows -->
+              <table class="table datatable ">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Mã đơn hàng</th>
 
-        <div class="col-xl-6">
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Thành tiền</th>
 
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-geo-alt"></i>
-                <h3>Address</h3>
-                <p>Số 50 - Ngõ 196 - Phường Phú Diễn - Bắc Từ Liêm - Hà Nội</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-telephone"></i>
-                <h3>Call Us</h3>
-                <p>+84 3465 28127<br>+84 6678 254445 </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-envelope"></i>
-                <h3>Email Us</h3>
-                <p>haodoan093@gmail.com<br>contact@gmail.com</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-clock"></i>
-                <h3>Open Hours</h3>
-                <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-              </div>
+
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $i = 0;
+                  $tongtien = 0;
+                  while ($row = mysqli_fetch_array($query_donhang)) {
+                    $i++;
+                    $tongtien += $row['soluongmua'] * $row['giasp'];
+                  ?>
+                    <tr>
+                      <td><?php echo $i ?></td>
+                      <td><?php echo $row['code_cart']; ?></td>
+                      <td><?php echo $row['tensanpham']; ?></td>
+                      <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px"></td>
+                      <td><?php echo $row['soluongmua']; ?></td>
+                      <td> <?php echo number_format($row['giasp'], 0, ',', '.') . 'VND' ?></td>
+                      <td><?php echo number_format($row['soluongmua'] * $row['giasp'], 0, ',', '.') . 'VND'; ?></td>
+
+
+                    </tr>
+
+                  <?php
+                  }
+                  ?>
+                  <tr>
+                    <td colspan="7">Tổng tiền : <?php echo number_format($tongtien, 0, ',', '.') . 'VND'; ?></td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
             </div>
           </div>
 
         </div>
-
-        <div class="col-xl-6">
-          <div class="card p-4">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div>
-
-        </div>
-
       </div>
-
     </section>
 
   </main><!-- End #main -->
@@ -254,7 +245,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>DCHao093</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->

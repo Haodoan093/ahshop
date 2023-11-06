@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+include('config/config.php'); ?>
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Contact - NiceAdmin Bootstrap Template</title>
+  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -41,7 +43,7 @@
 <body>
 
 <?php
-       include('config/config.php');
+     
           include("header.php");
           ?>
 
@@ -59,16 +61,38 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+
           <li>
-            <a href="forms-elements.php">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="themsp.php">
+              <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
-      
+
+          <!-- bai viet -->
+          <li>
+            <a href="themdm.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục</span>
+            </a>
+          </li>
+
+          <!-- Danh muc bai viet -->
+          <li>
+            <a href="thembv.php" >
+              <i class="bi bi-circle"></i><span>Thêm bài viết</span>
+            </a>
+          </li>
+
+          <!-- Danh muc san pham -->
+          <li>
+            <a href="themdmbv.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
+            </a>
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -83,8 +107,38 @@
             </a>
           </li>
           <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="lietkesp.php">
+              <i class="bi bi-circle"></i><span>Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedm.php">
+              <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkebv.php ">
+              <i class="bi bi-circle"></i><span>Bài viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedmbv.php">
+              <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkekh.php">
+              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedh.php">
+              <i class="bi bi-circle"></i><span>Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="quanly.php">
+              <i class="bi bi-circle"></i><span>Quản lý web</span>
             </a>
           </li>
         </ul>
@@ -126,7 +180,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link " href="pages-contact.php">
+        <a class="nav-link collapsed" href="pages-contact.php">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -157,96 +211,67 @@
     </ul>
 
   </aside><!-- End Sidebar-->
-
+  <?php
+  if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+  }
+  ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Contact</h1>
+      <h1>Form sửa bài viết</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Contact</li>
+          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item active">Sửa bài viết</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section contact">
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
 
-      <div class="row gy-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sửa Bài Viết</h5>
+              <?php
+      $sql_sua_danhmucsp= "SELECT * FROM tbl_danhmuc WHERE id_danhmuc='$_GET[iddanhmuc]' LIMIT 1";
+      $query_sua_danhmucsp = mysqli_query($mysqli,$sql_sua_danhmucsp);
+  ?>
 
-        <div class="col-xl-6">
+<?php
+          while($dong = mysqli_fetch_array($query_sua_danhmucsp)) {
+        ?>
+                <!-- General Form Elements -->
+                <form method="POST"  name="formdm" action="modules/quanlydanhmucsp/xuly.php?iddanhmuc=<?php echo $_GET['iddanhmuc']?>"onsubmit="return validateFormdmBV()">
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Tên bài viết</label>
+                    <div class="col-sm-10">
+                      <input type="text" value="<?php echo $dong['tendanhmuc'] ?>"  name="tendanhmuc" class="form-control" required>
+                    </div>
+                  </div>
 
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-geo-alt"></i>
-                <h3>Address</h3>
-                <p>Số 50 - Ngõ 196 - Phường Phú Diễn - Bắc Từ Liêm - Hà Nội</p>
-              </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                      <button type="suabaiviet" name="suadanhmuc" class="btn btn-primary">Sửa</button>
+                    </div>
+                  </div>
+
+                </form><!-- End General Form Elements -->
+              <?php
+              }
+              ?>
             </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-telephone"></i>
-                <h3>Call Us</h3>
-                <p>+84 3465 28127<br>+84 6678 254445 </p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-envelope"></i>
-                <h3>Email Us</h3>
-                <p>haodoan093@gmail.com<br>contact@gmail.com</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-clock"></i>
-                <h3>Open Hours</h3>
-                <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-xl-6">
-          <div class="card p-4">
-            <form action="forms/contact.php" method="post" class="php-email-form">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
           </div>
 
         </div>
 
       </div>
-
     </section>
 
   </main><!-- End #main -->
@@ -254,7 +279,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Hao</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -279,6 +304,20 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+ 
+ <script>
+        function validateFormdm() {
+            var tendm = document.forms["formdm"]["tendanhmuc"].value;
+            var thutu = document.forms["formdm"]["thutu"].value;
+            
+            if (tendm === "" ||  thutu === "" ) {
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return false;
+            }
+         
+           
+        }
+    </script>
 
 </body>
 

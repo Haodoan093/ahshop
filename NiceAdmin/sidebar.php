@@ -61,6 +61,36 @@
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
             </a>
           </li>
+          <li>
+            <a href="lietkedm.php">
+              <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkebv.php">
+              <i class="bi bi-circle"></i><span>Bài viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedmbv.php">
+              <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkekh.php">
+              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedh.php">
+              <i class="bi bi-circle"></i><span>Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="quanly.php">
+              <i class="bi bi-circle"></i><span>Quản lý web</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Tables Nav -->
 

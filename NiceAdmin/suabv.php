@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include('config/config.php'); 
+include('config/config.php'); ?>
 
-$sql_sua_sp = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' LIMIT 1";
-$query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
-?>
-<?php
- if (isset($_GET['message'])) {
-    $message = $_GET['message'];
-    echo "<script>alert('$message');</script>";
-}
-?> 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forms / Sửa sản phẩm</title>
+  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,11 +41,11 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
 </head>
 
 <body>
+
 <?php
-      
+   
           include("header.php");
           ?>
-
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
@@ -73,31 +64,33 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
-            <a href="themsp.php" >
+
+          <li>
+            <a href="themsp.php">
               <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
+
           <!-- bai viet -->
           <li>
             <a href="themdm.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục</span>
             </a>
           </li>
-       
+
           <!-- Danh muc bai viet -->
           <li>
-            <a href="thembv.php">
+            <a href="thembv.php" class="active">
               <i class="bi bi-circle"></i><span>Thêm bài viết</span>
             </a>
           </li>
-        
+
           <!-- Danh muc san pham -->
           <li>
             <a href="themdmbv.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
             </a>
-          </li> 
+          </li>
 
         </ul>
       </li><!-- End Forms Nav -->
@@ -113,8 +106,38 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
             </a>
           </li>
           <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="lietkesp.php">
+              <i class="bi bi-circle"></i><span>Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedm.php">
+              <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkebv.php ">
+              <i class="bi bi-circle"></i><span>Bài viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedmbv.php">
+              <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkekh.php">
+              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedh.php">
+              <i class="bi bi-circle"></i><span>Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="quanly.php">
+              <i class="bi bi-circle"></i><span>Quản lý web</span>
             </a>
           </li>
         </ul>
@@ -188,20 +211,20 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
 
   </aside><!-- End Sidebar-->
   <?php
- if (isset($_GET['message'])) {
+  if (isset($_GET['message'])) {
     $message = $_GET['message'];
     echo "<script>alert('$message');</script>";
-}
-?> 
+  }
+  ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Form Sửa</h1>
+      <h1>Form sửa bài viết</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">Forms</li>
-          <li class="breadcrumb-item active">Sửa sản phẩm</li>
+          <li class="breadcrumb-item active">Sửa bài viết</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -212,152 +235,120 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Sửa</h5>
+              <h5 class="card-title">Sửa Bài Viết</h5>
               <?php
-        while ($row = mysqli_fetch_array($query_sua_sp)) {
-        ?>
-              <!-- General Form Elements -->
-              <form name="myForm" method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>&giamgiagoc=<?php echo $row['giamgia'] ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Tên</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="tensanpham" class="form-control" value="<?php echo $row['tensanpham'] ?>" required>
+              $sql_sua_sp = "SELECT * FROM tbl_baiviet WHERE id_baiviet='$_GET[idbaiviet]' LIMIT 1";
+              $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
+
+              while ($row = mysqli_fetch_array($query_sua_sp)) {
+
+              ?>
+                <!-- General Form Elements -->
+                <form method="POST" name="formBV"  action="modules/quanlybaiviet/xuly.php?idbaiviet=<?php echo $row['id_baiviet']?>"     enctype="multipart/form-data"onsubmit="return validateForm()">
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Tên bài viết</label>
+                    <div class="col-sm-10">
+                      <input type="text" value="<?php echo $row['tenbaiviet'] ?>" name="tenbaiviet" class="form-control" required>
+                    </div>
                   </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Mã</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="masp" class="form-control" value="<?php echo $row['masp'] ?>" required>
+
+
+                  <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Hình ảnh</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" type="file" name="hinhanh" id="formFile" required>
+                      <img src="modules\quanlybaiviet\uploads\<?php echo $row['hinhanh'] ?>" width="150px">
+                    </div>
                   </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Giá</label>
-                  <div class="col-sm-10">
-                    <input type="number" name="giasp" class="form-control" value="<?php echo $row['giasp'] ?>" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Giảm giá</label>
-                  <div class="col-sm-10">
-                    <input type="number" name="giamgia" class="form-control" value="<?php echo $row['giamgia'] ?>" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Số lượng</label>
-                  <div class="col-sm-10">
-                    <input type="number" name="soluong" class="form-control" value="<?php echo $row['soluong'] ?>" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Hình ảnh</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" type="file" name="hinhanh" id="formFile"required>
-                    <img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="100px">
-                  </div>
-                </div>
-                <!-- <div class="row mb-3">
+                  <!-- <div class="row mb-3">
                   <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
                   <div class="col-sm-10">
                     <input type="date" class="form-control">
                   </div>
                 </div> -->
-               
 
 
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Tóm tắt</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" name="tomtat" style="height: 100px"> <?php echo $row['tomtat'] ?></textarea>
+
+                  <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Tóm tắt</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" name="tomtat" style="height: 100px">
+                    <?php echo $row['tomtat'] ?></textarea>
+                    </div>
                   </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Nội dung</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" name="noidung" style="height: 100px"><?php echo $row['noidung'] ?></textarea>
+                  <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Nội dung</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" name="noidung" style="height: 100px">
+                    <?php echo $row['noidung'] ?></textarea>
+                    </div>
                   </div>
-                </div>
 
 
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Danh mục</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" name="danhmuc"   aria-label="Default select example">
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Danh mục</label>
+                    <div class="col-sm-10">
+                      <select class="form-select" name="danhmuc" aria-label="Default select example">
 
                       <?php
-                      $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
-                      $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
-                      while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
-                      ?>
-                        <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
-                      <?php
-                      }
-                      ?>
-                    </select>
+                        $sql_danhmuc="SELECT * FROM tbl_danhmucbaiviet ORDER BY id_danhmucbaiviet DESC";
+                        $query_danhmuc=mysqli_query($mysqli,$sql_danhmuc);
+                        while ($row_danhmuc=mysqli_fetch_array($query_danhmuc)){
+                            if($row_danhmuc['id_danhmucbaiviet']==$row['id_danhmuc']){
+
+                            
+                        ?>
+                           <option selected value="<?php echo $row_danhmuc['id_danhmucbaiviet']?>"><?php echo $row_danhmuc['tendanhmuc_baiviet']?></option>
+                        <?php  
+                        }else{
+                            ?>
+                            <option  value="<?php echo $row_danhmuc['id_danhmucbaiviet']?>"><?php echo $row_danhmuc['tendanhmuc_baiviet']?></option>
+                        <?php
+                        }}
+                        ?>
+                      </select>
+                    </div>
                   </div>
-                </div>
 
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Loại hàng</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" name="loaihang" aria-label="Default select example">
-                    <?php
-                            if ($row['loaihang'] == 1) {
 
-                            ?>
-                                <option value="1" selected>Mới</option>
-                                <option value="2">Giảm giá</option>
-                            <?php
-                            } else {
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Tình trạng</label>
+                    <div class="col-sm-10">
+                      <select class="form-select" name="tinhtrang" aria-label="Default select example">
+                        <?php
+                        if ($row['tinhtrang'] == 1) {
+
+                        ?>
+                          <option value="1" selected>Kích hoạt</option>
+                          <option value="2">Ẩn</option>
+                        <?php
+                        } else {
 
 
-                            ?>
-                                <option value="1">Mới</option>
-                                <option value="0" selected>Giảm giá</option>
-                            <?php
-                            }
-                            ?>
-                    </select>
+                        ?>
+                          <option value="1">Kích hoạt</option>
+                          <option value="2" selected>Ẩn</option>
+                        <?php
+                        }
+                        ?>
+                      </select>
+                    </div>
                   </div>
-                </div> 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Tình trạng</label>
-                  <div class="col-sm-10">
-                    <select class="form-select" name="tinhtrang" aria-label="Default select example">
-                    <?php
-                            if ($row['tinhtrang'] == 1) {
-
-                            ?>
-                                <option value="1" selected>Kích hoạt</option>
-                                <option value="2">Ẩn</option>
-                            <?php
-                            } else {
 
 
-                            ?>
-                                <option value="1">Kích hoạt</option>
-                                <option value="2" selected>Ẩn</option>
-                            <?php
-                            }
-                            ?>
-                    </select>
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                      <button type="suabaiviet" name="suabaiviet" class="btn btn-primary">Sửa</button>
+                    </div>
                   </div>
-                </div>
 
-              
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
-                  <div class="col-sm-10">
-                    <button type="submit" name="suasanpham" class="btn btn-primary">Sửa</button>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
+                </form><!-- End General Form Elements -->
               <?php
-                            }
-                            ?>
-
+              }
+              ?>
             </div>
           </div>
 
@@ -402,25 +393,25 @@ $query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
     CKEDITOR.replace('thongtinlienhe');
     CKEDITOR.replace('tomtat');
   </script>
- <script>
-        function validateForm() {
-            var tensanpham = document.forms["myForm"]["tensanpham"].value;
-            var masp = document.forms["myForm"]["masp"].value;
-            var giasp = document.forms["myForm"]["giasp"].value;
-            var soluong = document.forms["myForm"]["soluong"].value;
-            var hinhanh = document.forms["myForm"]["hinhanh"].value;
+  <script>
+    function validateForm() {
+      var tensanpham = document.forms["myForm"]["tensanpham"].value;
+      var masp = document.forms["myForm"]["masp"].value;
+      var giasp = document.forms["myForm"]["giasp"].value;
+      var soluong = document.forms["myForm"]["soluong"].value;
+      var hinhanh = document.forms["myForm"]["hinhanh"].value;
 
-            if (hinhanh == "") {
-                alert("Vui long tải hình ảnh !");
-                return false;
-            }
-            if (tensanpham == "" || masp == "" || giasp == "" || soluong == "" || hinhanh == "" ) {
-                alert("Vui lòng nhập đầy đủ tin");
-                return false;
-            }
+      if (hinhanh == "") {
+        alert("Vui long tải hình ảnh !");
+        return false;
+      }
+      if (tensanpham == "" || masp == "" || giasp == "" || soluong == "" || hinhanh == "") {
+        alert("Vui lòng nhập đầy đủ tin");
+        return false;
+      }
 
-        }
-    </script>
+    }
+  </script>
 
 </body>
 

@@ -40,28 +40,10 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
-
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.php" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
-
-
-  </header><!-- End Header -->
+<?php
+      
+          include("header.php");
+          ?>
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -81,11 +63,32 @@
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.php">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+        <li>
+            <a href="themsp.php">
+              <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
+        
+          <!-- bai viet -->
+          <li>
+            <a href="themdm.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục</span>
+            </a>
+          </li>
+       
+          <!-- Danh muc bai viet -->
+          <li>
+            <a href="thembv.php">
+              <i class="bi bi-circle"></i><span>Thêm bài viết</span>
+            </a>
+          </li>
+        
+          <!-- Danh muc san pham -->
+          <li>
+            <a href="themdmbv.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
+            </a>
+          </li> 
 
         </ul>
       </li><!-- End Forms Nav -->
@@ -95,14 +98,44 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-          <li>
+        <li>
             <a href="tables-general.php">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.php" class="active">
-              <i class="bi bi-circle"></i><span>Sản Phẩm</span>
+            <a href="lietkesp.php" class="active">
+              <i class="bi bi-circle"></i><span>Sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedm.php"  >
+              <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkebv.php " >
+              <i class="bi bi-circle"></i><span>Bài viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedmbv.php">
+              <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkekh.php" >
+              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedh.php">
+              <i class="bi bi-circle"></i><span>Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="quanly.php">
+              <i class="bi bi-circle"></i><span>Quản lý web</span>
             </a>
           </li>
         </ul>
@@ -200,7 +233,7 @@
               $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
               ?>
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table datatable ">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
