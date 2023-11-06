@@ -23,14 +23,12 @@
                     elseif ($tmp == 'quanlysanpham' && $query=='them'){
                         //them san pham
                        
-                        include("modules/quanlysp/lietke.php");
-                    }elseif ($tmp == 'quanlysanpham' && $query=='themsp'){
-                        //them san pham
-                        include("modules/quanlysp/them.php");
+                        header("Location: lietkesp.php");
+                    
                         
                     }   elseif ($tmp == 'quanlysanpham' && $query=='sua'){
                         //them san pham
-                        include("modules/quanlysp/sua.php");
+                        header("Location: suasp.php");
         
                     } elseif ($tmp == 'quanlydonhang' && $query=='lietke'){
                         //them san pham

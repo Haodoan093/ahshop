@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+include('config/config.php'); 
 
+$sql_sua_sp = "SELECT * FROM tbl_sanpham WHERE id_sanpham='$_GET[idsanpham]' LIMIT 1";
+$query_sua_sp = mysqli_query($mysqli, $sql_sua_sp);
+?>
+<?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
+  <title>Forms / Sửa sản phẩm</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -46,7 +57,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+        <span class="d-none d-lg-block">Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -281,17 +292,37 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-   
+
       <li class="nav-item">
         <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.php" class="active">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+        <li>
+            <a href="themsp.php" >
+              <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
+          <!-- bai viet -->
+          <li>
+            <a href="themdm.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục</span>
+            </a>
+          </li>
+       
+          <!-- Danh muc bai viet -->
+          <li>
+            <a href="thembv.php">
+              <i class="bi bi-circle"></i><span>Thêm bài viết</span>
+            </a>
+          </li>
+        
+          <!-- Danh muc san pham -->
+          <li>
+            <a href="themdmbv.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
+            </a>
+          </li> 
 
         </ul>
       </li><!-- End Forms Nav -->
@@ -337,7 +368,7 @@
         </ul>
       </li><!-- End Charts Nav -->
 
-    
+
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
@@ -347,7 +378,7 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
-    
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.php">
@@ -377,297 +408,180 @@
         </a>
       </li><!-- End Error 404 Page Nav -->
 
-     
+
     </ul>
 
   </aside><!-- End Sidebar-->
-
+  <?php
+ if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+}
+?> 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Form Elements</h1>
+      <h1>Form Sửa</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item">Forms</li>
-          <li class="breadcrumb-item active">Elements</li>
+          <li class="breadcrumb-item active">Sửa sản phẩm</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">General Form Elements</h5>
-
+              <h5 class="card-title">Sửa</h5>
+              <?php
+        while ($row = mysqli_fetch_array($query_sua_sp)) {
+        ?>
               <!-- General Form Elements -->
-              <form>
+              <form name="myForm" method="POST" action="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>&giamgiagoc=<?php echo $row['giamgia'] ?>" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Text</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Tên</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control">
+                    <input type="text" name="tensanpham" class="form-control" value="<?php echo $row['tensanpham'] ?>" required>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Mã</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control">
+                    <input type="text" name="masp" class="form-control" value="<?php echo $row['masp'] ?>" required>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Giá</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control">
+                    <input type="number" name="giasp" class="form-control" value="<?php echo $row['giasp'] ?>" required>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Number</label>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Số lượng</label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control">
+                    <input type="number" name="soluong" class="form-control" value="<?php echo $row['soluong'] ?>" required>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Hình ảnh</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" name="hinhanh" id="formFile"required>
+                    <img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="100px">
                   </div>
                 </div>
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                   <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
                   <div class="col-sm-10">
                     <input type="date" class="form-control">
                   </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
-                  <div class="col-sm-10">
-                    <input type="time" class="form-control">
-                  </div>
-                </div>
+                </div> -->
+               
+
 
                 <div class="row mb-3">
-                  <label for="inputColor" class="col-sm-2 col-form-label">Color Picker</label>
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Tóm tắt</label>
                   <div class="col-sm-10">
-                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#4154f1" title="Choose your color">
+                    <textarea class="form-control" name="tomtat" style="height: 100px"> <?php echo $row['tomtat'] ?></textarea>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Textarea</label>
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Nội dung</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" style="height: 100px"></textarea>
-                  </div>
-                </div>
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        First radio
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                      <label class="form-check-label" for="gridRadios2">
-                        Second radio
-                      </label>
-                    </div>
-                    <div class="form-check disabled">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="option" disabled>
-                      <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-                <div class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">Checkboxes</legend>
-                  <div class="col-sm-10">
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck1">
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck2" checked>
-                      <label class="form-check-label" for="gridCheck2">
-                        Example checkbox 2
-                      </label>
-                    </div>
-
+                    <textarea class="form-control" name="noidung" style="height: 100px"><?php echo $row['noidung'] ?></textarea>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" value="Read only / Disabled" disabled>
-                  </div>
-                </div>
+
 
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select</label>
+                  <label class="col-sm-2 col-form-label">Danh mục</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" name="danhmuc"  multiple aria-label="multiple select example">
+
+                      <?php
+                      $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
+                      $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
+                      while ($row_danhmuc = mysqli_fetch_array($query_danhmuc)) {
+                      ?>
+                        <option value="<?php echo $row_danhmuc['id_danhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                      <?php
+                      }
+                      ?>
                     </select>
                   </div>
                 </div>
 
+
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Multi Select</label>
+                  <label class="col-sm-2 col-form-label">Loại hàng</label>
                   <div class="col-sm-10">
-                    <select class="form-select" multiple aria-label="multiple select example">
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" name="loaihang" aria-label="Default select example">
+                    <?php
+                            if ($row['loaihang'] == 1) {
+
+                            ?>
+                                <option value="1" selected>Mới</option>
+                                <option value="2">Giảm giá</option>
+                            <?php
+                            } else {
+
+
+                            ?>
+                                <option value="1">Mới</option>
+                                <option value="0" selected>Giảm giá</option>
+                            <?php
+                            }
+                            ?>
+                    </select>
+                  </div>
+                </div> 
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label">Tình trạng</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" name="tinhtrang" aria-label="Default select example">
+                    <?php
+                            if ($row['tinhtrang'] == 1) {
+
+                            ?>
+                                <option value="1" selected>Kích hoạt</option>
+                                <option value="2">Ẩn</option>
+                            <?php
+                            } else {
+
+
+                            ?>
+                                <option value="1">Kích hoạt</option>
+                                <option value="2" selected>Ẩn</option>
+                            <?php
+                            }
+                            ?>
                     </select>
                   </div>
                 </div>
 
+              
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Submit Button</label>
+                  <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Submit Form</button>
+                    <button type="submit" name="suasanpham" class="btn btn-primary">Sửa</button>
                   </div>
                 </div>
 
               </form><!-- End General Form Elements -->
+              <?php
+                            }
+                            ?>
 
             </div>
           </div>
 
         </div>
 
-        <div class="col-lg-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Advanced Form Elements</h5>
-
-              <!-- Advanced Form Elements -->
-              <form>
-                <div class="row mb-5">
-                  <label class="col-sm-2 col-form-label">Switches</label>
-                  <div class="col-sm-10">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                      <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
-                      <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
-                    </div>
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
-                      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-5">
-                  <label class="col-sm-2 col-form-label">Ranges</label>
-                  <div class="col-sm-10">
-                    <div>
-                      <label for="customRange1" class="form-label">Example range</label>
-                      <input type="range" class="form-range" id="customRange1">
-                    </div>
-                    <div>
-                      <label for="disabledRange" class="form-label">Disabled range</label>
-                      <input type="range" class="form-range" id="disabledRange" disabled>
-                    </div>
-                    <div>
-                      <label for="customRange2" class="form-label">Min and max with steps</label>
-                      <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange2">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Floating labels</label>
-                  <div class="col-sm-10">
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                      <label for="floatingInput">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                      <label for="floatingPassword">Password</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px;"></textarea>
-                      <label for="floatingTextarea">Comments</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <label for="floatingSelect">Works with selects</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-5">
-                  <label class="col-sm-2 col-form-label">Input groups</label>
-                  <div class="col-sm-10">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">@</span>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                      <span class="input-group-text" id="basic-addon2">@example.com</span>
-                    </div>
-
-                    <label for="basic-url" class="form-label">Your vanity URL</label>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-                      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                    </div>
-
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">$</span>
-                      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                      <span class="input-group-text">.00</span>
-                    </div>
-
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                      <span class="input-group-text">@</span>
-                      <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-                    </div>
-
-                    <div class="input-group">
-                      <span class="input-group-text">With textarea</span>
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
-                    </div>
-                  </div>
-                </div>
-
-              </form><!-- End General Form Elements -->
-
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
 
@@ -676,7 +590,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Hao</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -701,6 +615,31 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace('noidung');
+    CKEDITOR.replace('thongtinlienhe');
+    CKEDITOR.replace('tomtat');
+  </script>
+ <script>
+        function validateForm() {
+            var tensanpham = document.forms["myForm"]["tensanpham"].value;
+            var masp = document.forms["myForm"]["masp"].value;
+            var giasp = document.forms["myForm"]["giasp"].value;
+            var soluong = document.forms["myForm"]["soluong"].value;
+            var hinhanh = document.forms["myForm"]["hinhanh"].value;
+
+            if (hinhanh == "") {
+                alert("Vui long tải hình ảnh !");
+                return false;
+            }
+            if (tensanpham == "" || masp == "" || giasp == "" || soluong == "" || hinhanh == "" ) {
+                alert("Vui lòng nhập đầy đủ tin");
+                return false;
+            }
+
+        }
+    </script>
 
 </body>
 

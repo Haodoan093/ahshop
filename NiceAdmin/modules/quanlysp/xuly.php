@@ -55,13 +55,14 @@ if(isset($_POST['themsanpham']))
 
    move_uploaded_file($hinhanh_tmp,'uploads/'.$hinhanh);
    header('Location:../../index.php?action=quanlysanpham&query=them');
+
   }
 
 }elseif(isset($_POST['suasanpham'])){
    // sua san pham 
 $idsp=$_GET["idsanpham"];
    if (productExistsID($mysqli, $tensanpham, $masp,$idsp)) {
-      header('Location:../../index.php?action=quanlysanpham&query=sua&idsanpham='.$idsp.'&message=Thông tin đã tồn tại !');
+      header('Location:../../suasp.php?idsanpham='.$idsp.'&message=Thông tin đã tồn tại !');
 
   } else {
    if($hinhanh!=''){

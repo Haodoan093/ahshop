@@ -17,10 +17,31 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.php">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="themsp.php">
+              <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
+        
+          <!-- bai viet -->
+          <li>
+            <a href="themdm.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục</span>
+            </a>
+          </li>
+       
+          <!-- Danh muc bai viet -->
+          <li>
+            <a href="thembv.php">
+              <i class="bi bi-circle"></i><span>Thêm bài viết</span>
+            </a>
+          </li>
+        
+          <!-- Danh muc san pham -->
+          <li>
+            <a href="themdmbv.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
+            </a>
+          </li> 
        
         </ul>
       </li><!-- End Forms Nav -->
@@ -36,8 +57,8 @@
             </a>
           </li>
           <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="lietkesp.php">
+              <i class="bi bi-circle"></i><span>Sản phẩm</span>
             </a>
           </li>
         </ul>

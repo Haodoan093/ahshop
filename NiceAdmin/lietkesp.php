@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include('config/config.php'); ?>
 
 <head>
   <meta charset="utf-8">
@@ -85,7 +86,7 @@
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
-        
+
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -101,7 +102,7 @@
           </li>
           <li>
             <a href="tables-data.php" class="active">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+              <i class="bi bi-circle"></i><span>Sản Phẩm</span>
             </a>
           </li>
         </ul>
@@ -139,7 +140,7 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
-   
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.php">
@@ -177,7 +178,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Data Tables</h1>
+      <h1>Bảng Sản Phẩm</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
@@ -194,27 +195,60 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Sản Phẩm</h5>
-            
+              <?php
+              $sql_lietke_sp = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY id_sanpham ASC";
+              $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
+              ?>
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Mã</th>
+
+                    <th scope="col">Tên</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Giá</th>
+                    <th scope="col">Danh mục</th>
+                    <th scope="col">Sales</th>
+                    <th scope="col">Đã bán</th>
+                    <th scope="col">Loại</th>
+                    <th scope="col">Trạng thái</th>
+             
+          
+                 
+                    <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
                 <tbody>
-                
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Raheem Lehner</td>
-                    <td>Dynamic Division Officer</td>
-                    <td>47</td>
-                    <td>2011-04-19</td>
-                  </tr>
+                  <?php
+                  $i = 0;
+                  while ($row = mysqli_fetch_array($query_lietke_sp)) {
+                    $i++;
+                  ?>
+                    <tr>
+                      <th scope="row"><?php echo $i ?></th>
+                      <td><?php echo $row['masp']; ?></td>
+                      <td><?php echo $row['tensanpham']; ?></td>
+                      <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="100px"></td>
+                      <td><?php echo $row['soluong'] ?></td>
+                      <td><?php echo $row['giasp']; ?></td>
+                      <td><?php echo $row['tendanhmuc']; ?></td>
+                      <td><?php echo $row['giamgia'] . '%' ?></td>
+              <td><?php echo $row['daban']; ?></td>
+              <td><?php echo $row['loaihang'] == 1 ? "Mới" : "Giảm giá"; ?></td>
+              <td><?php echo $row['tinhtrang'] == 1 ? "Kích hoạt" : "Ẩn"; ?></td>
+             
+                      <td>
+                        <a class="edit-button" href="suasp.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a>
+                        <a class="delete-button" href="modules\quanlysp\xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Xóa</a>
+                      </td>
+                    </tr>
+                  <?php
+
+                  }
+                  ?>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

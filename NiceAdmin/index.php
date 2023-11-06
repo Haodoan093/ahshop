@@ -1043,7 +1043,12 @@ if (isset($_GET['thoigian'])) {
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace('noidung');
+    CKEDITOR.replace('thongtinlienhe');
+    CKEDITOR.replace('tomtat');
+  </script>
 </body>
 
 </html>
