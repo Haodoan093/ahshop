@@ -19,21 +19,21 @@ function dmbaivietExistsID($mysqli, $tendanhmuc, $id)
 if(isset($_POST['themdanhmucbv']))
 { //them san pham 
    if (dmbaivietExists($mysqli, $tendanhmucbaiviet)) {
-      header('Location: ../../index.php?action=quanlydanhmucbaiviet&query=them&message=Thông tin đã tồn tại !');
+      header('Location: ../../themdmbv.php?message=Thông tin đã tồn tại !');
    } else {
-   $sql_them = "INSERT INTO tbl_danhmucbaiviet(tendanhmuc_baiviet,thutu) VALUE('".$tendanhmucbaiviet."','".$thutu."')";
+   $sql_them = "INSERT INTO tbl_danhmucbaiviet(tendanhmuc_baiviet) VALUE('".$tendanhmucbaiviet."')";
    mysqli_query($mysqli,$sql_them);
-   header('Location:../../index.php?action=quanlydanhmucbaiviet&query=them');
+   header('Location:../../lietkedmbv.php');
    }
 }elseif(isset($_POST['suadanhmucbv'])){
    // sua san pham 
    $iddm=$_GET["idbaiviet"];
    if (dmbaivietExistsID($mysqli, $tendanhmucbaiviet,$iddm)) {
-      header('Location: ../../index.php?action=quanlydanhmucbaiviet&query=sua&idbaiviet='.$iddm.'&message=Thông tin đã tồn tại !');
+      header('Location: ../../suadmbv.php?idbaiviet='.$iddm.'&message=Thông tin đã tồn tại !');
    } else {
    $sql_update = "UPDATE tbl_danhmucbaiviet  SET tendanhmuc_baiviet='".$tendanhmucbaiviet."', thutu='".$thutu."' WHERE id_danhmucbaiviet='$_GET[idbaiviet]'";
    mysqli_query($mysqli,$sql_update);
-   header('Location:../../index.php?action=quanlydanhmucbaiviet&query=them');
+   header('Location:../../lietkedmbv.php');
    }
 }else{
    //xoa san pham
@@ -42,7 +42,7 @@ if(isset($_POST['themdanhmucbv']))
    $sql_xoa = "DELETE FROM tbl_danhmucbaiviet WHERE id_danhmucbaiviet= '".$id."'";
    if (mysqli_query($mysqli, $sql_xoa)) {
       echo "Xóa danh mục thành công";
-      header('Location: ../../index.php?action=quanlydanhmucbaiviet&query=them');
+      header('Location:../../lietkedmbv.php');
   } else {
       echo "Lỗi khi xóa sản phẩm: " . mysqli_error($mysqli);
   }

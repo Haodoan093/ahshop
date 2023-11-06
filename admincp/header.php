@@ -1,4 +1,17 @@
- <!-- ======= Header ======= -->
+<?php
+session_start();
+if (!isset($_SESSION['dangnhap'])) {
+  header('Location:login.php');
+}
+
+?>
+<?php
+if (isset($_GET['action']) && $_GET['action'] == 'dangxuat') {
+    unset($_SESSION['dangnhap']);
+    header('Location: login.php');
+}
+?>
+<!-- ======= Header ======= -->
  <header id="header" class="header fixed-top d-flex align-items-center">
  <?php
     $sql_profile = "SELECT * FROM tbl_admin LIMIT 1";
@@ -211,7 +224,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="pages-faq.php">
+          <a class="dropdown-item d-flex align-items-center" href="pages-error-404.php">
             <i class="bi bi-question-circle"></i>
             <span>Need Help?</span>
           </a>
@@ -221,7 +234,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
+          <a class="dropdown-item d-flex align-items-center" href="?action=dangxuat">
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>

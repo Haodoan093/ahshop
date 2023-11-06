@@ -47,5 +47,5 @@ if (isset($_GET['code'])) {
         }
     }
 
-    header('Location: ../../index.php?action=quanlydonhang&query=lietke ');
+    header('Location: ../../lietkedh.php ');
 }

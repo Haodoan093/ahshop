@@ -16,13 +16,11 @@ if (isset($_POST['thoigian'])) {
     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(365)->toDateString();
 }
 
-if ($thoigian == '7ngay') {
+if ($thoigian == '7') {
     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(7)->toDateString();
-} elseif ($thoigian == '28ngay') {
-    $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(28)->toDateString();
-} elseif ($thoigian == '90ngay') {
+} elseif ($thoigian == '30') {
     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(90)->toDateString();
-} elseif ($thoigian == '365ngay') {
+} elseif ($thoigian == '365') {
     $subdays = Carbon::now('Asia/Ho_Chi_Minh')->subDays(365)->toDateString();
 }
 $sql = "SELECT * FROM tbl_thongke WHERE ngaydat BETWEEN '$subdays' AND '$now' ORDER BY ngaydat ASC";
@@ -47,3 +45,4 @@ while ($val = mysqli_fetch_array($sql_query)) {
 
 // Output JSON data
 echo $data = json_encode($chart_data);
+?>

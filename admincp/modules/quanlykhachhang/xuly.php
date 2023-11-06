@@ -10,7 +10,7 @@ include ('../../config/config.php');
     $sql_xoa = "DELETE FROM tbl_dangky WHERE id_dangky= '".$id."'";
     if (mysqli_query($mysqli, $sql_xoa)) {
   
-       header('Location: ../../index.php?action=quanlykhachhang&query=xemkhachhang');
+       header('Location: ../../lietkekh.php');
     
    } else {
        echo "Lỗi khi xóa sản phẩm: " . mysqli_error($mysqli);
