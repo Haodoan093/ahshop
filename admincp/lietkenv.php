@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include('config/config.php'); ?>
+<?php
+session_start();
+include('config/config.php'); ?>
 
 <head>
   <meta charset="utf-8">
@@ -13,7 +15,7 @@
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+  <link rel="stylesheet" typr="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -40,10 +42,11 @@
 </head>
 
 <body>
-<?php
-      
-          include("header.php");
-          ?>
+
+  <?php
+
+  include("header.php");
+  ?>
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -63,32 +66,32 @@
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
+          <li>
             <a href="themsp.php">
               <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
-        
+
           <!-- bai viet -->
           <li>
             <a href="themdm.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục</span>
             </a>
           </li>
-       
+
           <!-- Danh muc bai viet -->
           <li>
             <a href="thembv.php">
               <i class="bi bi-circle"></i><span>Thêm bài viết</span>
             </a>
           </li>
-        
+
           <!-- Danh muc san pham -->
           <li>
             <a href="themdmbv.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
             </a>
-          </li> 
+          </li>
 
         </ul>
       </li><!-- End Forms Nav -->
@@ -98,23 +101,23 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
+          <li>
             <a href="tables-general.php">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="lietkesp.php" class="active">
+            <a href="lietkesp.php">
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
             </a>
           </li>
           <li>
-            <a href="lietkedm.php"  >
+            <a href="lietkedm.php">
               <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
             </a>
           </li>
           <li>
-            <a href="lietkebv.php " >
+            <a href="lietkebv.php ">
               <i class="bi bi-circle"></i><span>Bài viết</span>
             </a>
           </li>
@@ -127,13 +130,13 @@
           if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
           ?>
             <li>
-              <a href="lietkenv.php">
+              <a href="lietkenv.php" class="active">
                 <i class="bi bi-circle"></i><span>Nhân viên</span>
               </a>
             </li>
           <?php } ?>
           <li>
-            <a href="lietkekh.php" >
+            <a href="lietkekh.php">
               <i class="bi bi-circle"></i><span>Khách hàng</span>
             </a>
           </li>
@@ -220,7 +223,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Bảng Sản Phẩm</h1>
+      <h1>Danh sách khách hàng</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
@@ -236,61 +239,58 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Sản Phẩm</h5>
+              <h5 class="card-title">Nhân viên</h5>
               <?php
-              $sql_lietke_sp = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY id_sanpham ASC";
-              $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
+              $sql_lietke_user = "SELECT * FROM tbl_admin WHERE admin_status=2 ORDER BY id_admin ASC";
+              $query_lietke_user = mysqli_query($mysqli, $sql_lietke_user);
               ?>
               <!-- Table with stripped rows -->
               <table class="table datatable ">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Mã</th>
-
-                    <th scope="col">Tên</th>
+                    <th scope="col">Tên nhân viên</th>
                     <th scope="col">Hình ảnh</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Danh mục</th>
-                    <th scope="col">Sales</th>
-                    <th scope="col">Đã bán</th>
-                    <th scope="col">Loại</th>
-                    <th scope="col">Trạng thái</th>
-             
-          
-                 
+                    <th scope="col">Email</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Địa chỉ</th>
                     <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $i = 0;
-                  while ($row = mysqli_fetch_array($query_lietke_sp)) {
+                  while ($row = mysqli_fetch_array($query_lietke_user)) {
                     $i++;
                   ?>
                     <tr>
                       <th scope="row"><?php echo $i ?></th>
-                      <td><?php echo $row['masp']; ?></td>
-                      <td><?php echo $row['tensanpham']; ?></td>
-                      <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="100px"></td>
-                      <td><?php echo $row['soluong'] ?></td>
-                      <td><?php echo $row['giasp']; ?></td>
-                      <td><?php echo $row['tendanhmuc']; ?></td>
-                      <td><?php echo $row['giamgia'] . '%' ?></td>
-              <td><?php echo $row['daban']; ?></td>
-              <td><?php echo $row['loaihang'] == 1 ? "Mới" : "Giảm giá"; ?></td>
-              <td><?php echo $row['tinhtrang'] == 1 ? "Kích hoạt" : "Ẩn"; ?></td>
-             
+                      <td><?php echo $row['hoten']; ?></td>
+                  
+                      <?php if (!empty($row['hinhanh'])) {
+                      ?>
+                        <td><img src="modules\quanlyadmin\uploads\<?php echo $row['hinhanh'] ?>" width="100px"></td>
+                      <?php
+                      } else {
+                      ?>
+                       
+                        <td> <img src="modules/quanlyadmin/uploads/th (1).jpg" width="100px"></td>
+                      <?php
+                      }
+                      ?>
+                      <td><?php echo $row['email']; ?></td>
+                      <td><?php echo $row['sodienthoai'] ?></td>
+
+                      <td><?php echo $row['diachi']; ?></td>
+
                       <td>
-                        <a class="edit-button" href="suasp.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a>
-                        <a class="delete-button" href="modules\quanlysp\xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Xóa</a>
+                        <a class="edit-button" href="?idkhachhang=<?php echo $row['id_admin'] ?>">Xem</a>
+                        <a class="delete-button" href="modules\quanlyadmin\xuly.php?idnhanvien=<?php echo $row['id_admin'] ?>">Xóa</a>
                       </td>
-                    </tr>
-                  <?php
+                    <?php
 
                   }
-                  ?>
+                    ?>
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->

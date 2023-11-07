@@ -10,7 +10,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
-   
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -21,28 +21,28 @@
               <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
-        
+
           <!-- bai viet -->
           <li>
             <a href="themdm.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục</span>
             </a>
           </li>
-       
+
           <!-- Danh muc bai viet -->
           <li>
             <a href="thembv.php">
               <i class="bi bi-circle"></i><span>Thêm bài viết</span>
             </a>
           </li>
-        
+
           <!-- Danh muc san pham -->
           <li>
             <a href="themdmbv.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
             </a>
-          </li> 
-       
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
@@ -76,6 +76,17 @@
               <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
             </a>
           </li>
+
+          <?php
+          if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
+          ?>
+            <li>
+              <a href="lietkenv.php">
+                <i class="bi bi-circle"></i><span>Nhân viên</span>
+              </a>
+            </li>
+          <?php } ?>
+
           <li>
             <a href="lietkekh.php">
               <i class="bi bi-circle"></i><span>Khách hàng</span>
@@ -117,7 +128,7 @@
         </ul>
       </li><!-- End Charts Nav -->
 
-    
+
 
       <li class="nav-heading">Pages</li>
 
@@ -158,7 +169,7 @@
         </a>
       </li><!-- End Error 404 Page Nav -->
 
-  
+
     </ul>
 
   </aside><!-- End Sidebar-->

@@ -120,6 +120,15 @@
               <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
             </a>
           </li>
+          <?php
+          if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
+          ?>
+            <li>
+              <a href="lietkenv.php" >
+                <i class="bi bi-circle"></i><span>Nhân viên</span>
+              </a>
+            </li>
+          <?php } ?>
           <li>
             <a href="lietkekh.php" >
               <i class="bi bi-circle"></i><span>Khách hàng</span>

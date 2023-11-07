@@ -225,7 +225,7 @@ include('config/config.php'); ?>
       </nav>
     </div><!-- End Page Title -->
     <?php
-    $sql_profile = "SELECT * FROM tbl_admin LIMIT 1";
+    $sql_profile = "SELECT * FROM tbl_admin WHERE username = '$_SESSION[dangnhap]' LIMIT 1";
     $query_profile = mysqli_query($mysqli, $sql_profile);
     ?>
     <?php
@@ -239,8 +239,17 @@ include('config/config.php'); ?>
 
             <div class="card">
               <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                <?php if (!empty($row['hinhanh'])) {
+                ?>
+                  <img src="modules\quanlyadmin\uploads\<?php echo $row['hinhanh'] ?>" alt="Profile" class="rounded-circle">
+                <?php
+                } else {
+                ?>
+                  <img src="modules/quanlyadmin/uploads/th (1).jpg" alt="Profile" class="rounded-circle">
+                <?php
+                }
+                ?>
 
-                <img src="modules\quanlyadmin\uploads\<?php echo $row['hinhanh'] ?>" alt="Profile" class="rounded-circle">
                 <h2><?php echo $row['hoten']; ?></h2>
                 <h3>Web Developer</h3>
                 <div class="social-links mt-2">
@@ -319,7 +328,17 @@ include('config/config.php'); ?>
                       <div class="row mb-3">
                         <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                         <div class="col-md-8 col-lg-9">
-                          <img src="modules\quanlyadmin\uploads\<?php echo $row['hinhanh'] ?>" alt="Profile">
+                          
+                          <?php if (!empty($row['hinhanh'])) {
+                          ?>
+                            <img src="modules\quanlyadmin\uploads\<?php echo $row['hinhanh'] ?>" alt="Profile">
+                          <?php
+                          } else {
+                          ?>
+                            <img src="modules/quanlyadmin/uploads/th (1).jpg" alt="Profile">
+                          <?php
+                          }
+                          ?>
                           <div class="pt-2">
 
                             <input type="file" name="hinhanh" class="btn btn-primary btn-sm" title="Upload new profile image" required>

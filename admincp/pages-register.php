@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
 
+include('config/config.php');
+if (isset($_POST['dangky'])) {
+    $tenadmin = $_POST['tenadmin'];
+    $email = $_POST['email'];
+
+    $dienthoai = $_POST['dienthoai'];
+    $username = $_POST['username'];
+    $matkhau = md5($_POST['password']);
+    $status=2;
+
+    // Kiểm tra xem email hoặc số điện thoại đã tồn tại trong cơ sở dữ liệu
+    $check_query = mysqli_query($mysqli, "SELECT * FROM tbl_admin WHERE email = '" . $email . "' OR sodienthoai = '" . $dienthoai . "' OR username = '" . $username . "' ");
+    if (mysqli_num_rows($check_query) > 0) {
+      header('Location:pages-register.php?message=Thông tin đã tồn tại !');
+    } else {
+        if (isset($_POST['email']) && !empty($_POST['email'])) {
+
+            // Nếu không có dòng nào trùng, thực hiện câu lệnh INSERT
+            $sql_dangky = mysqli_prepare($mysqli, "INSERT INTO tbl_admin (hoten, email, sodienthoai, username, password, admin_status) VALUES (?, ?, ?, ?, ?, ?)");
+            mysqli_stmt_bind_param($sql_dangky, "ssssss", $tenadmin, $email, $dienthoai, $username, $matkhau, $status);
+            
+
+            if (mysqli_stmt_execute($sql_dangky)) {
+                echo '<p style="color: green; font-size: 20px;">Bạn đã đăng ký thành công</p>';
+
+                $_SESSION['id_admin'] = mysqli_insert_id($mysqli);
+  
+
+                header('Location:login.php?message=Đăng ký thành công !');
+                ob_end_flush();
+            } else {
+                echo '<p style="color: red; font-size: 20px;">Có lỗi xảy ra khi đăng ký. Vui lòng thử lại sau.</p>';
+            }
+
+            mysqli_stmt_close($sql_dangky); // Process email data
+        } else {
+            echo '<p style="color: red; font-size: 20px;">Có lỗi xảy ra khi đăng ký email. Vui lòng thử lại sau.</p>';
+        }
+    }
+}
+?>
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Register - NiceAdmin Bootstrap Template</title>
+  <title>Đăng ký</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -37,7 +79,12 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
+<?php
+  if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+  }
+  ?>
 <body>
 
   <main>
@@ -51,7 +98,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.php" class="logo d-flex align-items-center w-auto">
                   <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <span class="d-none d-lg-block">Admin</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -60,25 +107,29 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
-                    <p class="text-center small">Enter your personal details to create account</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Tạo tài khoản</h5>
+                    <p class="text-center small">Nhập chi tiết cá nhân của bạn để tạo tài khoản</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" action="" method="POST" novalidate>
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <label for="yourName" class="form-label">Họ và tên</label>
+                      <input type="text" name="tenadmin" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourEmail" class="form-label">Your Email</label>
+                      <label for="yourEmail" class="form-label">Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
-
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="yourName" class="form-label">Số điện thoại</label>
+                      <input type="text" name="dienthoai" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter your phone number!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourUsername" class="form-label">Tên đăng nhập</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
@@ -87,23 +138,17 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
+                      <label for="yourPassword" class="form-label">Mật khẩu</label>
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
+              
                     <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
-                        <div class="invalid-feedback">You must agree before submitting.</div>
-                      </div>
+                      <button class="btn btn-primary w-100" name="dangky" type="submit">Tạo tài khoản</button>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.php">Log in</a></p>
+                      <p class="small mb-0">Bạn đã có tài khoản ? <a href="login.php">Đăng nhập</a></p>
                     </div>
                   </form>
 

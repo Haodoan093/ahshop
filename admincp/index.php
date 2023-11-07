@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
+    session_start();
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 
@@ -72,6 +72,7 @@ if (isset($_GET['thoigian'])) {
 </head>
 
 <body>
+
 <div style="display: flex;width:100%">
       <div style="max-width:200px">
    

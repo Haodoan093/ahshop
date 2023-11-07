@@ -8,14 +8,15 @@
         $sql="SELECT * FROM tbl_admin WHERE username='".$taikhoan."' AND password='".$matkhau."' Limit 1";
         $row=mysqli_query($mysqli,$sql);// bien ket noi co so du lieu
         $count= mysqli_num_rows($row);
-
+		$status = mysqli_fetch_array($row);
         if ($count>0){
             $_SESSION['dangnhap']=$taikhoan;
-            header("Location:index.php");
+			$_SESSION['status']=$status['admin_status'];
+            header("Location:index.php?status=".$_SESSION['status']);
         }else{
          
-            echo "<script>alert('Tai khoan hoac Mat khau khong dung, Vui long kiem tra lai ')</script>";
-            header("Location:login.php");
+          
+			header('Location:login.php?message=Vui lòng kiểm tra lại !');
            
         }
     }
@@ -52,6 +53,12 @@
 
 </head>
 <body>
+<?php
+  if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo "<script>alert('$message');</script>";
+  }
+  ?>
 <div class="limiter">
 		<div class="container-login100" style="background-image: url('style_login/images/bg-01.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
@@ -74,7 +81,9 @@
 						
 						<input type="submit" name="dangnhap" value="Đăng nhập" class="login100-form-btn">
 					</div>
-
+					<div class="col-12">
+                      <p class="small mb-0" style="text-align: center;margin-top: 5px;"> <a href="pages-register.php">Tạo tài khoản</a></p>
+                    </div>
 				</form>
 			</div>
 		</div>
