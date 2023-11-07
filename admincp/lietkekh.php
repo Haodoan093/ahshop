@@ -104,7 +104,7 @@
             </a>
           </li>
           <li>
-            <a href="lietkesp.php" class="active">
+            <a href="lietkesp.php">
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
             </a>
           </li>
@@ -133,7 +133,7 @@
             </li>
           <?php } ?>
           <li>
-            <a href="lietkekh.php" >
+            <a href="lietkekh.php"  class="active">
               <i class="bi bi-circle"></i><span>Khách hàng</span>
             </a>
           </li>

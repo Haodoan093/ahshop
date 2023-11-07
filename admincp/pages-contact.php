@@ -64,54 +64,89 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.php">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="themsp.php">
+              <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
-      
+
+          <!-- bai viet -->
+          <li>
+            <a href="themdm.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục</span>
+            </a>
+          </li>
+
+          <!-- Danh muc bai viet -->
+          <li>
+            <a href="thembv.php">
+              <i class="bi bi-circle"></i><span>Thêm bài viết</span>
+            </a>
+          </li>
+
+          <!-- Danh muc san pham -->
+          <li>
+            <a href="themdmbv.php">
+              <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
+            </a>
+          </li>
+
         </ul>
       </li><!-- End Forms Nav -->
 
+
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      
           <li>
-            <a href="tables-general.php">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+            <a href="lietkesp.php">
+              <i class="bi bi-circle"></i><span>Sản phẩm</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.php">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="lietkedm.php">
+              <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkebv.php ">
+              <i class="bi bi-circle"></i><span>Bài viết</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedmbv.php">
+              <i class="bi bi-circle"></i><span>Danh mục bải viết</span>
+            </a>
+          </li>
+          <?php
+          if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
+          ?>
+            <li>
+              <a href="lietkenv.php" >
+                <i class="bi bi-circle"></i><span>Nhân viên</span>
+              </a>
+            </li>
+          <?php } ?>
+          <li>
+            <a href="lietkekh.php">
+              <i class="bi bi-circle"></i><span>Khách hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="lietkedh.php">
+              <i class="bi bi-circle"></i><span>Đơn hàng</span>
+            </a>
+          </li>
+          <li>
+            <a href="quanly.php">
+              <i class="bi bi-circle"></i><span>Quản lý web</span>
             </a>
           </li>
         </ul>
       </li><!-- End Tables Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.php">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.php">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.php">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
 
 
       <li class="nav-heading">Pages</li>
@@ -132,26 +167,7 @@
         </a>
       </li><!-- End Contact Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.php">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.php">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.php">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
+    
 
 
     </ul>
@@ -161,12 +177,12 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Contact</h1>
+      <h1>Liên hệ</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Pages</li>
-          <li class="breadcrumb-item active">Contact</li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+          <li class="breadcrumb-item">Trang</li>
+          <li class="breadcrumb-item active">Liên hệ</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->

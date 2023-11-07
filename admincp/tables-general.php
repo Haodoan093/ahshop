@@ -40,7 +40,7 @@
 
 <body>
 <?php
-     
+     include('config/config.php'); 
           include("header.php");
           ?>
   <!-- ======= Sidebar ======= -->
