@@ -117,7 +117,7 @@ if (isset($_GET['thoigian'])) {
             $soluongban = 0;
             while ($val = mysqli_fetch_array($sql_query)) {
 
-              $donhang += 1;
+              $donhang += $val['donhang'];
               $doanhthu += $val['doanhthu'];
               $soluongban += $val['soluongban'];
             }
