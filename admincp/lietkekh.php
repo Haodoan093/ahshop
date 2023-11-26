@@ -287,7 +287,7 @@
                       <td>
                         <?php echo number_format($row['chitieu'], 0, ',', '.') . 'VND' ?> </td>
                       <td>
-                        <a class="edit-button" href="?action=quanlykhachhang&query=xem&idkhachhang=<?php echo $row['id_dangky'] ?>">Xem</a>
+                       
                         <a class="delete-button" href="modules\quanlykhachhang\xuly.php?idkhachhang=<?php echo $row['id_dangky'] ?>">Xóa</a>
                       </td>
                     </tr>
