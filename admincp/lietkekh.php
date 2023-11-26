@@ -26,7 +26,7 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-
+  <link rel="stylesheet" typr="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -40,10 +40,10 @@
 </head>
 
 <body>
-<?php
-      
-          include("header.php");
-          ?>
+  <?php
+
+  include("header.php");
+  ?>
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -63,32 +63,32 @@
           <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
+          <li>
             <a href="themsp.php">
               <i class="bi bi-circle"></i><span>Thêm sản phẩm</span>
             </a>
           </li>
-        
+
           <!-- bai viet -->
           <li>
             <a href="themdm.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục</span>
             </a>
           </li>
-       
+
           <!-- Danh muc bai viet -->
           <li>
             <a href="thembv.php">
               <i class="bi bi-circle"></i><span>Thêm bài viết</span>
             </a>
           </li>
-        
+
           <!-- Danh muc san pham -->
           <li>
             <a href="themdmbv.php">
               <i class="bi bi-circle"></i><span>Thêm danh mục bài viết</span>
             </a>
-          </li> 
+          </li>
 
         </ul>
       </li><!-- End Forms Nav -->
@@ -98,7 +98,7 @@
           <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
+          <li>
             <a href="tables-general.php">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
@@ -109,12 +109,12 @@
             </a>
           </li>
           <li>
-            <a href="lietkedm.php"  >
+            <a href="lietkedm.php">
               <i class="bi bi-circle"></i><span>Danh mục sản phẩm</span>
             </a>
           </li>
           <li>
-            <a href="lietkebv.php " >
+            <a href="lietkebv.php ">
               <i class="bi bi-circle"></i><span>Bài viết</span>
             </a>
           </li>
@@ -133,7 +133,7 @@
             </li>
           <?php } ?>
           <li>
-            <a href="lietkekh.php"  class="active">
+            <a href="lietkekh.php" class="active">
               <i class="bi bi-circle"></i><span>Khách hàng</span>
             </a>
           </li>
@@ -238,53 +238,57 @@
             <div class="card-body">
               <h5 class="card-title">Sản Phẩm</h5>
               <?php
-              $sql_lietke_sp = "SELECT * FROM tbl_sanpham,tbl_danhmuc WHERE tbl_sanpham.id_danhmuc=tbl_danhmuc.id_danhmuc ORDER BY id_sanpham ASC";
-              $query_lietke_sp = mysqli_query($mysqli, $sql_lietke_sp);
+              $sql_lietke_user = "SELECT * FROM tbl_dangky ORDER BY id_dangky ASC";
+              $query_lietke_user = mysqli_query($mysqli, $sql_lietke_user);
               ?>
               <!-- Table with stripped rows -->
               <table class="table datatable ">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Mã</th>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Thân thiết</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Số điện thoại</th>
+                   
+                    <th scope="col">Địa Chỉ</th>
+                   
+                   
+                    <th scope="col">Số đơn hàng</th>
+                    <th scope="col">Chi tiêu</th>
 
-                    <th scope="col">Tên</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Danh mục</th>
-                    <th scope="col">Sales</th>
-                    <th scope="col">Đã bán</th>
-                    <th scope="col">Loại</th>
-                    <th scope="col">Trạng thái</th>
-             
-          
-                 
+
+
+
                     <th scope="col">Quản lý</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $i = 0;
-                  while ($row = mysqli_fetch_array($query_lietke_sp)) {
+                  while ($row = mysqli_fetch_array($query_lietke_user)) {
                     $i++;
                   ?>
                     <tr>
                       <th scope="row"><?php echo $i ?></th>
-                      <td><?php echo $row['masp']; ?></td>
-                      <td><?php echo $row['tensanpham']; ?></td>
-                      <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="100px"></td>
-                      <td><?php echo $row['soluong'] ?></td>
-                      <td><?php echo $row['giasp']; ?></td>
-                      <td><?php echo $row['tendanhmuc']; ?></td>
-                      <td><?php echo $row['giamgia'] . '%' ?></td>
-              <td><?php echo $row['daban']; ?></td>
-              <td><?php echo $row['loaihang'] == 1 ? "Mới" : "Giảm giá"; ?></td>
-              <td><?php echo $row['tinhtrang'] == 1 ? "Kích hoạt" : "Ẩn"; ?></td>
-             
+                      <td><?php echo $row['tenkhachhang'];
+                           ?></td>
+                           <td><?php 
+                          if ($row['chitieu'] > 5000000) {
+                          ?><i style="margin-left: 10px;" class="fa-regular fa-star"></i>
+                        <?php
+                          }  ?></td>
+                      <!-- <td><img src="modules\quanlysp\uploads\<?php echo $row['hinhanh'] ?>" width="150px"></td> -->
+                      <td><?php echo $row['email']; ?></td>
+                      <td><?php echo $row['dienthoai'] ?></td>
+
+                      <td><?php echo $row['diachi']; ?></td>
+                      <td><?php echo $row['sodonhang'] ?></td>
                       <td>
-                        <a class="edit-button" href="suasp.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a>
-                        <a class="delete-button" href="modules\quanlysp\xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Xóa</a>
+                        <?php echo number_format($row['chitieu'], 0, ',', '.') . 'VND' ?> </td>
+                      <td>
+                        <a class="edit-button" href="?action=quanlykhachhang&query=xem&idkhachhang=<?php echo $row['id_dangky'] ?>">Xem</a>
+                        <a class="delete-button" href="modules\quanlykhachhang\xuly.php?idkhachhang=<?php echo $row['id_dangky'] ?>">Xóa</a>
                       </td>
                     </tr>
                   <?php
