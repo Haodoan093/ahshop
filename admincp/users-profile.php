@@ -7,7 +7,7 @@ include('config/config.php'); ?>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Users / Profile - NiceAdmin Bootstrap Template</title>
+  <title>Trang cá nhân</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -56,12 +56,12 @@ include('config/config.php'); ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Thống kê</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Biểu maãu</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -96,14 +96,10 @@ include('config/config.php'); ?>
 
       <li class="nav-item">
         <a class="nav-link collapsed " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Quản lý</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.php">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
+        
           <li>
             <a href="lietkesp.php">
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
@@ -153,7 +149,7 @@ include('config/config.php'); ?>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>Biểu đồ</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -181,7 +177,7 @@ include('config/config.php'); ?>
       <li class="nav-item">
         <a class="nav-link " href="users-profile.php">
           <i class="bi bi-person"></i>
-          <span>Profile</span>
+          <span>Cá nhân</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -190,7 +186,7 @@ include('config/config.php'); ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.php">
           <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+          <span>Liên hệ</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
@@ -224,10 +220,10 @@ include('config/config.php'); ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Profile</h1>
+      <h1>Trang cá nhân</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
           <li class="breadcrumb-item">Users</li>
           <li class="breadcrumb-item active">Profile</li>
         </ol>
@@ -280,17 +276,17 @@ include('config/config.php'); ?>
                 <ul class="nav nav-tabs nav-tabs-bordered">
 
                   <li class="nav-item">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Thông tin</button>
                   </li>
 
                   <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Chỉnh sửa</button>
                   </li>
 
 
 
                   <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Đổi mật khẩu</button>
                   </li>
 
                 </ul>
@@ -303,7 +299,7 @@ include('config/config.php'); ?>
                     <h5 class="card-title">Profile Details</h5>
 
                     <div class="row">
-                      <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                      <div class="col-lg-3 col-md-4 label ">Họ tên</div>
                       <div class="col-lg-9 col-md-8"><?php echo $row['hoten']; ?></div>
                     </div>
 
@@ -313,12 +309,12 @@ include('config/config.php'); ?>
 
 
                     <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Address</div>
+                      <div class="col-lg-3 col-md-4 label">Địa chỉ</div>
                       <div class="col-lg-9 col-md-8"><?php echo $row['diachi']; ?></div>
                     </div>
 
                     <div class="row">
-                      <div class="col-lg-3 col-md-4 label">Phone</div>
+                      <div class="col-lg-3 col-md-4 label">Số điện thoại</div>
                       <div class="col-lg-9 col-md-8"><?php echo $row['sodienthoai']; ?></div>
                     </div>
 
@@ -335,7 +331,7 @@ include('config/config.php'); ?>
                     <form method="POST" action="modules/quanlyadmin/xuly.php?id=<?php echo $row['id_admin'] ?>" enctype="multipart/form-data">
 
                       <div class="row mb-3">
-                        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Ảnh đại diện</label>
                         <div class="col-md-8 col-lg-9">
                           
                           <?php if (!empty($row['hinhanh'])) {
@@ -357,7 +353,7 @@ include('config/config.php'); ?>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">FullName</label>
+                        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Họ tên</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="tenadmin" type="text" class="form-control" id="fullName" value="<?php echo $row['hoten']; ?>" required>
                         </div>
@@ -372,14 +368,14 @@ include('config/config.php'); ?>
 
 
                       <div class="row mb-3">
-                        <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                        <label for="Address" class="col-md-4 col-lg-3 col-form-label">Địa chỉ</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="diachi" type="text" class="form-control" id="Address" value="<?php echo $row['diachi']; ?>" required>
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Số điện thoại</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="sodienthoai" type="text" class="form-control" id="Phone" value="<?php echo $row['sodienthoai']; ?>" required>
                         </div>
@@ -394,28 +390,28 @@ include('config/config.php'); ?>
 
 
                       <div class="row mb-3">
-                        <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+                        <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="facebook" type="text" class="form-control" id="Facebook" value="https://www.facebook.com/DC.Hao093">
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+                        <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/dc_hao093">
                         </div>
                       </div>
 
                       <div class="row mb-3">
-                        <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Github Profile</label>
+                        <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Github</label>
                         <div class="col-md-8 col-lg-9">
                           <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://github.com/Haodoan093">
                         </div>
                       </div>
 
                       <div class="text-center">
-                        <button type="submit" name="capnhat" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" name="capnhat" class="btn btn-primary">Lưu thay đổi</button>
                       </div>
                     </form><!-- End Profile Edit Form -->
 

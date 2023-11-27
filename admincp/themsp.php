@@ -7,7 +7,7 @@ include('config/config.php'); ?>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Forms / Elements - NiceAdmin Bootstrap Template</title>
+  <title>Thêm sản phẩm</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -55,14 +55,14 @@ include('config/config.php'); ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Thống kê</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
 
       <li class="nav-item">
         <a class="nav-link " data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Biểu mẫu</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
      
@@ -98,14 +98,10 @@ include('config/config.php'); ?>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Quản lý</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-            <a href="tables-general.php">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
+       
           <li>
             <a href="lietkesp.php">
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
@@ -153,36 +149,13 @@ include('config/config.php'); ?>
         </ul>
       </li><!-- End Tables Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.php">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.php">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.php">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
 
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
-          <span>Profile</span>
+          <span>Cá nhân</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -191,7 +164,7 @@ include('config/config.php'); ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.php">
           <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+          <span>Liên hệ</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
@@ -229,11 +202,11 @@ include('config/config.php'); ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Form Thêm</h1>
+      <h1>Thêm sản phẩm</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+          <li class="breadcrumb-item">Biểu mẫu</li>
           <li class="breadcrumb-item active">Thêm</li>
         </ol>
       </nav>
@@ -245,7 +218,7 @@ include('config/config.php'); ?>
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Thêm</h5>
+              <h5 class="card-title">Thêm sản phẩm</h5>
 
               <!-- General Form Elements -->
               <form name="myForm" method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data" onsubmit="return validateForm()">

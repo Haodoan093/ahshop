@@ -38,7 +38,7 @@ if (isset($_GET['thoigian'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Trang chủ</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -93,12 +93,12 @@ if (isset($_GET['thoigian'])) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Thống kê</h1>
 
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+          <li class="breadcrumb-item active">Thống kê</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->

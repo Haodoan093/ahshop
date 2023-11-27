@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
+  <title>Quản lý đơn hàng</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -54,14 +54,14 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Thống kê</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Biểu mẫu</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
@@ -96,14 +96,10 @@
 
       <li class="nav-item">
         <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Quản lý</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
-        <li>
-            <a href="tables-general.php">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
+      
           <li>
             <a href="lietkesp.php">
               <i class="bi bi-circle"></i><span>Sản phẩm</span>
@@ -153,7 +149,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>Biểu đồ</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -179,7 +175,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
-          <span>Profile</span>
+          <span>Cá nhân</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
@@ -188,7 +184,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.php">
           <i class="bi bi-envelope"></i>
-          <span>Contact</span>
+          <span>Liên hệ</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
@@ -221,11 +217,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Bảng đơn hàng</h1>
+      <h1>Đơn hàng</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+          <li class="breadcrumb-item">Quản lý</li>
           <li class="breadcrumb-item active">Đơn hàng</li>
         </ol>
       </nav>
