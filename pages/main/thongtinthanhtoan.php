@@ -26,11 +26,11 @@
     }
 
     tr:nth-child(even) {
-        background-color: #f2f2f2;
+        background-color: #fff;
     }
 
     tr:nth-child(odd) {
-        background-color: #fff;
+        background-color: #f2f2f2;
     }
 
     /* Style the payment options */
@@ -86,6 +86,25 @@
     .btn.btn-danger:hover {
         background-color: #FF3C00;
     }
+
+    .custom-list {
+        list-style-type: none;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .custom-list-item {
+        margin-bottom: 10px;
+    }
+
+    .custom-list-item b {
+        color: #008800;
+        /* Change the color as needed */
+    }
+    table,
+    .cart-item {
+    border: 1px solid #000;
+  }
 </style>
 <div class="container">
     <!-- Responsive Arrow Progress Bar -->
@@ -125,11 +144,11 @@
             ?>
             <div class="col-md-8">
                 <h4>Thông tin</h4>
-                <ul>
-                    <li>Name : <b><?php echo $name; ?></b></li>
-                    <li>Phone : <b><?php echo $phone; ?></b></li>
-                    <li>Address : <b><?php echo $address; ?></b></li>
-                    <li>Note : <b><?php echo $note; ?></b></li>
+                <ul class="custom-list">
+                    <li class="custom-list-item">Name: <b><?php echo $name; ?></b></li>
+                    <li class="custom-list-item">Phone: <b><?php echo $phone; ?></b></li>
+                    <li class="custom-list-item">Address: <b><?php echo $address; ?></b></li>
+                    <li class="custom-list-item">Note: <b><?php echo $note; ?></b></li>
                 </ul>
                 <table style="width:100% ;text-align:center;border-collapse:collapse; " border="1">
                     <tr>
@@ -154,18 +173,18 @@
                             $_SESSION['tongtien'] = $tongtien;
                     ?>
                             <tr>
-                                <td><?php echo $i; ?></td>
-                                <td><?php echo $cart_item['masp']; ?></td>
-                                <td><?php echo $cart_item['tensanpham']; ?></td>
-                                <td><img width="150px" src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh'] ?>"> </td>
-                                <td>
-                                    <a href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id']; ?>"><i class="fa-solid fa-plus"></i></a>
+                                <td class="cart-item"><?php echo $i; ?></td>
+                                <td class="cart-item"><?php echo $cart_item['masp']; ?></td>
+                                <td class="cart-item"><?php echo $cart_item['tensanpham']; ?></td>
+                                <td class="cart-item"><img width="150px" src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh'] ?>"></td>
+                                <td class="cart-item">
+                                  
                                     <?php echo $cart_item['soluong']; ?>
-                                    <a href="pages/main/themgiohang.php?tru=<?php echo $cart_item['id']; ?>"><i class="fa-solid fa-minus"></i></a>
+                                  
                                 </td>
-                                <td><?php echo number_format($cart_item['giasp'], 0, ',', '.'), 'vnd'; ?></td>
-                                <td><?php echo number_format($thanhtien, 0, ',', '.') . 'vnd'; ?></td>
-
+                                <td class="cart-item"><?php echo number_format($cart_item['giasp'], 0, ',', '.'), 'vnd'; ?></td>
+                                <td class="cart-item"><?php echo number_format($thanhtien, 0, ',', '.') . 'vnd'; ?></td>
+                              
                             </tr>
                         <?php
                         } ?>
@@ -222,7 +241,7 @@
                 </div>
     </form>
 
-   
+
     <p>Tổng tiền: <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
     <input type="submit" value="Thanh toán ngay" name="redirect" id="redirect" class="btn btn-danger">
     <div id="paypal-button-container"></div>
