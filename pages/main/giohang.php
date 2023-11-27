@@ -3,10 +3,12 @@
   .tentaikhoan {
     background-color: #008800;
     color: #fff;
+
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
+    
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -24,14 +26,15 @@
   }
 
   table,
-  th,
-  td {
-    border: 1px solid #ccc;
+  .cart-item {
+    border: 1px solid #000;
   }
+
 
   th,
   td {
     padding: 10px;
+    border: 1px solid #000;
   }
 
   th {
@@ -40,11 +43,12 @@
   }
 
   tr:nth-child(even) {
-    background-color: #f2f2f2;
+    border: 1px solid #000;
+    background-color: #fff;
   }
 
   tr:nth-child(odd) {
-    background-color: #fff;
+    background-color: #f2f2f2;
   }
 
   /* Style the payment options */
@@ -75,7 +79,7 @@
 
   /* Định dạng nút "Mua" */
   .mua-button {
-    background-color: #008800;
+    background-color: #8B658B	;
     color: #fff;
     padding: 10px;
     border: none;
@@ -101,7 +105,7 @@
     border-radius: 50%;
     /* Biến đổi thành hình nút tròn */
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -113,11 +117,11 @@
 
   /* Định dạng nút "Xóa tất cả" */
   .xoa-tat-ca-button {
-    background-color: #ff0000;
+    background-color: #cc0000;
     color: #fff;
     padding: 10px;
     border: none;
-    border-radius: 50%;
+    border-radius: 5%;
     /* Biến đổi thành hình nút tròn */
     text-align: center;
     font-size: 16px;
@@ -125,13 +129,13 @@
     text-decoration: none;
     transition: background-color 0.3s ease;
   }
-
-  a {
+  .xoa-tat-ca-button a {
     text-decoration: none;
   }
 
   .xoa-tat-ca-button:hover {
-    background-color: #cc0000;
+    background-color: #FF5733;
+    text-decoration: none;
   }
 </style>
 <div class="container">
@@ -148,13 +152,14 @@ if(isset($_SESSION['id_khachhang'])){
       </div>
     </div>
     <?php } ?>
+    <h2></h2>
     <p class="tentaikhoan" class="col-md-12">
       <?php if (isset($_SESSION['dangky'])) {
         echo 'Xin chào : ' . $_SESSION['dangky'];
       } ?>
     </p>
     <div class="col-md-12">
-      <table style="width:100% ;text-align:center;border-collapse:collapse; " border="1">
+      <table style="width:100% ;text-align:center;border-collapse:collapse; ">
         <tr>
           <th>ID</th>
           <th>Mã sản phẩm</th>
@@ -176,37 +181,37 @@ if(isset($_SESSION['id_khachhang'])){
             $i++;
             $_SESSION['tongtien'] = $tongtien;
         ?>
-            <tr>
-              <td><?php echo $i; ?></td>
-              <td><?php echo $cart_item['masp']; ?></td>
-              <td><?php echo $cart_item['tensanpham']; ?></td>
-              <td><img width="150px" src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh'] ?>"> </td>
-              <td>
+           <tr>
+            <td><?php echo $i; ?></td>
+            <td class="cart-item"><?php echo $cart_item['masp']; ?></td>
+            <td class="cart-item"><?php echo $cart_item['tensanpham']; ?></td>
+            <td class="cart-item"><img width="150px" src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh'] ?>"></td>
+            <td class="cart-item">
                 <a href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id']; ?>"><i class="fa-solid fa-plus"></i></a>
                 <?php echo $cart_item['soluong']; ?>
                 <a href="pages/main/themgiohang.php?tru=<?php echo $cart_item['id']; ?>"><i class="fa-solid fa-minus"></i></a>
-              </td>
-              <td><?php echo number_format($cart_item['giasp'], 0, ',', '.'), 'vnd'; ?></td>
-              <td><?php echo number_format($thanhtien, 0, ',', '.') . 'vnd'; ?></td>
-              <td><a href="pages/main/themgiohang.php?xoa=<?php echo $cart_item['id']; ?>">Xóa</a></td>
-            </tr>
+            </td>
+            <td class="cart-item"><?php echo number_format($cart_item['giasp'], 0, ',', '.'), 'vnd'; ?></td>
+            <td class="cart-item"><?php echo number_format($thanhtien, 0, ',', '.') . 'vnd'; ?></td>
+            <td class="cart-item"><a href="pages/main/themgiohang.php?xoa=<?php echo $cart_item['id']; ?>" class="xoa-button">X</a></td>
+        </tr>
           <?php
           } ?>
           <tr>
             <td colspan="8">
               <p style="float: left;">Tổng tiền : <?php echo number_format($tongtien, 0, ',', '.') . 'vnd'; ?></p>
 
-              <p style="float: right;"><a href="pages/main/themgiohang.php?xoatatca=1">Xóa tất cả</a></p>
+              <p style="float: right;"><a href="pages/main/themgiohang.php?xoatatca=1" class="xoa-tat-ca-button">Xóa tất cả</a></p>
               <div style="clear:both;"></div>
               <?php
               if (isset($_SESSION['dangky'])) { ?>
 
-                <p><a href="index.php?quanly=vanchuyen">Mua</a></p>
+                <p><a href="index.php?quanly=vanchuyen" class="mua-button">Mua</a></p>
                 <!-- <p><a href="pages/main/thanhtoan.php">Hình thức vận chuyển</a></p> -->
               <?php
               } else {
               ?>
-                <p><a href="index.php?quanly=dangky">Đăng ký </a></p>
+                <p><a href="index.php?quanly=dangky" class="mua-button">Đăng ký </a></p>
               <?php
               }
               ?>

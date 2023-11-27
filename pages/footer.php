@@ -7,10 +7,14 @@
 	}
 
 	footer {
-		width: 100%;
+		width: 120%;
 		background-color: #1a1a1a;
 
 	}
+	.footer a {
+    color: white;
+    text-decoration: none; /* Loại bỏ đường gạch chân */
+}
 
 	.icon p {
 

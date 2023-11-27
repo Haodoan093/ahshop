@@ -1,9 +1,9 @@
 <?php
 ob_start(); // Bắt đầu bộ đệm đầu ra
 ?>
-<div class="sidebar">
- 
-  <ul class="list_sidebar">
+<div class="sidebar" style="border: 1px solid black;">
+<h4 style="text-align: center;">Danh mục</h4>
+  <ul class="list_sidebar" style="border: 1px;">
     <?php
     $sql_danhmuc = "SELECT * FROM tbl_danhmuc ORDER BY id_danhmuc DESC";
     $query_danhmuc = mysqli_query($mysqli, $sql_danhmuc);
@@ -12,7 +12,7 @@ ob_start(); // Bắt đầu bộ đệm đầu ra
       <li><a href="index.php?quanly=danhmucsanpham&id=<?php echo $row['id_danhmuc'] ?>" class="red-button" style="text-align:center;color:black;"><?php echo $row['tendanhmuc'] ?></a></li>
     <?php } ?>
   </ul>
-  <h4>Danh mục bài viết</h4>
+  <h4 style="text-align: center;">Bài viết</h4>
   <ul class="list_sidebar">
     <?php
     $sql_danhmuc_bv = "SELECT * FROM tbl_danhmucbaiviet ORDER BY id_danhmucbaiviet DESC";
