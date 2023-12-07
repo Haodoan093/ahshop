@@ -219,7 +219,7 @@ include('config/config.php'); ?>
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Danh sách khách hàng</h1>
+      <h1>Danh sách nhân viên</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
